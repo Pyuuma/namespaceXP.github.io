@@ -1,12 +1,111 @@
-<!doctype html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang = "zh-CN">
+
+
+
 <head>
+<title>XP的记事本</title>
 
-<title>Using namespace XP</title>
-</head>
+<audio controls="controls" hidden="hidden" autoplay="autoplay" loop="loop">
+<source src="bgm/flower dance.mp3" type="audio/mpeg" />
+</audio>
 
-<body>
-	<h1>Hello world!</h1>
+<style> 
+@font-face
+{
+	font-family: xjlFont;
+	src: url('fonts/xjlFont.ttf');
+}
+
+@font-face
+{
+	font-family: ppFont;
+	src: url('fonts/ppFont.ttf');
+}
+
+div
+{
+	font-family:xjlFont;
+	font-family: ppFont;
+}
+body{ font-size:12px; line-height:24px;} 
+.exp1{font-size:100%;} 
+.exp2{font-size:125%;} 
+.exp3{font-size:150%;} 
+.exp4{font-size:175%;} 
+.exp5{font-size:200%;} 
+.exp6{font-size:225%;} 
+.exp7{font-size:250%;} 
+.exp8{font-size:275%;}
+.exp9{font-size:580%;} 
+.align-center{ 
+margin:0 auto;
+width:500px;  
+text-align:center;
+} 
+</style>
+
+</head> 
+
+
+<body style="height:960px"  background = "images/background.jpg" >
+
+<div style=" width:1200px;height = 960px"  class = "align-center" >	
+	<div style="position:absolute z-index:1" >
+	<img src = "images/notepadwithfirstpage.jpg" usemap = "#linkmap"/>
+	<map name = linkmap>
+	<area shape = "poly" coords = "61,61,96,50,96,136,64,144" href = "index.html" alt = "回到扉页">
+	<area shape = "poly" coords = "1012,300,1040,313,1043,413,1013,421" href = "learn.html" alt = "学习">
+	<area shape = "poly" coords = "1049,411,1044,493,1011,506,1013,421" href = "essay.html" alt = "随笔">
+	<area shape = "poly" coords = "1044,502,1044,577,1012,590,1013,508" href = "comment.html" alt = "评论">
+	<area shape = "poly" coords = "1041,578,1042,646,1013,660,1015,586" href = "lrc.html" alt = "歌词">
+	<area shape = "poly" coords = "1039,649,1040,746,1016,750,1016,660" href = "memo.html" alt = "备忘">
+	</map>
+	<div id = "leftcontent" style="position:relative; z-index:2; left:120px; top:-440px; line-height:137%; width:400px" class = "exp9">
+		<b>
+		XP.记事本
+		</b>
+	</div>
+	<div id = "Photo" style="position:relative; z-index:2; left:930px; top:-770px; line-height:137%; width:100px" class = "exp9">
+		<img src = "images/XP.jpg" usemap = "#linkmap"/>
+	</div>
 	
+	<div id ="rightcontent" style="position:relative; z-index:2; left:560px; top:-900px; line-height:137%; width:450px;" class = "exp7">
+		<b>
+			<p>
+			XP<br>
+			MXP<br>
+			Not yet<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Leo<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="mailto:maxisoftware13@gmail.com" style = "text-decoration: none">
+						maxisoftware13@gmail.com <br>
+			</a>
+			&nbsp;&nbsp;&nbsp;1# 212A<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://weibo.com/wreckrule" style = "text-decoration: none">
+						weibo.com/wreckrule<br>
+			</a>
+			</p>
+			<p>
+			<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;又懒又笨的一只程序猿。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;啥都不会但是谜之自信。
+			</p>
+			<p>
+			<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;沉迷于格言使人一事无成。<br>
+			</p>
+		</b>
+		
+	</div>
+	
+</div>
+
+<div id = "foot" class = "exp4" align = "center">
+	<b>
+	Copyright © 2015 XP, all rights reserved.
+	</b>
+</div>
 </body>
 </html>

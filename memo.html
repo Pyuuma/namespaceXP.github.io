@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang = "zh-CN">
+
+
+
+<head>
+<title>XP的记事本</title>
+
+
+<style> 
+@font-face
+{
+	font-family: xjlFont;
+	src: url('fonts/xjlFont.ttf');
+}
+
+@font-face
+{
+	font-family: ppFont;
+	src: url('fonts/ppFont.ttf');
+}
+
+div
+{
+	font-family:xjlFont;
+	font-family: ppFont;
+}
+body{ font-size:12px; line-height:24px;} 
+.exp1{font-size:100%;} 
+.exp2{font-size:125%;} 
+.exp3{font-size:150%;} 
+.exp4{font-size:175%;} 
+.exp5{font-size:200%;} 
+.exp6{font-size:225%;} 
+.exp7{font-size:250%;} 
+.exp8{font-size:275%;}
+.exp9{font-size:580%;} 
+.align-center{ 
+margin:0 auto;
+width:500px;  
+text-align:center;
+} 
+</style>
+
+</head> 
+
+
+<body background = "images/background.jpg">
+
+<div class = "align-center" style=" width:1200px;">	
+	<div style="position:absolute z-index:1" >
+	<img src = "images/notepadwithwords.jpg" usemap = "#linkmap"/>
+	<map name = linkmap>
+	<area shape = "poly" coords = "61,61,96,50,96,136,64,144" href = "index.html" alt = "回到扉页">
+	<area shape = "poly" coords = "1012,300,1040,313,1043,413,1013,421" href = "learn.html" alt = "学习">
+	<area shape = "poly" coords = "1049,411,1044,493,1011,506,1013,421" href = "essay.html" alt = "随笔">
+	<area shape = "poly" coords = "1044,502,1044,577,1012,590,1013,508" href = "comment.html" alt = "评论">
+	<area shape = "poly" coords = "1041,578,1042,646,1013,660,1015,586" href = "lrc.html" alt = "歌词">
+	<area shape = "poly" coords = "1039,649,1040,746,1016,750,1016,660" href = "memo.html" alt = "备忘">
+	</map>
+	<div id = "leftcontent" style="position:relative; z-index:2; left:100px; top:-440px; line-height:137%; width:500px" class = "exp9">
+		<b>
+		备忘录
+		</b>
+	</div>
+	<div id ="rightcontent" style="position:relative; z-index:2; left:600px; top:-790px; line-height:137%; width:450px" class = "exp4">
+		<b>
+		前端课程作业<br>
+		<a href="http://namespacexp.github.io/" style = "text-decoration: none">
+					《作业一：个人主页设计》http://namespacexp.github.io/    
+				</a>
+		</b>
+	</div>
+</div>
+
+<div id = "foot" class = "exp4" align = "center">
+	<b>
+	Copyright © 2015 XP, all rights reserved.
+	</b>
+</div>
+</div>
+</body>
+</html>
