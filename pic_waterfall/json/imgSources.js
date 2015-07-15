@@ -1,6 +1,6 @@
 {
 	"pics":[{
-        "path": "IMG_1319.JPG",
+        "path": "IMG_7044.JPG",
 		"comment":[{
 			"name":"大帝", "content":"PrPrPrPrPrPr"
 		},{
@@ -16,7 +16,7 @@
 		}],
 		"position":[0,0]
 	},{
-        "path": "IMG_1319.JPG",
+        "path": "IMG_7045.JPG",
 			"comment":[{
 			"name":"大帝", "content":"PrPrPrPrPrPr"
 		},{
