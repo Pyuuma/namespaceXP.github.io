@@ -242,9 +242,6 @@ window.onresize = function(){
 }
 
 
-
-
-
 window.onscroll = function () {
 	if (waterfall.elements < waterfall.max && getScrollTop()+getClientHeight()== getScrollHeight()){
 		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
@@ -302,9 +299,4 @@ $.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", funct
   waterfall.max = json.pics.length;
 });
 
-
-waterfall.addElements('pic/');
-
-waterfall.addElements('pic/');
-waterfall.addElements('pic/');
 
