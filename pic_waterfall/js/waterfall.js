@@ -102,7 +102,7 @@ function getPage(){
 		line.className = 'line';
 		
 		comment.appendChild(line);
-		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
 		for(var i = 0; i < 4; i++){
 				if(i < json.pics[comment.serial].comment.length){
 					var temp = document.createElement("div");
@@ -170,7 +170,7 @@ waterfall.addElements = function(arg){
 		
 		comment.serial = parseInt(img.getAttribute('id'));    //给评论区编号，以加载正确的评论内容
 		
-		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
 			comment.pages = Math.ceil(json.pics[comment.serial].comment.length / 4);
 		});   //计算评论页数
 		
@@ -205,7 +205,7 @@ waterfall.addElements = function(arg){
 		var distance = 0;
 		getLocation();
 		comment.serial = parseInt(img.getAttribute('id')); 
-		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
 			distance = calculateDistance(json.pics[comment.serial].position[0],json.pics[comment.serial].position[1]);
 		}); 
 		showdistance.innerHTML = ' The distance is:'+ distance.toString() + 'km';
@@ -247,7 +247,7 @@ window.onresize = function(){
 
 window.onscroll = function () {
 	if (waterfall.elements < waterfall.max && getScrollTop()+getClientHeight()== getScrollHeight()){
-		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
 			for(var i = 0; i < 8; i++){
 				if(waterfall.elements < waterfall.max){
 					waterfall.addElements('pic/'+json.pics[waterfall.elements].path);
@@ -295,13 +295,13 @@ function getScrollHeight(){
 }
 
 
-
-$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
+$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/imgSources.js", function(json){
   for(var i = 0; i < waterfall.colmns * waterfall.maxRow; i++){
 	  waterfall.addElements('pic/'+json.pics[i].path);
   }
   waterfall.max = json.pics.length;
 });
+
 
 waterfall.addElements('pic/');
 
