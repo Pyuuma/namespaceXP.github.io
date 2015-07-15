@@ -7,9 +7,9 @@ var prev = document.getElementById("prev");
 var next = document.getElementById("next");
 
 
-var lng, lat;     //±¾µØ¾­Î³¶È
+var lng, lat;     //æœ¬åœ°ç»çº¬åº¦
 var col;
-var openFlag = 0;    //ÊÇ·ñ¿ªÆôÕÚÕÖ
+var openFlag = 0;    //æ˜¯å¦å¼€å¯é®ç½©
 
 body.style.height = '1200px';
 comment.page = 0;
@@ -18,12 +18,12 @@ comment.pages = 0;
 Modal.style.display = 'none';
 Modal.style.backgroundColor = 'black';
 
-waterfall.colmns = 4;      //Ä¬ÈÏ4ÁĞ
-waterfall.maxRow = 4;     //Ã¿ÁĞ×î¶à¼¸ÕÅÍ¼
-waterfall.elementWidth = 250;   //Ã¿¸öÔªËØµÄ¿í¶È
-waterfall.elements = 0;     //ÔªËØ¸öÊı
-waterfall.max;     //×î¶àÔªËØ¸öÊı
-waterfall.rowheight = new Array;   //Ã¿Ò»ÁĞµÄÊıÄ¿
+waterfall.colmns = 4;      //é»˜è®¤4åˆ—
+waterfall.maxRow = 4;     //æ¯åˆ—æœ€å¤šå‡ å¼ å›¾
+waterfall.elementWidth = 250;   //æ¯ä¸ªå…ƒç´ çš„å®½åº¦
+waterfall.elements = 0;     //å…ƒç´ ä¸ªæ•°
+waterfall.max;     //æœ€å¤šå…ƒç´ ä¸ªæ•°
+waterfall.rowheight = new Array;   //æ¯ä¸€åˆ—çš„æ•°ç›®
 waterfall.width = waterfall.colmns * (waterfall.elementWidth + 40) - 20;
 waterfall.style.position = 'absolute';
 waterfall.style.left = ((0.95 * window.innerWidth - waterfall.width) / 2).toString() + 'px';
@@ -65,7 +65,7 @@ function getLocation(){
     navigator.geolocation.getCurrentPosition(showPosition);
     }
 	else{
-		alert("ÓÉÓÚÒ»Ğ©Ô­Òò£¬ÄúµÄµçÄÔ²»Ö§³ÖµØÀíÏÔÊ¾£¬²¿·Ö¹¦ÄÜ¿ÉÄÜÎŞ·¨Ê¹ÓÃ¡£");
+		alert("ç”±äºä¸€äº›åŸå› ï¼Œæ‚¨çš„ç”µè„‘ä¸æ”¯æŒåœ°ç†æ˜¾ç¤ºï¼Œéƒ¨åˆ†åŠŸèƒ½å¯èƒ½æ— æ³•ä½¿ç”¨ã€‚");
 	}
 }
 
@@ -98,11 +98,11 @@ function degreesToRadians(degrees) {
 
 function getPage(){
 	var line = document.createElement("div");
-		comment.innerHTML = '<h1>Comments: </h1>';   //Çå¿ÕÆÀÂÛÇø
+		comment.innerHTML = '<h1>Comments: </h1>';   //æ¸…ç©ºè¯„è®ºåŒº
 		line.className = 'line';
 		
 		comment.appendChild(line);
-		$.getJSON("http://localhost/json/imgSources.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
 		for(var i = 0; i < 4; i++){
 				if(i < json.pics[comment.serial].comment.length){
 					var temp = document.createElement("div");
@@ -168,11 +168,11 @@ waterfall.addElements = function(arg){
 		var cover =  document.getElementById("cover");
 		
 		
-		comment.serial = parseInt(img.getAttribute('id'));    //¸øÆÀÂÛÇø±àºÅ£¬ÒÔ¼ÓÔØÕıÈ·µÄÆÀÂÛÄÚÈİ
+		comment.serial = parseInt(img.getAttribute('id'));    //ç»™è¯„è®ºåŒºç¼–å·ï¼Œä»¥åŠ è½½æ­£ç¡®çš„è¯„è®ºå†…å®¹
 		
-		$.getJSON("http://localhost/json/imgSources.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
 			comment.pages = Math.ceil(json.pics[comment.serial].comment.length / 4);
-		});   //¼ÆËãÆÀÂÛÒ³Êı
+		});   //è®¡ç®—è¯„è®ºé¡µæ•°
 		
 		getPage();
 		
@@ -205,7 +205,7 @@ waterfall.addElements = function(arg){
 		var distance = 0;
 		getLocation();
 		comment.serial = parseInt(img.getAttribute('id')); 
-		$.getJSON("http://localhost/json/imgSources.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
 			distance = calculateDistance(json.pics[comment.serial].position[0],json.pics[comment.serial].position[1]);
 		}); 
 		showdistance.innerHTML = ' The distance is:'+ distance.toString() + 'km';
@@ -247,7 +247,7 @@ window.onresize = function(){
 
 window.onscroll = function () {
 	if (waterfall.elements < waterfall.max && getScrollTop()+getClientHeight()== getScrollHeight()){
-		$.getJSON("http://localhost/json/imgSources.js", function(json){
+		$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
 			for(var i = 0; i < 8; i++){
 				if(waterfall.elements < waterfall.max){
 					waterfall.addElements('pic/'+json.pics[waterfall.elements].path);
@@ -296,12 +296,7 @@ function getScrollHeight(){
 
 
 
-
-
- 
-
-
-$.getJSON("http://localhost/json/imgSources.js", function(json){
+$.getJSON("http://namespaceXP.github.io/pic_waterfall/json/waterfall.js", function(json){
   for(var i = 0; i < waterfall.colmns * waterfall.maxRow; i++){
 	  waterfall.addElements('pic/'+json.pics[i].path);
   }
