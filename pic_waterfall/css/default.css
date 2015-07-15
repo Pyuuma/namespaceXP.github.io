@@ -1,0 +1,93 @@
+
+body {
+	font-family: '黑体';
+	color:#666666;
+	line-height:130%;
+}
+
+.header{
+	position:absolute;
+	background-color:#dedede;
+	height: 140px;
+	width:95%;
+	left:2.5%;
+}
+
+.title{
+	text-align : center;
+	font-size:120%;
+}
+
+.wrapper{
+	position:absolute;
+	top:155px;
+	background-color:#888888;
+	width:95%;
+	left:2.5%;
+}
+
+.Modal{
+	position:fixed;
+	text-align:center;
+	z-index:2046;
+}
+
+.close{
+	position:absolute;
+	right:-10px;
+	top:-10px;
+	z-index:2048;
+	cursor : pointer;
+}
+
+
+.comment{
+	text-align : left;
+	position:absolute;
+	width: 320px;
+	right: 0px;
+	top: 0px;
+	z-index:2047;
+	background-color:#fafafa;
+}
+
+.cover{
+	display: none;
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:#222222;
+	z-index:1000;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.5;  
+    opacity: 0.5;  
+}
+
+.line{
+	background-color:#999999;
+	height: 1px;
+	width: 310px;
+	position:relative;
+	left:4px;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    opacity: 0.8; 
+}
+
+.unSelect{
+	cursor:pointer;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	-khtml-user-select:none;
+	user-select:none;
+}
+
+. trans{
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s; /* Firefox 4 */
+	-webkit-transition: background-color 0.5s; /* Safari 和 Chrome */
+	-o-transition: background-color 0.5s; /* Opera */
+}
