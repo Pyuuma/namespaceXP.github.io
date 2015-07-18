@@ -32,21 +32,17 @@ window.onresize = function(){
 var myFirebaseRef = new Firebase("https://xptalk.firebaseio.com/");
 var usersRef = myFirebaseRef.child('users');
 var messageRef = myFirebaseRef.child('messages');
-var myDate = new Date(); 
-var stringDate = myDate.toLocaleString();
 var username;     //本地用户名
 var flag = 0;     //防止某些代码重复执行
 var path;    //记录本用户名存储地址 便于删除
 var userList = new Array;     //存储用户列表的数组
 var messageList; 
 
-//myFirebaseRef.set(null);
-
 
 usersRef.once("value", function(snapshot) {         //初始化用户信息
 	snapshot.forEach(function(data) {
 		var namesaved = data.val().name;
-		userList.push(namesaved);
+		userList.push(namesaved);    
 	});
 	while(true){
 		username = prompt("请输入您的昵称","XP同学");
@@ -112,19 +108,26 @@ window.onunload = function(){     //关闭窗口
 }
  
 send.onclick = function(){    //发送信息
-	messageRef.push({name:username, content: inpt.value, date:stringDate});
-	inpt.value = ''; 
+	var myDate = new Date(); 
+	var stringDate = myDate.toLocaleString();
+	if(inpt.value == '' || inpt.value == null){
+		alert('不能发送空消息~');
+	}
+	else{
+		messageRef.push({name:username, content: inpt.value, date:stringDate});
+		inpt.value = ''; 
+	}
 }
 
 
- messageRef.limitToLast(15).on("child_added", function (snapshot) {   //加载聊天记录
+ messageRef.limitToLast(15).on("child_added", function (snapshot) {     //加载聊天记录
 	 
     var data = snapshot.val();
     var username = data.name;
     var message = data.content;
-	var date = data.date;
+	var date = data.date;   //读取值
 	    
     msgBoard.innerHTML = msgBoard.innerHTML + '<h4>'+ username +'  '+ date + '</h4>' + '<p>' + message + '</p>';
-	msgBoard.scrollTop = msgBoard.scrollHeight;
+	msgBoard.scrollTop = msgBoard.scrollHeight;   //滚到底部
   });
 
