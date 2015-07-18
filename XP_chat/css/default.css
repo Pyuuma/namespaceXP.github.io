@@ -1,0 +1,142 @@
+
+body {
+	font-family: '黑体';
+	color:#666666;
+	line-height:130%;
+}
+
+.header{
+	position:absolute;
+	background-color:#dedede;
+	height: 100px;
+	width:90%;
+	left:5%;
+	text-align:center;
+	font-size:110%;
+}
+
+.userboard{
+	position:absolute;
+	background-color:#888888;
+	height: 55%;
+	width:190px;
+	top:120px;
+	right:5%;
+	color:#fcfcfc;    
+	text-align:center;
+	font-size:110%;
+}
+
+.userinput{
+	position:absolute;
+	background-color:#eeeeee;
+	width:180px;
+	top: 50px;
+	left:5px;
+	color:#666666;    
+	text-align:center;
+	overflow:auto;
+	font-size:110%;
+}
+
+.messageboard{
+	position:absolute;
+	background-color:#ffffff;
+	height: 55%;
+	top:120px;
+	left:5%;
+	color:#666666;    
+	border: 5px solid #888888;
+	text-align:left;
+	overflow:auto;
+	font-size:110%;
+}
+
+
+
+
+.input{
+	position:absolute;
+	height: 165px;
+	left:5px;
+	bottom: 5px;
+	float:top;
+	color:#0;    
+	placeholder:'来说点什么吧~'
+	font-size:100%;
+}
+
+.inputboard{
+	font-family: '黑体';
+	position:absolute;
+	background-color:#555555;
+	height: 180px;
+	width: 90%;
+	right:5%;
+	bottom: 30px;    
+	font-size:120%;
+}
+
+
+.send{
+	font-family: '黑体';
+	position:absolute;
+	background-color:#555555;
+	height: 30px;
+	width: 120px;
+	right:10px;
+	bottom: 10px;
+	color:#fafafa;    
+	text-align:center;
+	font-size:90%;
+}
+
+.cover{
+	display: none;
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:#222222;
+	z-index:1000;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.5;  
+    opacity: 0.5;  
+}
+
+.prompt{
+	position: absolute;
+	width:250px;
+	height:40px;
+	line-height:40px;
+	background-color:#222222;
+	color:#ffffff;
+	text-align: center; 
+	font-size:120%;
+	transition: opacity 1.5s;
+	-moz-transition: opacity 1.5s; /* Firefox 4 */
+	-webkit-transition: opacity 1.5s; /* Safari 和 Chrome */
+}
+
+
+
+.line{
+	background-color:#999999;
+	height: 1px;
+	width: 310px;
+	position:relative;
+	left:4px;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    opacity: 0.8; 
+}
+
+
+
+. trans{
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s; /* Firefox 4 */
+	-webkit-transition: background-color 0.5s; /* Safari 和 Chrome */
+	-o-transition: background-color 0.5s; /* Opera */
+}
