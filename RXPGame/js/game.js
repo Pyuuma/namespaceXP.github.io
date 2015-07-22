@@ -702,7 +702,7 @@ function KillRedEnding(){   //结局1
 	gameWords.style.display = 'block';
 	gameWords.style.lineHeight = '60px';
 	gameWords.style.fontsize = '120%';
-	gameWords.innerHTML = '<br>枪声。鲜血。尖叫。<br>你开枪杀掉了小红，你深爱却伤你最深的人。<br>既然得不到，毁了又怎样？<br>你任凭小黄愤怒的捶打着你。<br>对你而言，一切，都无所谓了。<br> 达成结局【憎恶者】<br>按R回到游戏菜单';
+	gameWords.innerHTML = '枪声。鲜血。尖叫。<br>你开枪杀掉了小红，你深爱却伤你最深的人。<br>既然得不到，毁了又怎样？<br>你任凭小黄愤怒的捶打着你。<br>对你而言，一切，都无所谓了。<br> 达成结局【憎恶者】<br>按R回到游戏菜单';
 	clearInterval(mainCycle);
 }
 
@@ -714,7 +714,7 @@ function KillYellowEnding(){    //结局2
 	gameWords.style.display = 'block'
 	gameWords.style.lineHeight = '60px';
 	gameWords.style.fontsize = '120%';
-	gameWords.innerHTML = '<br>枪声。鲜血。尖叫。<br>你开枪杀掉了小黄，抢走你心上人的人。<br>你任凭小红愤怒的捶打着你。<br>对你而言，一切，都无所谓了。<br> 达成结局【嫉妒者】。<br>按R回到游戏菜单';
+	gameWords.innerHTML = '枪声。鲜血。尖叫。<br>你开枪杀掉了小黄，抢走你心上人的人。<br>你任凭小红愤怒的捶打着你。<br>对你而言，一切，都无所谓了。<br> 达成结局【嫉妒者】。<br>按R回到游戏菜单';
 	clearInterval(mainCycle);
 }
 
@@ -738,7 +738,7 @@ function NoKillEnding(){    //结局4
 	gameWords.style.display = 'block'
 	gameWords.style.lineHeight = '60px';
 	gameWords.style.fontsize = '120%';
-	gameWords.innerHTML = '<br>你放下了枪，慢慢走开了。<br>既不能相濡以沫，便不妨相忘江湖。<br>你相信，总有一天，你会把小红给你的温暖，转移到另一个人的胸膛。<br> 达成真·结局【爱情转移】<br>按R回到游戏菜单';
+	gameWords.innerHTML = '你放下了枪，慢慢走开了。<br>既不能相濡以沫，便不妨相忘江湖。<br>你相信，总有一天，你会把小红给你的温暖，转移到另一个人的胸膛。<br> 达成真·结局【爱情转移】<br>按R回到游戏菜单';
 	clearInterval(mainCycle);
 }
 
