@@ -671,6 +671,7 @@ function closeWords(){
 
 function setgameBoard(){          //打开游戏面板
 	var name = document.getElementById('name');
+	gameWords.style.lineHeight = '450px';
 	gameWords.style.display = 'none';
 	name.style.display = 'block';
 	gameStart.style.display = 'block';
