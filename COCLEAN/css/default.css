@@ -26,9 +26,9 @@ body {
 #delete{
 	position: relative;
 	top: 2.5vw;
-	left: 4.5vw;
+	left: 4.5%;
 	cursor: pointer;
-	height:4vw;
+	width: 5%;
 }
 
 #change_div{
@@ -153,7 +153,8 @@ body {
 		width: 8vw;
 		height: 8vw;
 		top: 1vw;
-		border-radius: 4vw 4vw 4vw 4vw;
+		border-radius:50%;
+		-moz-border-radius:50%;
 		border:thin solid #ffffff;
 		float:left;
 	}
