@@ -37,7 +37,7 @@
 	width: 12vw;
 	height: 6vw;
 	border: thin solid #ffffff;
-	border-radius: 4.5vw 0 0 4.5vw;
+	border-radius: 50% 0 0 50%;
 }
 .shadow{
 	width:100%;
