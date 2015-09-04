@@ -1,7 +1,8 @@
 
 body {
 	font-family: 微软雅黑;
-	
+	margin: 0px;
+	padding : 0px;
 	color: #eeeeee;
 }
 
@@ -69,7 +70,7 @@ body {
 	position:absolute;
 	border: 1px solid #666666;
 	left:15vw;
-	top: 30vw;
+	top: 28vw;
 	width: 70vw;
 	height: 40vw;
 	border-radius: 2vw 2vw 2vw 2vw;
@@ -125,7 +126,7 @@ body {
 
 #change_cancel{
 	position: absolute;
-	bottom: 5vw;
+	top: 30vw;
 	background-color:transparent;
 	width: 16vw;
 	height: 7vw;
@@ -139,7 +140,7 @@ body {
 
 #change_go{
 	position: absolute;
-	bottom: 5vw;
+	top: 30vw;
 	background-color:transparent;
 	width: 16vw;
 	height: 7vw;
@@ -164,7 +165,7 @@ body {
 		cursor: pointer;
 		color:#cccccc;
 		font-size: 3vw;
-		top: 20%;
+		top: 15%;
 		width: 50%;
 	}
 	
