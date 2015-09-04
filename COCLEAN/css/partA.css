@@ -32,12 +32,11 @@
 }
 #call_manage{
 	position:absolute;
+	cursor：pointer;
 	right: 0vw;
-	top: 2vw;
+	top: 1.6vw;
 	width: 12vw;
-	height: 6vw;
-	border: thin solid #ffffff;
-	border-radius: 4.5vw 0 0 4.5vw;
+	height: 7vw;
 }
 .shadow{
 	width:100%;
