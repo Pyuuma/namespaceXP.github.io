@@ -57,7 +57,7 @@ function set_device(){   //显示设备列表
 		device_new_name.focus();
 		device_new_name.select();
 	};
-	
+	/*
 	device_button.onmousemove = function(){
 		this.parentNode.childNodes[1].style.display = 'block';
 	};
@@ -65,6 +65,7 @@ function set_device(){   //显示设备列表
 	device_button.onmouseleave = function(){
 		this.parentNode.childNodes[1].style.display = 'none';
 	};
+	*/
 		device_list_div.appendChild(device_div);
 	}	
 }
@@ -83,7 +84,6 @@ $('#change_cancel').mouseover(function(){
 $('#change_cancel').mouseleave(function(){
 	this.style.backgroundColor = 'transparent';
 });
-
 
 $('#change_go').mouseover(function(){
 	this.style.backgroundColor = '#66ccff';

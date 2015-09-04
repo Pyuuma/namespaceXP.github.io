@@ -285,18 +285,18 @@ body {
 	position:absolute;
 	border: 1px solid #666666;
 	left:25vw;
-	top: 10vw;
+	top: 2vw;
 	width: 50vw;
-	height: 30vw;
+	height: 26vw;
 	border-radius: 2vw 2vw 2vw 2vw;
 }
 
 #change_word{
 	position:relative;
 	width: 50vw;
-	height: 8vw;
+	height: 6vw;
 	top: 3vw;
-	font-size: 4vw;
+	font-size: 3vw;
 	text-align:center;
 }
 
