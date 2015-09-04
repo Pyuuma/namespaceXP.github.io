@@ -83,8 +83,10 @@ body {
 }
 
 .change_img{
-	width: 8vw;
-	height: 8vw;
+	width: 90%;
+	left: 10%;
+	border-radius:50%;
+	-moz-border-radius:50%;
 }
 
 .dialog_button{
@@ -144,7 +146,8 @@ body {
 		cursor:pointer;
 		border: 1.5px solid #ffffff;
 		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
-		border-radius: 4vw 4vw 4vw 4vw;
+		border-radius:50%;
+		-moz-border-radius:50%;
 		float:right;
 	}
 
