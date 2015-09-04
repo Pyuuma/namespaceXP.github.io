@@ -34,7 +34,7 @@ function orient() {
 		draw_partA();
 		draw_partB();
 		draw_partC();
-	});
+	}
 	else if(window.orientation == 90 || window.orientation == -90)
 	{
 		$(".shadow").css("display","none");
@@ -87,7 +87,7 @@ function orient() {
 		draw_partA();
 		draw_partB();
 		draw_partC();
-	});
+	}
 }
 
 $(function(){
