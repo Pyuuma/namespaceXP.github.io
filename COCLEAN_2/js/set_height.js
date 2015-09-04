@@ -102,4 +102,5 @@ $(function(){
 
 $(window).bind( 'orientationchange', function(e){
     orient();
+	window.location.href=window.location.href;
 });
