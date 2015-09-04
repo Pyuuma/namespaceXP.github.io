@@ -26,9 +26,9 @@ body {
 #delete{
 	position: relative;
 	top: 2.5vw;
-	left: 4.5vw;
+	left: 4.5%;
 	cursor: pointer;
-	height:4vw;
+	height: 10%;
 }
 
 #change_div{
@@ -83,8 +83,6 @@ body {
 }
 
 .change_img{
-	width: 8vw;
-	height: 8vw;
 	width: 90%;
 	left: 10%;
 	border-radius:50%;
@@ -146,11 +144,10 @@ body {
 		width: 8vw;
 		height: 8vw;
  		cursor:pointer;
+		border-radius: 50%;
+		-moz-border-radius:50%;
  		border: 1.5px solid #ffffff;
  		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
--		border-radius: 4vw 4vw 4vw 4vw;
-+		border-radius:50%;
-+		-moz-border-radius:50%;
  		float:right;
 	}
 
