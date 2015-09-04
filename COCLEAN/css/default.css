@@ -26,9 +26,9 @@ body {
 #delete{
 	position: relative;
 	top: 2.5vw;
-	left: 4.5%;
+	left: 4.5vw;
 	cursor: pointer;
-	width: 5%;
+	height:4vw;
 }
 
 #change_div{
@@ -83,10 +83,8 @@ body {
 }
 
 .change_img{
-	width: 90%;
-	left: 10%;
-	border-radius:50%;
-	-moz-border-radius:50%;
+	width: 8vw;
+	height: 8vw;
 }
 
 .dialog_button{
@@ -146,8 +144,7 @@ body {
 		cursor:pointer;
 		border: 1.5px solid #ffffff;
 		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
-		border-radius:50%;
-		-moz-border-radius:50%;
+		border-radius: 4vw 4vw 4vw 4vw;
 		float:right;
 	}
 
@@ -156,8 +153,7 @@ body {
 		width: 8vw;
 		height: 8vw;
 		top: 1vw;
-		border-radius:50%;
-		-moz-border-radius:50%;
+		border-radius: 4vw 4vw 4vw 4vw;
 		border:thin solid #ffffff;
 		float:left;
 	}

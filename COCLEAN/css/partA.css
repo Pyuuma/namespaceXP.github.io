@@ -26,18 +26,18 @@
 #statistic_number
 {
 	position:absolute;
-	left:55%;
+	left:53%;
 	top:55%;
-	font-size:2em;
+	font-size:1.5em;
 }
 #call_manage{
 	position:absolute;
 	right: 0vw;
 	top: 2vw;
-	width: 14vw;
+	width: 12vw;
 	height: 6vw;
 	border: thin solid #ffffff;
-	border-radius: 3vw 0 0 3vw;
+	border-radius: 4.5vw 0 0 4.5vw;
 }
 .shadow{
 	width:100%;
