@@ -30,11 +30,12 @@
 	top:55%;
 	font-size:1.5em;
 }
+
 #call_manage{
 	position:absolute;
 	right: 0vw;
 	top: 2vw;
-	width: 14vw;
+	width: 14%;
 }
 
 .shadow{
