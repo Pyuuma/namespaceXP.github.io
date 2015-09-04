@@ -1,8 +1,9 @@
-var device_list = document.getElementById("device_list");
+var device_list_div = document.getElementById("device_list");
 var oldname;
+var device_list = new Array;
 
-
-function new_device(n){   //在页面上增加一个新的设备
+function set_device(){   //显示设备列表
+	for(var i = 0; i < device_list.length; i++){
 	var left_shadow = document.createElement('div');
 	var right_shadow = document.createElement('div');
 	var device_div = document.createElement('div');
@@ -15,12 +16,12 @@ function new_device(n){   //在页面上增加一个新的设备
 	var border = document.createElement('hr');
 	//创建元素
 	
-	device_div.setAttribute('id', n);
+	device_div.setAttribute('id', i);
 	left_shadow.setAttribute('class', 'left_shadow');
 	right_shadow.setAttribute('class', 'right_shadow');
 	left_shadow.style.display = 'none';
 	right_shadow.style.display = 'none';
-	device_name.innerHTML = '个人健康呼吸系统(' + n.toString() + ')';
+	device_name.innerHTML = device_list[i].name;
 	device_name.setAttribute('id', device_name.innerHTML);
 	device_button.setAttribute('class', 'button');
 	line.setAttribute('class', 'line');
@@ -51,6 +52,7 @@ function new_device(n){   //在页面上增加一个新的设备
 		$('#change_div').css('display', 'block');
 		$('#no_device_problem').css('display', 'none');
 		$('#device_list').css('display', 'none');
+		$('#footer').css('display', 'none');
 		oldname = $('#device_new_name').val();   //记录旧名称
 		device_new_name.focus();
 		device_new_name.select();
@@ -63,13 +65,15 @@ function new_device(n){   //在页面上增加一个新的设备
 	device_button.onmouseleave = function(){
 		this.parentNode.childNodes[1].style.display = 'none';
 	};
-	
-	device_list.appendChild(device_div);
-
+		device_list_div.appendChild(device_div);
+	}	
 }
 
 function get_device_list(){
-	
+	for(var i = 0; i < 6; i++){
+		device_list[i] = new Object();
+		device_list[i].name = '个人健康呼吸系统(' + (i + 1).toString() + ')';
+	}
 }
 
 $('#change_cancel').mouseover(function(){
@@ -108,12 +112,31 @@ $('#change_go').click(function(){
 	document.getElementById(oldname).innerHTML = new_name;
 	document.getElementById(oldname).setAttribute('id', new_name);
 	$('#no_device_problem').css('display', 'block');
+	$('#footer').css('display', 'block');
 	$('#change_div').css('display', 'none');
-	$('#device_list').css('display', 'block');
+	$('#device_list_left').css('display', 'block');
+	$('#device_list_right').css('display', 'block');
 });
 
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function(){   //监听
+        if (window.orientation === 180 || window.orientation === 0) { 
+            alert('竖屏状态！');
+        } 
+        if (window.orientation === 90 || window.orientation === -90 ){ 
+            alert('横屏状态！');
+        }  
+}, false); 
 
 
+get_device_list();
+set_device();
+
+/*
 new_device(1);
 new_device(2);
 new_device(3);
+new_device(4);
+new_device(5);
+new_device(6);
+new_device(7);
+*/
