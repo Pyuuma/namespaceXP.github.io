@@ -3,8 +3,8 @@ var oldname;
 
 
 function new_device(n){   //在页面上增加一个新的设备
-	var left = document.createElement('div');
-	var right = document.createElement('div');
+	var left_shadow = document.createElement('div');
+	var right_shadow = document.createElement('div');
 	var device_div = document.createElement('div');
 	var device_img = document.createElement('img');
 	var device_name = document.createElement('div');
@@ -16,6 +16,10 @@ function new_device(n){   //在页面上增加一个新的设备
 	//创建元素
 	
 	device_div.setAttribute('id', n);
+	left_shadow.setAttribute('class', 'left_shadow');
+	right_shadow.setAttribute('class', 'right_shadow');
+	left_shadow.style.display = 'none';
+	right_shadow.style.display = 'none';
 	device_name.innerHTML = '个人健康呼吸系统(' + n.toString() + ')';
 	device_name.setAttribute('id', device_name.innerHTML);
 	device_button.setAttribute('class', 'button');
@@ -30,6 +34,8 @@ function new_device(n){   //在页面上增加一个新的设备
 	border.setAttribute('size', 1);
 	border.setAttribute('color', '#666666');
 	
+	device_div.appendChild(left_shadow);
+	device_div.appendChild(right_shadow);
 	device_div.appendChild(device_img);
 	device_div.appendChild(device_name);
 	device_div.appendChild(device_button);
@@ -41,7 +47,7 @@ function new_device(n){   //在页面上增加一个新的设备
 	device_div.appendChild(border);
 	device_button.onclick = function(){
 		var device_new_name = document.getElementById('device_new_name');
-		$('#device_new_name').val(this.parentNode.childNodes[1].innerHTML);
+		$('#device_new_name').val(this.parentNode.childNodes[3].innerHTML);
 		$('#change_div').css('display', 'block');
 		$('#no_device_problem').css('display', 'none');
 		$('#device_list').css('display', 'none');
@@ -49,6 +55,15 @@ function new_device(n){   //在页面上增加一个新的设备
 		device_new_name.focus();
 		device_new_name.select();
 	};
+	
+	device_button.onmousemove = function(){
+		this.parentNode.childNodes[1].style.display = 'block';
+	};
+	
+	device_button.onmouseleave = function(){
+		this.parentNode.childNodes[1].style.display = 'none';
+	};
+	
 	device_list.appendChild(device_div);
 
 }

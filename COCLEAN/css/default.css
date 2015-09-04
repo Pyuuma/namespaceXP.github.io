@@ -13,6 +13,36 @@ body {
 	height: 100%;
 }
 
+
+.left_shadow{
+	position:absolute;
+	width:69vw;
+	top: -1vw;
+	height: 13vw;
+	background-color: #dddddd;
+	filter:alpha(opacity = 16);
+	-moz-opacity: 0.2;
+	-khtml-opaciy: 0.2;
+	opacity: 0.2;
+	z-index:1 ;
+}
+
+
+.right_shadow{
+	position:absolute;
+	top: -1vw;
+	right: 0vw;
+	width:13vw;
+	height:13vw;
+	background-color: #dddddd;
+	filter:alpha(opacity = 20);
+	-moz-opacity: 0.2;
+	-khtml-opaciy: 0.2;
+	opacity: 0.2;
+	z-index: 1;
+}
+
+
 #footer{
 	position:absolute;
 	font-size:3vw;
@@ -68,7 +98,7 @@ body {
 	position:relative;
 	background-color: #66ccff;
 	top: 3vw;
-	right: 4vw;
+	right: 6vw;
 	width: 4vw;
 	height: 4vw;
 	-webkit-box-shadow: 1px 1px 1px 1px #000000;  
@@ -79,7 +109,7 @@ body {
 .cut_line{
 	position:absolute;
 	bottom: 0;
-	width: 80vw;
+	width: 82vw;
 }
 
 .change_img{
@@ -114,6 +144,7 @@ body {
 	#no_device_problem{
 		position:relative;
 		float: right;
+		cursor: pointer;
 		color:#cccccc;
 		font-size: 3vw;
 		top: 20%;
@@ -125,7 +156,7 @@ body {
 		float: left;
 		left: 10vw;
 		height: 14vw;
-		width: 80vw;
+		width: 82vw;
 	}
 
 	.name{
@@ -143,12 +174,14 @@ body {
 		top: 1vw;
 		width: 8vw;
 		height: 8vw;
+		right: 2vw;
  		cursor:pointer;
 		border-radius: 50%;
 		-moz-border-radius:50%;
  		border: 1.5px solid #ffffff;
  		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
  		float:right;
+		z-index: 2;
 	}
 
 	.img{
@@ -167,7 +200,7 @@ body {
 		height: 6vw;
 		top: 2vw;
 		background-color:#666666;
-		right: 2vw;
+		right: 4.5vw;
 		float:right;
 	}
 
