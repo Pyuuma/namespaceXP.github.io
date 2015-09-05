@@ -198,8 +198,7 @@ body {
 	.button{
 		position:relative;
 		top: 0.5vw;
-		width: 9vw;
-		height: 9vw;
+		width: 12%;
 		right: 4vw;
  		cursor:pointer;
  		float:right;
@@ -208,8 +207,7 @@ body {
 
 	.img{
 		position:relative;
-		width: 8vw;
-		height: 8vw;
+		width: 11%;
 		top: 1vw;
 		float:left;
 	}
