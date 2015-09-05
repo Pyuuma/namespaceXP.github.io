@@ -8,8 +8,9 @@ body {
 
 
 
-
+/*
 @media screen and (orientation: portrait) {
+*/
 #device_manage{
 	position:absolute;
 	left:-5px;
@@ -21,7 +22,7 @@ body {
 
 .left_shadow{
 	position:absolute;
-	width:60vw;
+	width:60.6vw;
 	top: -2vw;
 	height: 14vw;
 	background-color: #dddddd;
@@ -220,9 +221,11 @@ body {
 		right: 6vw;
 		float:right;
 	}
+	/*
 } 
+	*/
 
-
+	/*
 @media screen and (orientation: landscape) {
 #device_manage{
 	position:absolute;
@@ -433,3 +436,4 @@ body {
 	}
 
 }
+	*/
