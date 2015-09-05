@@ -1,6 +1,6 @@
 @font-face
 {
-	font-family:"hi";
+	font-family:"hi", 微软雅黑;
 	src:url("hi.otf");
 }
 #cover
