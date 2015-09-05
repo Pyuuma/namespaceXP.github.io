@@ -94,10 +94,10 @@ body {
 #device_new_name{
 	position:relative;
 	background-color:#888888;
-	width: 47vw;
+	width: 46vw;
 	height: 6vw;
 	top: 2vw;
-	left:  11vw;
+	left:  12vw;
 	color: #ffffff;
 	font-family: 微软雅黑;
 	font-size: 3.6vw;
@@ -131,7 +131,7 @@ body {
 	top: 28vw;
 	background-color:transparent;
 	width: 22vw;
-	height: 8vw;
+	height: 8.5vw;
 	font-size: 3.4vw;
 	text-align:center;
 	line-height:8.5vw;
@@ -149,7 +149,7 @@ body {
 	width: 22vw;
 	height: 8.5vw;
 	text-align:center;
-	line-height:7vw;
+	line-height:8.5vw;
 	cursor: pointer;
 	border: 1px solid #666666;
 	border-radius: 2vw 2vw 2vw 2vw;
