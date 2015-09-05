@@ -114,8 +114,7 @@ $('#change_go').click(function(){
 	$('#no_device_problem').css('display', 'block');
 	$('#footer').css('display', 'block');
 	$('#change_div').css('display', 'none');
-	$('#device_list_left').css('display', 'block');
-	$('#device_list_right').css('display', 'block');
+	device_list_div.style.display = 'block';
 });
 /*
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function(){   //监听
