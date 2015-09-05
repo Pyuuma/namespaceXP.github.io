@@ -73,27 +73,28 @@ body {
 
 #change_div{
 	position:absolute;
-	border: 1px solid #666666;
+	border: 1px solid #555555;
 	left:15vw;
-	top: 28vw;
+	top: 29vw;
 	width: 70vw;
-	height: 40vw;
+	height: 42vw;
 	border-radius: 2vw 2vw 2vw 2vw;
 }
 
 #change_word{
 	position:relative;
 	width: 70vw;
+	color: #666666;
 	height: 10vw;
-	top: 3vw;
-	font-size: 4.4vw;
+	top: 4vw;
+	font-size: 3.8vw;
 	text-align:center;
 }
 
 #device_new_name{
 	position:relative;
 	background-color:#888888;
-	width: 48vw;
+	width: 47vw;
 	height: 6vw;
 	top: 2vw;
 	left:  11vw;
@@ -127,12 +128,13 @@ body {
 
 #change_cancel{
 	position: absolute;
-	top: 30vw;
+	top: 28vw;
 	background-color:transparent;
-	width: 16vw;
-	height: 7vw;
+	width: 22vw;
+	height: 8vw;
+	font-size: 3.4vw;
 	text-align:center;
-	line-height:7vw;
+	line-height:8.5vw;
 	cursor: pointer;
 	border: 1px solid #666666;
 	border-radius: 2vw 2vw 2vw 2vw;
@@ -141,10 +143,11 @@ body {
 
 #change_go{
 	position: absolute;
-	top: 30vw;
+	top: 28vw;
+	font-size: 3.4vw;
 	background-color:transparent;
-	width: 16vw;
-	height: 7vw;
+	width: 22vw;
+	height: 8.5vw;
 	text-align:center;
 	line-height:7vw;
 	cursor: pointer;
