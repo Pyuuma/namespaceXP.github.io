@@ -1,6 +1,4 @@
-var temprature_number = 15;
-var PM_number = 30;
-var humidity_number = 15;
+
 function draw_partC()
 {
 	var temprature_evaluation = "";

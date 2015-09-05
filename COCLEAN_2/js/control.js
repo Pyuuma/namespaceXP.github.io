@@ -1,7 +1,6 @@
 var device_list_div = document.getElementById("device_list");
 var oldname;
 var chosen = 0;
-var device_list = new Array;
 
 function clear(){
 	device_list_div.innerHTML = '';
@@ -89,12 +88,7 @@ function set_device(){   //显示设备列表
 }
 
 function get_device_list(){
-	for(var i = 0; i < 6; i++){
-		device_list[i] = new Object();
-		device_list[i].chosen = false;
-		device_list[i].name = '个人健康呼吸系统(' + (i + 1).toString() + ')';
-	}
-	device_list[4].chosen = true;
+	
 }
 
 $('#change_cancel').mouseover(function(){
