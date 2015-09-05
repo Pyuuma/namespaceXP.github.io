@@ -39,8 +39,8 @@ function draw_partB()
 		}
 	}
 	var pillar_position = $("#chart").width()/48;
-	var pillar_width = $("#chart").width()/55;
-	var pillar_height = $("#chart").height() * 0.6 /(max - min);
+	var pillar_width = $("#chart").width()/52;
+	var pillar_height = $("#chart").height()/300;
 	var min_height = $("#chart").height() * 0.1;
 	for(var i = 0; i < 48; i++)
 	{
@@ -48,7 +48,7 @@ function draw_partB()
 		$("#pillar"+i).css("width", pillar_width);
 		if(new_data[i]!=0)
 		{
-			$("#pillar"+i).css("height", (new_data[i] - min) * pillar_height + min_height);
+			$("#pillar"+i).css("height", (new_data[i]) * pillar_height);
 		}
 		if(new_data[i]<35)
 		{

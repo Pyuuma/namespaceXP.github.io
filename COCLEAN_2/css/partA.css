@@ -1,7 +1,5 @@
 #head
 {
-	width:10%;
-	float:left;
 	top:10%;
 	position:absolute;
 	left:5%;
@@ -13,7 +11,7 @@
 	position:absolute;
 	left:20%;
 	top:25%;
-	font-size:0.5em;
+	font-size:1em;
 	color:#888888;
 }
 #statistic
@@ -22,20 +20,24 @@
 	left:20%;
 	top:60%;
 	font-size:1em;
+	opacity:0.6;
 }
 #statistic_number
 {
 	position:absolute;
-	left:53%;
-	top:55%;
+	left:50%;
+	top:57%;
 	font-size:1.5em;
+	opacity:0.6;
 }
 
 #call_manage{
 	position:absolute;
-	right: 0vw;
-	top: 2vw;
-	width: 14%;
+	right: -2%;
+	top: 2%;
+	width: 12%;
+	height: 30%;
+	border: thin solid #999999;
 }
 
 .shadow{

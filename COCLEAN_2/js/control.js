@@ -102,6 +102,7 @@ $('#delete').click(function(){
 $('#change_cancel').click(function(){
 	$('#change_div').css('display', 'none');
 	$('#device_list').css('display', 'block');
+	$('#footer').css('display', 'block');
 	$('#no_device_problem').css('display', 'block');
 });
 

@@ -1,106 +1,52 @@
-function orient()
-{
-	if (window.orientation == 0 || window.orientation == 180) {
-		$(function () {
-			var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight ;
-			var width = window_height/40;
-			$("#set_font_size").css("font-size",width);
-			var heightA = window_height * 0.25; 
-			$("#partA").css('height', heightA);			
-			var heightB = window_height * 0.35; 	 
-			$("#partB").css('height', heightB);
-			$("#partC").css('top', heightA);
-			var heightC = window_height * 0.65; 
-			$("#partC").css('height', heightC);
-			var heightD = window_height * 0.1;
-			$("#partD").css('top', heightA + heightC);
-			$("#partD").css('height', heightD);
-			var height = window_height * 0.1; 
-			$("#temprature_div").css('height', height);
-			height = $("#PM_evaluation").width()/2;
-			$("#PM_evaluation").css('height', height);
-			$("#PM_evaluation").css('border-radius', height/2);
-			height = $("#temprature_evaluation").width()/2;
-			$("#temprature_evaluation").css('height', height);
-			$("#temprature_evaluation").css('border-radius', height/2);
-			height = $("#humidity_evaluation").width()/2;
-			$("#humidity_evaluation").css('height', height);
-			$("#humidity_evaluation").css('border-radius', height/2);
-			height = window_height * 0.15; 
-			$("#PM_div").css('height', height);
-			$("#partB").css('top',height);
-			height = window_height * 0.1; 
-			$("#humidity_div").css('height', height); 		
-			var heightD = $("#partC").width()/8; 
-			$("#partD").css('height', heightD);	
-			draw_partA();
-			draw_partB();
-			draw_partC();
-		});
-	}
-	else if(window.orientation == 90 || window.orientation == -90)
-	{
-		$(function () {
-			$(".shadow").css("display","none");
-			$("#call_manage").css("border","0px");
-			$("#share_img2").css("width","50%");
-			$("#share_img2").css("position","relative");
-			$("#share_img2").css("left","25%");
-			$("#share_prompt").css("width","40%");
-			$("#share1").css("width","7.5%");
-			$("#share1").css("left","27.5%");
-			$("#share2").css("width","7.5%");
-			$("#share2").css("left","40%");
-			$("#share3").css("width","7.5%");
-			$("#share3").css("left","52.5%");
-			$("#share4").css("width","7.5%");
-			$("#share4").css("left","65%");
-			$("#share5").css("width","50%");
-			$("#share5").css("left","25%");
-			var width = $("#partA").width();
-			$("#set_font_size").css("font-size",width/25);
-			var heightA = $("#partA").width()/3; 
-			$("#partA").css('height', heightA);	
-			$("#partB").css('top', -heightA);
-			$("#partC").css('top', heightA);
-			$("#partC").css("position","");
-			var heightB = $("#partB").width(); 
-			var heightD = $("#partD").width()/6;
-			var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight ;
-			$("#partB").css('height', window_height - heightD);
-			var heightC = $("#partC").width()*1.2; 
-			$("#partC").css('height', window_height - heightA);
-			var height = $("#temprature_div").width(); 
-			$("#temprature_div").css('height', height);
-			height = $("#PM_evaluation").width()/2;
-			$("#PM_evaluation").css('height', height);
-			$("#PM_label").html('PM2.5');
-			$("#PM_evaluation").css('border-radius', height/2);
-			height = $("#temprature_evaluation").width()/2;
-			$("#temprature_evaluation").css('height', height);
-			$("#temprature_evaluation").css('border-radius', height/2);
-			height = $("#humidity_div").width(); 
-			$("#humidity_div").css('height', height);
-			height = $("#humidity_evaluation").width()/2;
-			$("#humidity_evaluation").css('height', height);
-			$("#humidity_evaluation").css('border-radius', height/2);
-			height = $("#PM_div").width(); 
-			$("#PM_div").css('height', height);		
-			var heightD = $("#partC").width()/8; 
-			$("#partD").css('height', heightD);	
-			draw_partA();
-			draw_partB();
-			draw_partC();
-		});	
-	}
-}
-
-$(function(){
-    orient();
-});
-
-
-$(window).bind( 'orientationchange', function(e){
-    orient();
-	window.location.href=window.location.href;
+$(function () {
+	var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight ;
+	var width = window_height/50;
+	$("#set_font_size").css("font-size",width);
+	$("#set_font_size").css("font-family","hi");
+	$("#head").css("height",window_height * 0.07);
+	$("#call_manage").css("height",window_height * 0.052);
+	$("#call_manage").css("top",window_height * 0.02);
+	var border_radius = window_height * 0.026 + "px " + 0 + "px " + 0 + "px " + window_height * 0.026 + "px";
+	$("#call_manage").css("border-radius",border_radius);
+	$("#set_img").css("height",window_height * 0.05);
+	$("#set_img").css("top",window_height * 0.001);
+	var heightA = window_height * 0.1726; 
+	$("#partA").css('height', heightA);
+	var heightB = window_height * 0.3720; 	 
+	$("#partB").css('height', heightB);
+	$("#partC").css('top', heightA);
+	var heightC = window_height * 0.74; 
+	$("#partC").css('height', heightC);
+	var heightD = window_height * 0.0873;
+	$("#partD").css('top', heightA + heightC);
+	$("#share_img").css('top', heightA + heightC);	
+	$("#share_img").css('height', heightD);
+	$("#share_img").css('width', heightD * 7.273);
+	$("#share_img").css('left', ($("#partD").width() - $("#share_img").width())/2);
+	debugger;
+	$("#partD").css('height', heightD);
+	var height = window_height * 0.0784;	
+	$("#temprature_div").css('height', height);
+	$("#temprature_evaluation").css('height', height/2.5);
+	$("#temprature_evaluation").css('line-height', height/2.5+"px");
+	$("#temprature_evaluation").css('border-radius', height/5);
+	$("#humidity_div").css('height', height); 
+	$("#humidity_evaluation").css('height', height/2.5);
+	$("#humidity_evaluation").css('line-height', height/2.5+"px");
+	$("#humidity_evaluation").css('border-radius', height/5);
+	height = window_height * 0.6071; 
+	$("#temprature_div").css('top', height);
+	$("#humidity_div").css('top', height);
+	height = window_height * 0.1558; 	 
+	$("#partB").css('top', height);
+	height = window_height * 0.1071; 
+	$("#PM_div").css('height', height);
+	$("#PM_evaluation").css('height', height/2.5);
+	$("#PM_evaluation").css('line-height', height/2.5+"px");
+	$("#PM_evaluation").css('border-radius', height/5);
+	height = window_height * 0.0427;
+	$("#PM_div").css('top', height);	
+	draw_partA();
+	draw_partB();
+	draw_partC();
 });
