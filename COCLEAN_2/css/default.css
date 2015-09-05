@@ -54,8 +54,13 @@ body {
 	color: #aaaaaa;
 	text-align:center;
 	width: 100%;
-	bottom: 5%;
+	bottom: 8%;
 	opacity: 90%;
+	filter:alpha(opacity = 40);
+	-moz-opacity: 0.4;
+	-khtml-opaciy: 0.4;
+	opacity: 0.4;
+	z-index: 1;
 }
 
 #delete{
@@ -101,12 +106,11 @@ body {
 
 .indicator{
 	position:relative;
-	background-color: #66ccff;
-	top: 3vw;
-	right: 6vw;
-	width: 4vw;
-	height: 4vw;
-	-webkit-box-shadow: 1px 1px 1px 1px #000000;  
+	background-color: #44bbff;
+	top: 3.5vw;
+	right: 9vw;
+	width: 3.5vw;
+	height:3.5vw;  
 	border-radius: 2vw 2vw 2vw 2vw;
 	float:right;
 }
@@ -114,14 +118,11 @@ body {
 .cut_line{
 	position:absolute;
 	bottom: 0;
-	width: 82vw;
-}
-
-.change_img{
-	width: 90%;
-	left: 10%;
-	border-radius:50%;
-	-moz-border-radius:50%;
+	width: 74vw;
+	filter:alpha(opacity = 40);
+	-moz-opacity: 0.4;
+	-khtml-opaciy: 0.4;
+	opacity: 0.4;
 }
 
 #change_cancel{
@@ -155,7 +156,7 @@ body {
 	#device_list{
 		width: 100%;
 		position: relative;
-		top:15%;
+		top:10%;
 		overflow: auto;
 	}
 	
@@ -167,14 +168,18 @@ body {
 		font-size: 3vw;
 		top: 15%;
 		width: 50%;
+		filter:alpha(opacity = 40);
+		-moz-opacity: 0.4;
+		-khtml-opaciy: 0.4;
+		opacity: 0.4;
 	}
 	
 	.devicediv{
 		position:relative;
 		float: left;
-		left: 10vw;
+		left: 13vw;
 		height: 14vw;
-		width: 82vw;
+		width: 76vw;
 	}
 
 	.name{
@@ -182,22 +187,18 @@ body {
 		float: left;
 		left: 5%;
 		height: 10vw;
-		top:2vw;
-		font-size: 4.4vw;
+		top: 3vw;
+		font-size: 3.6vw;
 		width: 60%;
 	}
 
 	.button{
 		position:relative;
-		top: 1vw;
-		width: 8vw;
-		height: 8vw;
-		right: 2vw;
+		top: 0.5vw;
+		width: 9vw;
+		height: 9vw;
+		right: 4vw;
  		cursor:pointer;
-		border-radius: 50%;
-		-moz-border-radius:50%;
- 		border: 1.5px solid #ffffff;
- 		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
  		float:right;
 		z-index: 2;
 	}
@@ -207,18 +208,16 @@ body {
 		width: 8vw;
 		height: 8vw;
 		top: 1vw;
-		border-radius: 4vw 4vw 4vw 4vw;
-		border:thin solid #ffffff;
 		float:left;
 	}
 
 	.line{
 		position:relative;
 		width: 1px;
-		height: 6vw;
-		top: 2vw;
+		height: 4vw;
+		top: 3vw;
 		background-color:#666666;
-		right: 4.5vw;
+		right: 6vw;
 		float:right;
 	}
 } 
@@ -330,15 +329,9 @@ body {
 .cut_line{
 	position:absolute;
 	bottom: 0;
-	width: 60vw;
+	width: 56vw;
 }
 
-.change_img{
-	width: 90%;
-	left: 10%;
-	border-radius:50%;
-	-moz-border-radius:50%;
-}
 
 #change_cancel{
 	position: absolute;
@@ -411,9 +404,9 @@ body {
 		height: 6vw;
 		right: 2vw;
  		cursor:pointer;
+		border: 2px solid #ffffff;
 		border-radius: 50%;
 		-moz-border-radius:50%;
- 		border: 1.5px solid #ffffff;
  		-webkit-box-shadow: 1px 1px 1px 1px #000000;  
  		float:right;
 		z-index: 2;

@@ -11,8 +11,7 @@ function set_device(){   //显示设备列表
 	var device_name = document.createElement('div');
 	var line = document.createElement('div');
 	var device_indicator = document.createElement('div');
-	var device_button = document.createElement('div');
-	var change_img = document.createElement('img');
+	var device_button = document.createElement('img');
 	var border = document.createElement('hr');
 	//创建元素
 	
@@ -29,8 +28,8 @@ function set_device(){   //显示设备列表
 	device_img.setAttribute('class', 'img');
 	device_div.setAttribute('class', 'devicediv');
 	device_indicator.setAttribute('class', 'indicator');
-	change_img.setAttribute('class', 'change_img');
-	change_img.setAttribute('src', 'img/pencil.png');
+	device_button.setAttribute('src', 'img/button_grey.png');
+	device_img.setAttribute('src', 'img/online.png');
 	border.setAttribute('class', 'cut_line');
 	border.setAttribute('size', 1);
 	border.setAttribute('color', '#666666');
@@ -42,7 +41,6 @@ function set_device(){   //显示设备列表
 	device_div.appendChild(device_button);
 	device_div.appendChild(line);
 	device_div.appendChild(device_indicator);
-	device_button.appendChild(change_img);
 		
 	
 	device_div.appendChild(border);
