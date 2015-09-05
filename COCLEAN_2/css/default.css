@@ -21,9 +21,9 @@ body {
 
 .left_shadow{
 	position:absolute;
-	width:69vw;
-	top: -1vw;
-	height: 13vw;
+	width:60.8vw;
+	top: -2vw;
+	height: 14vw;
 	background-color: #dddddd;
 	filter:alpha(opacity = 16);
 	-moz-opacity: 0.2;
@@ -35,10 +35,10 @@ body {
 
 .right_shadow{
 	position:absolute;
-	top: -1vw;
-	right: 0vw;
+	top: -2vw;
+	right: 2vw;
 	width:13vw;
-	height:13vw;
+	height:14vw;
 	background-color: #dddddd;
 	filter:alpha(opacity = 20);
 	-moz-opacity: 0.2;
@@ -107,7 +107,6 @@ body {
 
 .indicator{
 	position:relative;
-	background-color: #44bbff;
 	top: 3vw;
 	right: 9vw;
 	width: 3.5vw;
@@ -236,7 +235,7 @@ body {
 
 .left_shadow{
 	position:absolute;
-	width:69vw;
+	width:66vw;
 	top: -1vw;
 	height: 13vw;
 	background-color: #dddddd;
