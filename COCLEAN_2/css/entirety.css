@@ -1,9 +1,19 @@
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+
+=======
+/*
 @font-face
 {
 	font-family:"hi";
 	src:url("hi.otf");
 }
+*/
 
+body{
+	font-family:微软雅黑;
+}
+>>>>>>> External Changes
 #cover
 {
 	position:absolute;
@@ -68,3 +78,5 @@
 	display:none;
 }
 
+=======
+>>>>>>> External Changes

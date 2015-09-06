@@ -37,9 +37,15 @@ function draw_partB()
 			min = new_data[i];
 		}
 	}
+	var step = Math.ceil(max * 1.1 / 30) *30 / 6;
+	debugger;
+	for(var i = 1; i <= 6; i ++)
+	{		
+		$("#amount_line"+i).html(step * i);
+	}
 	var pillar_position = ($("#chart").width() - $("#amount_line").width())/48;
 	var pillar_width = ($("#chart").width() - $("#amount_line").width())/52;
-	var pillar_height = $("#chart").height()/300;
+	var pillar_height = $("#chart").height()/(step*6);
 	var min_height = $("#chart").height() * 0.1;
 	for(var i = 0; i < 48; i++)
 	{
