@@ -3,16 +3,16 @@
 	position:absolute;
 	left:45%;
 	top:5%;
-	font-size:0.4em;
-	color:#999999;
+	font-size:1em;
+	color:#989898;
 }
 #chart_time
 {
 	position:absolute;
 	right:6.25%;
 	top:5%;
-	font-size:0.4em;
-	color:#999999;
+	font-size:1em;
+	color:#989898;
 }
 #chart
 {
@@ -27,81 +27,86 @@
 {
 	position:absolute;
 	width:100%;
-	left:-3%;
+	left:0%;
 	top:100%;
-	color:#999999;
+	color:#989898;
+}
+#time_line0
+{
+	position:absolute;
+	left:24%;
+	top:0%;
+	text-align:center;
 }
 #time_line1
 {
 	position:absolute;
 	left:24%;
 	top:0%;
+	text-align:center;
 }
 #time_line2
 {
 	position:absolute;
 	left:48%;
 	top:0;
+	text-align:center;
 }
 #time_line3
 {
 	position:absolute;
 	left:72%;
 	top:0;
+	text-align:center;
 }
 #time_line4
 {
 	position:absolute;
 	left:98%;
 	top:0;
+	text-align:center;
 }
 #amount_line1
 {
 	position:absolute;
 	right:102%;
 	top:78.35%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_line2
 {
 	position:absolute;
 	right:102%;
 	top:61.68%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_line3
 {
 	position:absolute;
 	right:102%;
 	top:45.01%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_line4
 {
 	position:absolute;
 	right:102%;
 	top:28.34%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_line5
 {
 	position:absolute;
 	right:102%;
 	top:11.67%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_line6
 {
 	position:absolute;
 	right:102%;
 	top:-5%;
-	color:#999999;
-	opacity:0.8;
+	color:#989898;
 }
 #amount_dividing1
 {

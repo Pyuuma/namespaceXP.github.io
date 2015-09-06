@@ -13,7 +13,7 @@
 	position:absolute;
 	left:0%;
 	top:0%;
-	opacity:0.6;
+	color:#eeeeee;
 }
 #temprature_unit
 {
@@ -21,13 +21,14 @@
 	position:absolute;
 	left:30%;
 	top:55%;
-	color:#666666;
+	color:#989898;
 }
 #temprature_dividing
 {
 	position:absolute;
 	top:95%;
 	width:100%;
+	box-sizing:border-box;
 	border:2px solid;
 }
 #temprature_evaluation
@@ -38,6 +39,7 @@
 	width:25%;
 	right:0%;
 	top:22%;
+	color:#eeeeee;
 }
 #temprature_label
 {
@@ -45,7 +47,7 @@
 	position:absolute;
 	left:30%;
 	top:25%;
-	opacity:0.6;
+	color:#eeeeee;
 }
 #humidity_div
 {
@@ -60,7 +62,7 @@
 	position:absolute;
 	left:0%;
 	top:0%;
-	opacity:0.6;
+	color:#eeeeee;
 }
 #humidity_unit
 {
@@ -68,7 +70,7 @@
 	position:absolute;
 	left:30%;
 	top:55%;
-	color:#666666;
+	color:#989898;
 }
 #humidity_dividing
 {
@@ -76,6 +78,7 @@
 	left:0%;
 	top:95%;
 	width:100%;
+	box-sizing:border-box;
 	border:2px solid;
 }
 #humidity_evaluation
@@ -86,6 +89,7 @@
 	width:25%;
 	right:0%;
 	top:22%;
+	color:#eeeeee;
 }
 #humidity_label
 {
@@ -93,7 +97,7 @@
 	position:absolute;
 	left:30%;
 	top:25%;
-	opacity:0.6;
+	color:#eeeeee;
 }
 #PM_div
 {
@@ -106,7 +110,8 @@
 	font-size:6em;
 	position:absolute;
 	left:0%;
-	top:-22%;
+	bottom:-32%;
+	color:#eeeeee;
 }
 #PM_unit
 {
@@ -114,7 +119,7 @@
 	position:absolute;
 	top:60%;
 	left:25%;
-	color:#666666;
+	color:#989898;
 }
 #PM_dividing
 {
@@ -122,6 +127,7 @@
 	bottom:0;
 	left:25%;
 	width:75%;
+	box-sizing:border-box;
 	border:2px solid;
 }
 #PM_evaluation
@@ -135,6 +141,7 @@
 	height:40%;
 	text-align:center;
 	background-color:green;
+	color:#eeeeee;
 }
 #PM_label
 {
@@ -142,5 +149,5 @@
 	position:absolute;
 	left:25%;
 	top:25%;
-	opacity:0.6;
+	color:#eeeeee;
 }

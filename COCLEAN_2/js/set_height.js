@@ -6,7 +6,8 @@ $(function () {
 	$("#head").css("height",window_height * 0.07);
 	$("#call_manage").css("height",window_height * 0.052);
 	$("#call_manage").css("top",window_height * 0.02);
-	var border_radius = window_height * 0.026 + "px " + 0 + "px " + 0 + "px " + window_height * 0.026 + "px";
+	var call_height = $("#call_manage").height();
+	var border_radius = call_height/2 + "px " + 0 + "px " + 0 + "px " + call_height/2 + "px";
 	$("#call_manage").css("border-radius",border_radius);
 	$("#set_img").css("height",window_height * 0.05);
 	$("#set_img").css("top",window_height * 0.001);
@@ -53,11 +54,9 @@ $(function () {
 
 function delete_cover()
 {
-	debugger;
 	if($("#cover")[0].style.opacity == 0.8)
 	{
-		$("#cover").css("opacity",0);
-		$("#cover").css("z-index",-1);
+		$("#cover").css("z-index",1);
 	}
 	if($("#share_prompt")[0].style.display == "block")
 		$("#share_prompt").css("display", "none");

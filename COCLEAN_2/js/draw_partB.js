@@ -60,7 +60,12 @@ function draw_partB()
 		}
 		else
 		{
-			$("#pillar"+i).css("background-color","#bf3d3d");
+			$("#pillar"+i).css("background-color","#c43d3d");
 		}
-	}	
+	}
+	for(var i = 0; i <= 4; i++)
+	{
+		$("#time_line"+i).css("left", (12*i - 2)*pillar_position);
+		$("#time_line"+i).css("width", 2*pillar_position);
+	}
 }

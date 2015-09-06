@@ -12,7 +12,7 @@
 	left:20%;
 	top:25%;
 	font-size:1em;
-	color:#888888;
+	color:#b5b5b5;
 }
 #statistic
 {
@@ -20,15 +20,16 @@
 	left:20%;
 	top:60%;
 	font-size:1em;
-	opacity:0.6;
+	color:#eeeeee;
 }
 #statistic_number
 {
 	position:absolute;
-	left:50%;
-	top:57%;
+	left:100%;
+	width:200%;
+	bottom:0;
 	font-size:1.5em;
-	opacity:0.6;
+	color:#eeeeee;
 }
 
 #call_manage{
@@ -36,7 +37,7 @@
 	right: -2%;
 	top: 2%;
 	width: 12%;
-	height: 30%;
+	height: 20%;
 	border: thin solid #999999;
 }
 
