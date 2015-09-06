@@ -4,13 +4,14 @@ $(function () {
 	$("#set_font_size").css("font-size",width);
 	$("#set_font_size").css("font-family","hi");
 	$("#head").css("height",window_height * 0.07);
-	$("#call_manage").css("height",window_height * 0.052);
-	$("#call_manage").css("top",window_height * 0.02);
+	$("#call_manage").css("height",window_height * 0.04);
+	$("#call_manage").css("top",window_height * 0.04);
+	$("#call_manage").css("width",window_height * 0.08);
 	var call_height = $("#call_manage").height();
 	var border_radius = call_height/2 + "px " + 0 + "px " + 0 + "px " + call_height/2 + "px";
 	$("#call_manage").css("border-radius",border_radius);
-	$("#set_img").css("height",window_height * 0.05);
-	$("#set_img").css("top",window_height * 0.001);
+	$("#set_img").css("height",window_height * 0.026);
+	$("#set_img").css("top",window_height * 0.007);
 	var heightA = window_height * 0.1726; 
 	$("#partA").css('height', heightA);
 	var heightB = window_height * 0.3720; 	 

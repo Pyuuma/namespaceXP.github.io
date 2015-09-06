@@ -38,8 +38,9 @@ function draw_partB()
 			min = new_data[i];
 		}
 	}
-	var pillar_position = $("#chart").width()/48;
-	var pillar_width = $("#chart").width()/52;
+	var pillar_position = ($("#chart").width() - $("#amount_line").width())/48;
+	var pillar_width = ($("#chart").width() - $("#amount_line").width())/52;
+	$("#time_line").css("left",$("#amount_line").width());
 	var pillar_height = $("#chart").height()/300;
 	var min_height = $("#chart").height() * 0.1;
 	for(var i = 0; i < 48; i++)
@@ -63,7 +64,7 @@ function draw_partB()
 			$("#pillar"+i).css("background-color","#c43d3d");
 		}
 	}
-	for(var i = 0; i <= 4; i++)
+	for(var i = 1; i <= 4; i++)
 	{
 		$("#time_line"+i).css("left", (12*i - 2)*pillar_position);
 		$("#time_line"+i).css("width", 2*pillar_position);

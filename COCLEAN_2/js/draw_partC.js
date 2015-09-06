@@ -1,5 +1,4 @@
 
-
 function draw_partC()
 {
 	var temprature_evaluation = "";

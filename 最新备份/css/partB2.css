@@ -1,0 +1,65 @@
+#chart_average
+{
+	position:absolute;
+	left:35%;
+	top:5%;
+	font-size:0.7em;
+	color:#999999;
+}
+#chart_time
+{
+	position:absolute;
+	right:10%;
+	top:5%;
+	font-size:0.7em;
+	color:#999999;
+}
+#chart
+{
+	position:absolute;
+	width:84%;
+	height:65%;
+	left:8%;
+	top:25%;
+}
+#time_line
+{
+	position:absolute;
+	width:86%;
+	left:7%;
+	top:90%;
+	color:#999999;
+}
+#time_line1
+{
+	font-size:0.7em;
+	position:absolute;
+	left:24%;
+	top:0;
+}
+#time_line2
+{
+	font-size:0.7em;
+	position:absolute;
+	left:48%;
+	top:0;
+}
+#time_line3
+{
+	font-size:0.7em;
+	position:absolute;
+	left:72%;
+	top:0;
+}
+#time_line4
+{
+	font-size:0.7em;
+	position:absolute;
+	left:96%;
+	top:0;
+}
+.pillar
+{
+	position:absolute;
+	bottom:0;
+}
