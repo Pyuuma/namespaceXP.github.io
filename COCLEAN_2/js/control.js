@@ -87,9 +87,6 @@ function set_device(){   //显示设备列表
 	}	
 }
 
-function get_device_list(){
-	
-}
 
 $('#change_cancel').mouseover(function(){
 	this.style.backgroundColor = '#66ccff';
@@ -133,6 +130,7 @@ $('#change_go').click(function(){
 	$('#footer').css('display', 'block');
 	$('#change_div').css('display', 'none');
 	device_list_div.style.display = 'block';
+	set_device_name(oldname, new_name);
 	clear();
 	set_device();
 });
@@ -147,7 +145,12 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 }, false); 
 */
 
-get_device_list();
+
+function set_device_list(arg1, arg2){    //修改远端的名称
+	return;
+}
+
+
 set_device();
 
 /*

@@ -53,9 +53,11 @@ $(function () {
 
 function delete_cover()
 {
+	debugger;
 	if($("#cover")[0].style.opacity == 0.8)
 	{
-		$("#cover").css("z-index",1);
+		$("#cover").css("opacity",0);
+		$("#cover").css("z-index",-1);
 	}
 	if($("#share_prompt")[0].style.display == "block")
 		$("#share_prompt").css("display", "none");
