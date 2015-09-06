@@ -28,7 +28,6 @@ function draw_partB()
 	this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
 	var current_time = this.hour +　":" + this.minute;
 	$("#chart_time").html("更新时间:"+current_time);
-	//最高值为90%，最低值为10%;
 	var max = Math.max.apply(null, new_data);
 	var min = max;
 	for(var i = 0; i < 48; i++)
@@ -40,7 +39,6 @@ function draw_partB()
 	}
 	var pillar_position = ($("#chart").width() - $("#amount_line").width())/48;
 	var pillar_width = ($("#chart").width() - $("#amount_line").width())/52;
-	$("#time_line").css("left",$("#amount_line").width());
 	var pillar_height = $("#chart").height()/300;
 	var min_height = $("#chart").height() * 0.1;
 	for(var i = 0; i < 48; i++)
