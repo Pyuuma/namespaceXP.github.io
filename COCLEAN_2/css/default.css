@@ -1,6 +1,12 @@
 
+@font-face
+{
+	font-family:"hi";
+	src:url("hi.otf");
+}
+
 body {
-	font-family: 微软雅黑;
+	font-family:"hi";
 	margin: 0px;
 	padding : 0px;
 	color: #eeeeee;
