@@ -1,12 +1,13 @@
-
+/*
 @font-face
 {
 	font-family:"hi";
 	src:url("hi.otf");
 }
+*/
 
 body {
-	font-family:"hi";
+	font-family: 微软雅黑;
 	margin: 0px;
 	padding : 0px;
 	color: #eeeeee;
