@@ -123,6 +123,10 @@ $('#change_cancel').click(function(){
 
 $('#change_go').click(function(){
 	var new_name = $('#device_new_name').val();
+	if(new_name == '' || new_name == null){
+		alert('不能为空！');
+		return;
+	}
 	document.getElementById(oldname).innerHTML = new_name;
 	document.getElementById(oldname).setAttribute('id', new_name);
 	device_list[chosen].name = new_name;
