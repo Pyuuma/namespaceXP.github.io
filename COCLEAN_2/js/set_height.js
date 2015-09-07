@@ -2,7 +2,7 @@ $(function () {
 	var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight ;
 	var width = window_height/50;
 	$("#set_font_size").css("font-size",width);
-	$("#set_font_size").css("font-family","hi");
+	//$("#set_font_size").css("font-family","hi");
 	$("#head").css("height",window_height * 0.07);
 	$("#call_manage").css("height",window_height * 0.04);
 	$("#call_manage").css("top",window_height * 0.04);

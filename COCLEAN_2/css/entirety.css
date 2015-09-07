@@ -11,7 +11,7 @@
 */
 
 body{
-	font-family:微软雅黑;
+	font-family:思源黑体;
 }
 >>>>>>> External Changes
 #cover
@@ -26,7 +26,7 @@ body{
 #set_font_size
 {
 	position:absolute;
-	font-family:微软雅黑;
+	font-family:'思源黑体';
 	width:100%;
 	left:0;
 }
