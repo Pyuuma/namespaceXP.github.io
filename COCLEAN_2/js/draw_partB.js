@@ -38,6 +38,10 @@ function draw_partB()
 		}
 	}
 	var step = Math.ceil(max * 1.1 / 30) *30 / 6;
+	if(step < 10)
+	{
+		step = 10;
+	}
 	debugger;
 	for(var i = 1; i <= 6; i ++)
 	{		
