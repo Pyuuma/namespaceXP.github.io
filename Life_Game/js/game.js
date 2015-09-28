@@ -80,10 +80,27 @@ function init_map(len){
 	map[Math.round(Math.random() * (row - 1))][Math.round(Math.random() * (row - 1))] = 1;
 }
 
-initialize();
-//init();
-//draw_map();
 
+window.onresize = function(){   //保证布局
+	mapCanvas.style.width = (map_width).toString() + 'px';
+	mapCanvas.style.height = (map_width).toString() + 'px';
+	mapCanvas.setAttribute('width', map_width);
+	mapCanvas.setAttribute('height', map_width);
+	mapCanvas.style.left = ((window.innerWidth - map_width) / 2).toString() + 'px';
+	mapCanvas.style.top = ((window.innerHeight - map_width) / 2).toString() + 'px';
+	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
+	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
+	$('#new_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
+	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
+	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
+	$('#count').css('top', window.innerHeight / 3);
+	draw_map();
+}
 
 function get_next_generation(){     //得到下一代
 	var temp;
@@ -143,7 +160,7 @@ function get_next_generation(){     //得到下一代
 }
 
 
-function draw_map(){
+function draw_map(){   //画地图
 	var context = mapCanvas.getContext('2d');
 	for(var i = 0; i < row; i++){
 		for(var j = 0; j < row; j++){
@@ -158,29 +175,8 @@ function draw_map(){
 	}
 }
 
-window.onresize = function(){
-	mapCanvas.style.width = (map_width).toString() + 'px';
-	mapCanvas.style.height = (map_width).toString() + 'px';
-	mapCanvas.setAttribute('width', map_width);
-	mapCanvas.setAttribute('height', map_width);
-	mapCanvas.style.left = ((window.innerWidth - map_width) / 2).toString() + 'px';
-	mapCanvas.style.top = ((window.innerHeight - map_width) / 2).toString() + 'px';
-	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
-	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#new_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
-	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
-	$('#count').css('top', window.innerHeight / 3);
-	draw_map();
-}
 
-
-function envolve(){
+function envolve(){    //进行演化
 	cnt++;
 	$('#count').html('您的霸业已延续了' + cnt.toString() +'代');
 	get_next_generation();
@@ -208,3 +204,5 @@ $('#stop_envolve').click(function(){
 	clearInterval(mainCycle);
 	autoflag = false;
 });
+
+initialize();
