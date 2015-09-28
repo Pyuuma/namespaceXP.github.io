@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html id= "scroll ">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="js/jquery.js" type="text/javascript"></script>		
+		<style>
+			#haha
+			{
+				position:absolute;
+				left:50%;
+				top:150%; 
+				animation:myfirst 1s;
+				-moz-animation:myfirst 1s; /* Firefox */
+				-webkit-animation:myfirst 1s; /* Safari and Chrome */
+				-o-animation:myfirst 1s; /* Opera */
+				animation-fill-mode:forwards;
+				-moz-animation-fill-mode:forwards;  /* Firefox */
+				-webkit-animation-fill-mode:forwards; /* Safari and Chrome */
+				-o-animation-fill-mode:forwards;  /* Opera */
+			}
+			#welcomeDiv
+			{
+				position: absolute;
+				width:2020px;
+				height:800px;
+				left:50%;top:50%; 
+				margin-left:-1010px;
+				margin-top:-400px;
+			}
+			
+			@keyframes myfirst
+			{
+			from{top:60%;}
+			to{top:50%;}	
+			}
+			
+			@-moz-keyframes myfirst /* Firefox */
+			{
+			from{top:60%;}
+			to{top:50%;}	
+			}
+			
+			@-webkit-keyframes myfirst /* Safari and Chrome */
+			{
+			from{top:60%;}
+			to{top:50%;}	
+			}
+			
+			@-o-keyframes myfirst /* Opera */
+			{
+			from{top:60%;}
+			to{top:50%;}	
+			}
+			
+		</style>
+	</head>
+	<body style = "overflow:hidden;margin:0px;padding:0px">
+		<img id = "welcomeDiv" src = "img/6.png"/>
+		<img id = "haha"  src = "img/注释6.png" style = "margin-left:-415px;margin-top:-160px;"/>
+	</body>
+</html>

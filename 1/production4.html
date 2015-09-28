@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html id= "scroll ">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="js/jquery.js" type="text/javascript"></script>		
+		<style>
+			#haha
+			{
+				width:100px;
+				height:100px;
+				position:relative;
+				animation:myfirst 1s;
+				-moz-animation:myfirst 1s; /* Firefox */
+				-webkit-animation:myfirst 1s; /* Safari and Chrome */
+				-o-animation:myfirst 1s; /* Opera */
+			}
+			#welcomeDiv
+			{
+				position: absolute;
+				width:2020px;
+				height:800px;
+				left:50%;top:50%; 
+				margin-left:-1010px;
+				margin-top:-400px;
+				border:1px solid #00F;
+			}
+			@keyframes myfirst
+			{
+			from{left:0; top:0px;}
+			to{left:-50%; top:0px;}
+			}
+			
+			@-moz-keyframes myfirst /* Firefox */
+			{
+			from{left:0; top:0px;}
+			to{left:-50%; top:0px;}
+			}
+			
+			@-webkit-keyframes myfirst /* Safari and Chrome */
+			{
+			from{left:0; top:0px;}
+			to{left:-50%; top:0px;}	
+			}
+			
+			@-o-keyframes myfirst /* Opera */
+			{
+			from{left:0; top:0px;}
+			to{left:-50%; top:0px;}
+			}
+			#hiahia
+			{
+				background:url("img/注释4.png") no-repeat;
+			}
+		</style>
+	</head>
+	<body style = "overflow:hidden;margin:0px;padding:0px">
+		<img id = "welcomeDiv" src = "img/4.png"/>
+		<div id = "hiahia" style = "position:absolute;left:50%;top:50%; margin-left:-520px;margin-top:-207px;height:562px;">
+		</div>
+		<div id = "haha" style = "position:absolute;top:0;width:50%;left:-50%;height:100%;background-color:white；display:none;"></div>
+		<script text= "text/javascript">
+			$("#hiahia").animate({width:"978px"},1500);
+		</script>
+	</body>
+</html>
