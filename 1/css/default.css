@@ -1,0 +1,34 @@
+#page1{
+	position: relative;
+	z-index: 7;
+}
+
+#page2{
+	position: relative;
+	top: -4px;
+	z-index: 6;
+}
+
+#page3{
+	position: relative;
+	top: -7px;
+	z-index: 5;
+}
+
+#page5{
+	position: relative;
+	top: -23px;
+	z-index: 4;
+}
+
+#page6{
+	position: relative;
+	top: -27px;
+	z-index: 3;
+}
+
+#page7{
+	position: relative;
+	top: -32px;
+	z-index: 2;
+}
