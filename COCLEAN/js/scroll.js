@@ -3,7 +3,7 @@ var sign = 10, listflag = false;
 $('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
 
 
-$('#header_button').click(function(){
+header_button.onclick = header_button.ontouchend = function(){
 	if(!listflag){
 		this.src = 'img/close.png';
 		listflag = true;
@@ -12,7 +12,9 @@ $('#header_button').click(function(){
 		this.src = 'img/menu.png';
 		listflag = false;
 	}
-});
+}
+
+
 
 function set_height(){
 	if(navigator.userAgent.indexOf("iPad") == -1)
