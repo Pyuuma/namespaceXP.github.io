@@ -1,3 +1,43 @@
+.production
+{
+	position:absolute;
+	height:800px;
+	width:100%;
+}
+
+#production8
+{
+	position:absolute;
+	height:400px;
+	width:100%;
+}
+
+#production0
+{
+	position:absolute;
+	width:100%;
+}
+
+#footer
+{
+	position: absolute;
+	width:2020px;
+	height:400px;
+	left:50%;top:50%; 
+	margin-left:-1010px;
+	margin-top:-200px;
+}
+
+#footer_button
+{
+	position: absolute;
+	width:210px;
+	height:50px;
+	left:50%;top:50%; 
+	margin-left:-105px;
+	margin-top:24px;
+}
+
 .background_img
 {
 	position: absolute;
@@ -94,6 +134,32 @@
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  {
+	
+	.production
+	{
+		position:absolute;
+		height:655px;
+		width:100%;
+	}
+	
+	#production8
+	{
+		position:absolute;
+		height:327.5px;
+		width:100%;
+	}
+	
+	
+	#footer
+	{
+		position: absolute;
+		width:1654px;
+		height:328px;
+		left:50%;top:50%; 
+		margin-left:-827px;
+		margin-top:-164px;
+	}
+	
 	.background_img
 	{
 		position: absolute;

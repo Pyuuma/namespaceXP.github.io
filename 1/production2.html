@@ -2,106 +2,36 @@
 <html id= "scroll ">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script src="js/jquery.js" type="text/javascript"></script>		
-		<style>
-			#haha
-			{
-				position:absolute;
-				left:50%;
-				top:150%; 
-			}
-			
-			.haha_animate{
-				animation myfirst 1s:
-				-moz-animation:myfirst 1s; /* Firefox */
-				-webkit-animation:myfirst 1s; /* Safari and Chrome */
-				-o-animation:myfirst 1s; /* Opera */
-				animation-delay:1.5s;
-				-moz-animation-delay:1.5s; /* Firefox */
-				-webkit-animation-delay:1.5s /* Safari and Chrome */
-				-o-animation-delay:1.5s; /* Opera */
-				animation-fill-mode:forwards;
-				-moz-animation-fill-mode:forwards;  /* Firefox */
-				-webkit-animation-fill-mode:forwards; /* Safari and Chrome */
-				-o-animation-fill-mode:forwards;  /* Opera */
-			}
-			
-			#welcomeDiv
-			{
-				position: absolute;
-				width:2020px;
-				height:800px;
-				left:50%;top:50%; 
-				margin-left:-1010px;
-				margin-top:-400px;
-				border:1px solid #00F;
-			}
-			#welcomeDiv2
-			{
-				position: absolute;
-				width:2020px;
-				height:800px;
-				left:50%;top:50%; 
-				margin-left:-1010px;
-				margin-top:-400px;
-				border:1px solid #00F;
-				z-index:1;
-			}
-			
-			@keyframes myfirst
-			{
-			from{top:40%;display:block;}
-			to{top:50%;display:block;}	
-			}
-			
-			@-moz-keyframes myfirst /* Firefox */
-			{
-			from{top:40%;}
-			to{top:50%;}	
-			}
-			
-			@-webkit-keyframes myfirst /* Safari and Chrome */
-			{
-			from{top:40%;}
-			to{top:50%;}	
-			}
-			
-			@-o-keyframes myfirst /* Opera */
-			{
-			from{top:40%;}
-			to{top:50%;}	
-			}
-			
-			#hiahia
-			{
-				background:url("img/矩形-3.png") no-repeat;
-			}
-			#hiahia2
-			{
-				background:url("img/矩形-4.png") no-repeat;
-			}
-		</style>
+		<script src="js/jquery.js" type="text/javascript"></script>	
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/production2.css" />				
 	</head>
 	<body style = "overflow:hidden;margin:0px;padding:0px">
-		<img id = "welcomeDiv" src = "img/2.png"/>
-		<img id = "welcomeDiv2" src = "img/2-2.png"/>
-		<div id = "hiahia" style = "position:absolute;left:50%;bottom:50%; margin-left:-233px;margin-bottom:-204px;width:69px;height:0px;z-index:0;">
+		<img class = "background_img" src = "img/PC/2.png"/>
+		<img class = "background_img" style = "z-index:1" src = "img/PC/2-2.png"/>
+		<div id = "left_rectangle">
 		</div>
-		<div id = "hiahia2" style = "position:absolute;left:50%;bottom:50%; margin-left:-162px;margin-bottom:-203px;width:410px;height:0px;z-index:0">
+		<div id = "right_rectangle">
 		</div>
-		<img id = "haha"  src = "img/注释2.png" style = "margin-left:-363px;margin-top:-62px;"/>
-		<img id = "haha2"  src = "img/注释2-1.png" style = "margin-left:18px;margin-top:5px;"/>
-		<input type = 'button' value = '动画!开始吧！！！！！' onclick = 'anima()' style = 'width: 100px; height:20px; position: absolute; z-index:2048;'>
+		<img id = "left_label" src = "img/PC/注释2.png"/>
+		<img id = "right_label" src = "img/PC/注释2-1.png"/> 
 		<script text= "text/javascript">
-
-		function anima(){
-			var haha = document.getElementById('haha');
-			var haha2 = document.getElementById('haha2');
-			$("#hiahia").animate({height:"298px"},1500);
-			$("#hiahia2").animate({height:"199px"},1500);
-			haha.setAttribute('class', 'haha_animate');
-			haha2.setAttribute('class', 'haha_animate');
-		}
+		function anime(){
+			if(navigator.userAgent.indexOf("iPad") != -1)
+			{
+				$("#left_rectangle").animate({height:"244px"},1500);
+				$("#right_rectangle").animate({height:"163px"},1500);
+				$("#left_label").addClass('move_down');
+				$("#right_label").addClass('move_down');
+			}
+			else
+			{		
+				$("#left_rectangle").animate({height:"298px"},1500);
+				$("#right_rectangle").animate({height:"199px"},1500);
+				$("#left_label").addClass('move_down');
+				$("#right_label").addClass('move_down');
+			}  
+		}	
 		</script>
 	</body>
 </html>

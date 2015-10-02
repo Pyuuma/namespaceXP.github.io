@@ -1,0 +1,84 @@
+#header{
+	position: fixed;
+	width: 100%;
+	overflow:hidden;
+	z-index:2038;
+}
+
+
+
+#header_image{
+	position: absolute;
+	overflow:hidden;
+	width: 100%;
+	z-index:2038;
+}
+
+
+#header_button{
+	position: absolute;
+	overflow:hidden;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	z-index: 2039;
+}
+
+.button{
+	position: absolute;
+	width : 41%;
+	bottom : 4%;
+}
+
+#page1{
+	position: relative;
+	z-index: 7;
+	width: 100%;
+}
+
+#outline{
+	position: relative;
+	width: 100%;
+}
+
+#page2{
+	position: relative;
+	top: -8px;
+	z-index: 6;
+	width: 100%;
+}
+
+#page3{
+	position: relative;
+	top: -14px;
+	z-index: 5;
+	width: 100%;
+}
+
+#page4{
+	position: relative;
+	top: -18px;
+	z-index: 4;
+	width: 100%;
+}
+
+#page5{
+	position: relative;
+	top: -32px;
+	z-index: 4;
+	width: 100%;
+}
+
+#page6{
+	position: relative;
+	top: -36px;
+	z-index: 3;
+	width: 100%;
+}
+
+#page7{
+	position: relative;
+	top: -40px;
+	z-index: 2;
+	width: 100%;
+}

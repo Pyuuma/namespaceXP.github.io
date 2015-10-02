@@ -1,0 +1,79 @@
+#left_rectangle
+{
+	position:absolute;
+	left:50%;
+	bottom:50%; 
+	margin-left:-233px;
+	margin-bottom:-204px;
+	width:69px;height:0px;
+	z-index:0;
+	background:url("../img/PC/矩形-3.png") no-repeat;
+}
+#right_rectangle
+{
+	position:absolute;
+	left:50%;
+	bottom:50%; 
+	margin-left:-163px;
+	margin-bottom:-203px;
+	width:410px;
+	height:0px;
+	z-index:0;
+	background:url("../img/PC/矩形-4.png") no-repeat;
+}
+
+#left_label
+{
+	margin-left:-363px;
+	margin-top:-62px;
+}
+
+#right_label
+{
+	margin-left:18px;
+	margin-top:5px;
+}
+		
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+	#left_rectangle
+	{
+		position:absolute;
+		left:50%;
+		bottom:50%; 
+		margin-left:-190px;
+		margin-bottom:-167px;
+		width:56px;height:0px;
+		z-index:0;
+		background:url("../img/iPad/矩形-3.png") no-repeat;
+	}
+	#right_rectangle
+	{
+		margin-left:-133px;
+		margin-bottom:-166px;
+		width:336px;
+		height:0px;
+		z-index:0;
+		background:url("../img/iPad/矩形-4.png") no-repeat;
+	}
+	#left_label
+	{
+		margin-left:-297px;
+		margin-top:-51px;
+		width:157px;
+		height:131px;
+	}
+	
+	#right_label
+	{
+		position:absolute;
+		left:50%;
+		top:50%; 
+		margin-left:15px;
+		margin-top:4px;
+		width:302px;
+		height:78px;
+	}
+}
+

@@ -1,10 +1,23 @@
-var sign = 10;
-$('#header').css('height', '83px');
+var sign = 10, listflag = false;
+
+$('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
+
+
+$('#header_button').click(function(){
+	if(!listflag){
+		this.src = 'img/close.png';
+		listflag = true;
+	}
+	else{
+		this.src = 'img/menu.png';
+		listflag = false;
+	}
+});
 
 function set_height(){
 	if(navigator.userAgent.indexOf("iPad") == -1)
 	{
-		;
+		$("#page0").attr('height', $('#page1').width() * 800 / 2020);
 	}
 	else
 	{		
@@ -19,42 +32,40 @@ function set_height(){
 }
 
 window.onscroll = function () {
-	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;
-	var height = document.documentElement.clientHeight||document.body.clientHeight;
 	
-
+	if(getScrollTop() > $('#page1').offset().top - 20 && getScrollTop() < $('#page1').offset().top + 600){
+		document.getElementById('page1').contentWindow.anime();
+	}	
 	if(getScrollTop() > $('#page2').offset().top - 20 && getScrollTop() < $('#page2').offset().top + 600){
-		//document.getElementById('page2').contentWindow.anime();
+		document.getElementById('page2').contentWindow.anime();
 	}	
 	if(getScrollTop() > $('#page3').offset().top - 20 && getScrollTop() < $('#page3').offset().top + 600){
-		//document.getElementById('page3').contentWindow.anime();
+		document.getElementById('page3').contentWindow.anime();
 	}	
 	if(getScrollTop() > $('#page4').offset().top - 20 && getScrollTop() < $('#page4').offset().top + 600){
-		//document.getElementById('page4').contentWindow.anime();
+		document.getElementById('page4').contentWindow.anime();
 	}	
 	if(getScrollTop() > $('#page5').offset().top - 20 && getScrollTop() < $('#page5').offset().top + 600){
-		//document.getElementById('page5').contentWindow.anime();
+		document.getElementById('page5').contentWindow.anime();
 	}	
 	if(getScrollTop() > $('#page6').offset().top - 20 && getScrollTop() < $('#page6').offset().top + 600){
-		//document.getElementById('page6').contentWindow.anime();
+		document.getElementById('page6').contentWindow.anime();
 	}	
 	if(getScrollTop() > $('#page7').offset().top - 20 && getScrollTop() < $('#page7').offset().top + 600){
-		//document.getElementById('page7').contentWindow.anime();
+		document.getElementById('page7').contentWindow.anime();
 	}	
 	
+	
+	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;
+	var height = document.documentElement.clientHeight||document.body.clientHeight;
 	if (scrtop > sign){
-		sign = scrtop;  
-		if(getScrollTop() < $('#page2').offset().top && getScrollTop() > $('#page2').offset().top - 0.6 * $('#page2').height()){
-		    $("body,html").animate({
-		     scrollTop : $('#page2').offset().top  //让body的scrollTop等于pos的top，就实现了滚动
-		     }, 600);
-		}	
-		
 		if(scrtop - sign > 20){
 			$('#header').css('height', '0px');
-		}    
+		}
+		sign = scrtop;  
+		
+		    
 	}
-	
 	else if(scrtop < sign){
 		if(scrtop - sign < -10){
 			$('#header').css('height', '83px');
@@ -68,7 +79,7 @@ window.onscroll = function () {
 
 function getScrollTop(){
     var scrollTop = 0;
-    if(document.documentElement && document.documentElement.scrollTop){
+    if(document.documentElement&&document.documentElement.scrollTop){
         scrollTop=document.documentElement.scrollTop;
     }
     else if(document.body){

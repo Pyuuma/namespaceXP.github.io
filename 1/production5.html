@@ -1,72 +1,19 @@
 <!DOCTYPE HTML>
-<html id= "scroll ">
+<html id= "scroll "><a href="production5.html" id="" title="production5">production5</a>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script src="js/jquery.js" type="text/javascript"></script>		
-		<style>
-			#haha
-			{
-				position:absolute;
-				left:50%;
-				top:150%; 
-				animation:myfirst 1s;
-				-moz-animation:myfirst 1s; /* Firefox */
-				-webkit-animation:myfirst 1s; /* Safari and Chrome */
-				-o-animation:myfirst 1s; /* Opera */
-				animation-fill-mode:forwards;
-				-moz-animation-fill-mode:forwards;  /* Firefox */
-				-webkit-animation-fill-mode:forwards; /* Safari and Chrome */
-				-o-animation-fill-mode:forwards;  /* Opera */
-			}
-			#welcomeDiv
-			{
-				position: absolute;
-				width:2020px;
-				height:800px;
-				left:50%;top:50%; 
-				margin-left:-1010px;
-				margin-top:-400px;
-			}
-			#welcomeDiv2
-			{
-				position: absolute;
-				width:2020px;
-				height:800px;
-				left:50%;top:50%; 
-				margin-left:-1010px;
-				margin-top:-400px;
-				border:1px solid #00F;
-				z-index:1;
-			}
-			
-			@keyframes myfirst
-			{
-			from{top:60%;}
-			to{top:50%;}	
-			}
-			
-			@-moz-keyframes myfirst /* Firefox */
-			{
-			from{top:60%;}
-			to{top:50%;}	
-			}
-			
-			@-webkit-keyframes myfirst /* Safari and Chrome */
-			{
-			from{top:60%;}
-			to{top:50%;}	
-			}
-			
-			@-o-keyframes myfirst /* Opera */
-			{
-			from{top:60%;}
-			to{top:50%;}	
-			}
-			
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />	
+		<link rel="stylesheet" type="text/css" href="css/production5.css" />	
 	</head>
 	<body style = "overflow:hidden;margin:0px;padding:0px">
-		<img id = "welcomeDiv" src = "img/5.png"/>
-		<img id = "haha"  src = "img/注释5.png" style = "margin-left:-333px;margin-top:-175px;"/>
+		<img class = "background_img" src = "img/PC/5.png"/>
+		<img id = "label"  src = "img/PC/注释5.png"/>
+
+	<script text= "text/javascript">
+	function anime(){
+		$("#label").addClass('move_up');
+	}	
+	</script>
 	</body>
 </html>
