@@ -3,7 +3,7 @@ var sign = 10, listflag = false;
 $('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
 
 
-header_button.onclick = header_button.ontouchend = function(){
+header_button.onmouseup = header_button.ontouchend = function(){
 	if(!listflag){
 		this.src = 'img/close.png';
 		listflag = true;
