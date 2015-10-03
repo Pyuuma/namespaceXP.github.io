@@ -1,6 +1,7 @@
 var sign = 10, listflag = false;
 
 $('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
+$('.page').css('height', $('.image').height().toString() + 'px');
 
 
 header_button.ontouchend = function(){
