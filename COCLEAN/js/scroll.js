@@ -12,8 +12,12 @@ window.onload = function(){
 	$('.title').css('top', (0.058 * $('.page').height()).toString() + 'px');
 	
 	$('#page2_word').css('top',(0.164 * $('.page').height()).toString() + 'px');
-	$('#page2_word').css('font-size',(2.8 * width).toString() + 'px');
+	$('#page2_word').css('font-size',(2.83 * width).toString() + 'px');
 	$('#page2_word').css('line-height',(1.8 * parseInt($('#page2_word').css('font-size'))).toString() + 'px');
+	
+	$('#page3_word').css('top',(0.245 * $('.page').height()).toString() + 'px');
+	$('#page3_word').css('font-size',(2.83 * width).toString() + 'px');
+	$('#page3_word').css('line-height',(1.8 * parseInt($('#page2_word').css('font-size'))).toString() + 'px');
 }
 
 
