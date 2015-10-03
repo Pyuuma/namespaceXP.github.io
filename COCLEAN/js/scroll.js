@@ -4,7 +4,9 @@ var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeig
 
 
 window.onload = function(){
-	$('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
+	$('#header').css('height', $('#header_image').height().toString() + 'px');
+	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
+	$('#blank').css('height', $('#footer_image').height().toString() + 'px');
 	$('.page').css('height', $('.image').height().toString() + 'px');
 	$('.title').css('height', (7 * width).toString() + 'px');
 	$('.title').css('font-size', $('.title').height().toString() + 'px');
@@ -20,6 +22,9 @@ window.onload = function(){
 	$('#page3_word').css('line-height',(1.8 * parseInt($('#page2_word').css('font-size'))).toString() + 'px');
 	
 	$('#page6_word').css('top',(0.224 * $('.page').height()).toString() + 'px');
+	$('#page7_word').css('top',(0.224 * $('.page').height()).toString() + 'px');
+	$('#page8_word').css('top',(0.170 * $('.page').height()).toString() + 'px');
+	$('#page8_hint').css('top',(0.254 * $('.page').height()).toString() + 'px');
 	
 	$('.subtitle').css('font-size',(3.83 * width).toString() + 'px');
 	$('.subtitle').css('left',(53 * width).toString() + 'px');
@@ -31,6 +36,50 @@ window.onload = function(){
 	$('.division_words').css('font-size',(2.84 * width).toString() + 'px');
 	$('.division_words').css('line-height',(1.8 * parseInt($('.compare_words').css('font-size'))).toString() + 'px');
 	
+	$('.page8_words').css('font-size',(2.84 * width).toString() + 'px');
+	$('#page8_hint').css('font-size',(2.44 * width).toString() + 'px');
+	
+	$('#contact').css('height',(34 * width).toString() + 'px');
+	$('#contact_title').css('font-size',(3.8 * width).toString() + 'px');
+	$('#contact_address').css('font-size',(2.8 * width).toString() + 'px');
+	$('#copyright').css('height',(0.8 * width).toString() + 'px');
+	$('#copyright').css('font-size', $('#copyright').height().toString() + 'px');
+	$('#copyright').css('line-height', $('#copyright').height().toString() + 'px');
+	$('#contact_address').css('line-height',(1.8 * parseInt($('#contact_address').css('font-size'))).toString() + 'px');
+	
+	$('#weibo_img').css('height',(9.2 * width).toString() + 'px');
+	$('#wechat_img').css('height',(9.2 * width).toString() + 'px');
+	$('#weibo_img').css('top',(2 * width).toString() + 'px');
+	$('#wechat_img').css('top', $('#weibo_img').css('top'));
+	
+	$('#weibo_img').css('right',(3 * width).toString() + 'px');
+	$('#wechat_img').css('right',(16 * width).toString() + 'px');
+	$('#curve').css('bottom', (12 * width).toString() + 'px');
+	$('#copyright').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#copyright').height()) / 2).toString() + 'px');
+	
+	$('#language_img').css('height', (parseInt($('#curve').css('bottom')) * 0.7).toString() + 'px');
+	$('#language_img').css('right', (19 * width).toString() + 'px');
+	$('#language_img').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#language_img').height()) / 2).toString() + 'px');
+	
+	$('#change_img').css('height', (parseInt($('#curve').css('bottom')) * 0.16).toString() + 'px');
+	$('#change_img').css('right', (4.6 * width).toString() + 'px');
+	$('#change_img').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#change_img').height()) / 2).toString() + 'px');
+	
+	$('#language_now').css('height', (parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
+	$('#language_now').css('font-size', $('#language_now').height().toString() + 'px');
+	$('#language_now').css('right', (10 * width).toString() + 'px');
+	$('#language_now').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#language_now').height()) / 2).toString() + 'px');
+	
+	
+	$('.footer_word').css('font-size',($('#footer').height() * 0.34).toString() + 'px');
+	$('#go_jd').css('height', ($('#footer').height() * 0.6));
+	$('#go_jd').css('width', ($('#go_jd').width() * 1.4));
+	$('#go_jd').css('line-height', ($('#go_jd').height()).toString() + 'px');
+	$('#buybuybuy').css('left', (10 * width).toString() + 'px');
+	$('#go_jd').css('right', (10 * width  - $('#go_jd').width() *  1 / 7).toString() + 'px');
+	$('#go_jd').css('border-radius', ($('#go_jd').height() / 2).toString() + 'px');
+	$('.footer_word').css('bottom', (($('#footer').height() - $('.footer_word').height()) / 2).toString() + 'px');
+	$('#go_jd').css('bottom', (($('#footer').height() - $('#go_jd').height()) / 2).toString() + 'px');
 }
 
 
@@ -49,22 +98,6 @@ header_button.ontouchend = function(){
 
 
 
-function set_height(){
-	if(navigator.userAgent.indexOf("iPad") == -1)
-	{
-		$("#page0").attr('height', $('#page1').width() * 800 / 2020);
-	}
-	else
-	{		
-		$("#page1").attr('height', $('#page1').width() * 665 / 1024);
-		$("#page2").attr('height', $('#page2').width() * 665 / 1024);
-		$("#page3").attr('height', $('#page3').width() * 665 / 1024);
-		$("#page4").attr('height', $('#page4').width() * 665 / 1024);
-		$("#page5").attr('height', $('#page5').width() * 665 / 1024);
-		$("#page6").attr('height', $('#page6').width() * 665 / 1024);
-		$("#page7").attr('height', $('#page7').width() * 665 / 1024);
-	}  
-}
 
 window.onscroll = function () {
 	
@@ -103,7 +136,7 @@ window.onscroll = function () {
 	}
 	else if(scrtop < sign){
 		if(scrtop - sign < -10){
-			$('#header').css('height', '83px');
+			$('#header').css('height', $('#header_image').height().toString() + 'px');
 		}
 		sign = scrtop;
 	}
