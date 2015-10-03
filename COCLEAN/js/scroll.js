@@ -25,6 +25,10 @@ window.onload = function(){
 	$('.compare_words').css('font-size',(2.84 * width).toString() + 'px');
 	$('.compare_words').css('line-height',(1.8 * parseInt($('.compare_words').css('font-size'))).toString() + 'px');
 	$('.compare_words').css('left',(53 * width).toString() + 'px');
+	
+	$('.division_words').css('font-size',(2.84 * width).toString() + 'px');
+	$('.division_words').css('line-height',(1.8 * parseInt($('.compare_words').css('font-size'))).toString() + 'px');
+	
 }
 
 

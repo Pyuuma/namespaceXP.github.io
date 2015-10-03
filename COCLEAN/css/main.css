@@ -66,6 +66,7 @@ body{
 	position: absolute;
 	width: 100%;
 	text-align: center;
+	color: #cccccc;
 }
 
 .subtitle{
@@ -77,7 +78,13 @@ body{
 
 .compare_words{
 	position: absolute;
-	width: 39%;
+	color: RGB(137, 137, 137);
+	text-align: left;
+}
+
+.division_words{
+	position: absolute;
+	width: 18%;
 	color: RGB(137, 137, 137);
 	text-align: left;
 }
