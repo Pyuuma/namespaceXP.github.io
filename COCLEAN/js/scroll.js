@@ -42,7 +42,7 @@ window.onload = function(){
 	$('#contact').css('height',(34 * width).toString() + 'px');
 	$('#contact_title').css('font-size',(3.8 * width).toString() + 'px');
 	$('#contact_address').css('font-size',(2.8 * width).toString() + 'px');
-	$('#copyright').css('height',(0.8 * width).toString() + 'px');
+	$('#copyright').css('height',(2.4 * width).toString() + 'px');
 	$('#copyright').css('font-size', $('#copyright').height().toString() + 'px');
 	$('#copyright').css('line-height', $('#copyright').height().toString() + 'px');
 	$('#contact_address').css('line-height',(1.8 * parseInt($('#contact_address').css('font-size'))).toString() + 'px');
