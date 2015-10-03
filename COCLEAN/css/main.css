@@ -35,7 +35,7 @@ body{
 	
 }
 
-#page2_word{
+.normal_words{
 	position: absolute;
 	text-align: center;
 	width: 80%;
@@ -43,12 +43,14 @@ body{
 	color: RGB(181, 181, 181);
 }
 
-#page3_word{
+
+
+#page6_word{
 	position: absolute;
 	text-align: center;
 	width: 80%;
 	left: 10%;
-	color: RGB(137, 137, 137);
+	color: RGB(181, 181, 181);
 }
 
 .page{
