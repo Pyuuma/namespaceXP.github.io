@@ -70,7 +70,14 @@ body{
 
 .subtitle{
 	position: absolute;
-	width: 50%;
-	color: #222222;
+	width: 40%;
+	color: #666666;
+	text-align: left;
+}
+
+.compare_words{
+	position: absolute;
+	width: 39%;
+	color: RGB(137, 137, 137);
 	text-align: left;
 }
