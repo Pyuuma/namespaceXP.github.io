@@ -1,9 +1,19 @@
 var sign = 10, listflag = false;
+var width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 
 
 window.onload = function(){
 	$('#header').css('height', $('#header').css('height', $('#header_image').height().toString() + 'px'));
 	$('.page').css('height', $('.image').height().toString() + 'px');
+	$('.title').css('height', (7 * width).toString() + 'px');
+	$('.title').css('font-size', $('.title').height().toString() + 'px');
+	$('.title').css('line-height', $('.title').height().toString() + 'px');
+	$('.title').css('top', (0.058 * $('.page').height()).toString() + 'px');
+	
+	$('#page2_word').css('top',(0.164 * $('.page').height()).toString() + 'px');
+	$('#page2_word').css('font-size',(2.8 * width).toString() + 'px');
+	$('#page2_word').css('line-height',(1.8 * parseInt($('#page2_word').css('font-size'))).toString() + 'px');
 }
 
 

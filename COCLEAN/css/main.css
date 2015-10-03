@@ -1,5 +1,6 @@
 body{
 	color: #ffffff;
+	font-family: 微软雅黑;
 }
 
 #header{
@@ -36,7 +37,9 @@ body{
 
 #page2_word{
 	position: absolute;
+	text-align: center;
 	width: 80%;
+	left: 10%;
 }
 
 .page{
@@ -54,6 +57,4 @@ body{
 	position: absolute;
 	width: 100%;
 	text-align: center;
-	font-size: 70%;
-	top:10%;
 }
