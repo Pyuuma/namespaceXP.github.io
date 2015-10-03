@@ -48,7 +48,7 @@ body{
 	text-align: center;
 	width: 80%;
 	left: 10%;
-	color: RGB(177, 177, 177);
+	color: RGB(137, 137, 137);
 }
 
 .page{
@@ -66,4 +66,11 @@ body{
 	position: absolute;
 	width: 100%;
 	text-align: center;
+}
+
+.subtitle{
+	position: absolute;
+	width: 50%;
+	color: #222222;
+	text-align: left;
 }
