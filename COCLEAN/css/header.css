@@ -1,0 +1,75 @@
+body{
+	color: #ffffff;
+	font-family: 微软雅黑;
+}
+
+#header{
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	overflow:hidden;
+	z-index:2038;
+}
+
+#header_image{
+	position: absolute;
+	overflow:hidden;
+	width: 100%;
+	z-index:2038;
+}
+
+
+#header_button{
+	position: absolute;
+	overflow:hidden;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	z-index: 2039;
+}
+
+.contact_img{
+	position: absolute;
+}
+
+#contact{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	color: RGB(137, 137, 137);
+	background-color: RGB(238,238,238);
+}
+
+#contact_title{
+	position: absolute;
+	left: 5%;
+	width: 40%;
+}
+
+#contact_address{
+	position: absolute;
+	left: 5%;
+	top: 24%;
+	width: 80%;
+}
+
+#curve{
+	position: absolute;
+	height: 1px;
+	width: 90%;
+	left: 5%;
+	background-color: RGB(209, 209, 209);
+}
+
+
+#copyright{
+	position: absolute;
+	color: RGB(181, 181, 181);;
+	left: 5%;
+}
+
+#go_jd{
+	position: absolute;
+ 	border:thin solid #ffffff;
+	text-align: center;
+}
