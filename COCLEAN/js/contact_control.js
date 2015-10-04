@@ -68,6 +68,7 @@ window.onload = function(){
 	
 	$('#language_now').css('height', (parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
 	$('#language_now').css('font-size', $('#language_now').height().toString() + 'px');
+	$('#language_now').css('line-height', $('#language_now').height().toString() + 'px');
 	$('#language_now').css('right', (12 * width).toString() + 'px');
 	$('#language_now').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#language_now').height()) / 2).toString() + 'px');
 	
