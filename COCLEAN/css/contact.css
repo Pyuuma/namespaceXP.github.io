@@ -22,7 +22,7 @@ body{
 	position: absolute;
 	width: 96%;
 	text-align: left;
-	color: RGB(197, 197, 197);
+	color: RGB(187, 187, 187);
 	overflow-y: scroll;
 	overflow-x: auto;
 }
