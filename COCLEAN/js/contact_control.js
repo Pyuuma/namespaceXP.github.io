@@ -64,7 +64,7 @@ window.onload = function(){
 	
 	$('#change_img').css('height', (parseInt($('#curve').css('bottom')) * 0.16).toString() + 'px');
 	$('#change_img').css('right', (4.5 * width).toString() + 'px');
-	$('#change_img').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#change_img').height()) / 2).toString() + 'px');
+	$('#change_img').css('bottom', ((language_height - $('#change_img').height()) / 2).toString() + 'px');
 	
 	$('#language_now').css('height', (parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
 	$('#language_now').css('font-size', $('#language_now').height().toString() + 'px');
