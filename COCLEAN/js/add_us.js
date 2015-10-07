@@ -29,6 +29,7 @@ window.onload = function(){
 	set_change_language();
 	set_content();
 	job1.style.color = 'RGB(27, 190, 231)';
+	$('#cover').css('display', 'none');
 }
 
 
@@ -189,7 +190,6 @@ window.onscroll = function () {
 }
 
 
-
 function getScrollTop(){
     var scrollTop = 0;
     if(document.documentElement&&document.documentElement.scrollTop){
@@ -200,7 +200,6 @@ function getScrollTop(){
     }
     return scrollTop;
 }
-
 
 
 function getClientHeight(){
@@ -218,5 +217,3 @@ function getClientHeight(){
 function getScrollHeight(){
     return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
 }
-
-set_height();
