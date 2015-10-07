@@ -35,7 +35,6 @@ body{
 #contact{
 	position: absolute;
 	width: 100%;
-	bottom: 0;
 	color: RGB(137, 137, 137);
 	background-color: RGB(238,238,238);
 }

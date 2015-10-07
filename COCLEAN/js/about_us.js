@@ -28,6 +28,8 @@ window.onload = function(){
 	set_motto();
 	set_member_title();
 	set_members();
+	set_change_language();
+
 }
 
 function set_title(){
