@@ -68,19 +68,6 @@ function set_content(){
 }
 
 
-header_button.ontouchend = function(){
-	if(!listflag){
-		this.src = 'img/close.png';
-		listflag = true;
-	}
-	else{
-		this.src = 'img/menu.png';
-		listflag = false;
-	}
-}
-
-//header_button.onmouseup = header_button.ontouchend;
-
 job1.onclick = function(){
 	document.getElementById('job' + chosen.toString()).style.color = 'RGB(82, 82, 82)';
 	chosen = 1;
