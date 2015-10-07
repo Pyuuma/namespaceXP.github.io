@@ -49,23 +49,23 @@ body{
 
 .leftname{
 	position: absolute;
-	color: RGB(87, 87, 87);
+	left : 0px;
 	text-align : left;
 }
 
 .left_word{
 	position: absolute;
-	color: RGB(87, 87, 87);
+	left: 0px;
 	text-align : left;
 }
 
 .left_photo{
 	position: absolute;
-	color: RGB(87, 87, 87);
+	left: 0px;
 	right: 10%;
 }
 
 .right_photo{
 	position: absolute;
-	right: 10%;
+	right: 0px;
 }
