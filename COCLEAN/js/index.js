@@ -1,13 +1,12 @@
-var sign = 10, listflag = false;
 var width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 var top_now;
 
 
 window.onload = function(){
-	$('#header').css('height', $('#header_image').height().toString() + 'px');
+	set_header();
 	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
-	$('.page').css('height', $('.image').height().toString() + 'px');
+
 	set_title();
 	set_suspend();
 	set_change_language();
@@ -16,6 +15,7 @@ window.onload = function(){
 }
 
 function set_title(){
+	
 	$('.title').css('height', (7 * width).toString() + 'px');
 	$('.title').css('font-size', $('.title').height().toString() + 'px');
 	$('.title').css('line-height', $('.title').height().toString() + 'px');
@@ -30,7 +30,7 @@ function set_content(){
 	
 	var page3_word_top_rate = 0.245;
 	
-	
+	$('.page').css('height', $('.image').height().toString() + 'px');
 	$('#page2_word').css('top',(page2_word_top_rate * $('.page').height()).toString() + 'px');
 	$('.normal_words').css('font-size',(font_size * width).toString() + 'px');
 	$('.normal_words').css('line-height',(line_height_rate * parseInt($('#page2_word').css('font-size'))).toString() + 'px');
@@ -82,69 +82,3 @@ function set_suspend(){
 	$('#go_jd').css('bottom', (($('#footer').height() - $('#go_jd').height()) / 2).toString() + 'px');
 }
 
-header_button.ontouchend = function(){
-	if(!listflag){
-		this.src = 'img/close.png';
-		listflag = true;
-	}
-	else{
-		this.src = 'img/menu.png';
-		listflag = false;
-	}
-}
-
-//header_button.onmouseup = header_button.ontouchend;
-
-
-
-
-window.onscroll = function () {	
-	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;
-	var height = document.documentElement.clientHeight||document.body.clientHeight;
-	if (scrtop > sign){
-		if(scrtop - sign > 20){
-			$('#header').css('height', '0px');
-		}
-		sign = scrtop;  
-		
-		    
-	}
-	else if(scrtop < sign){
-		if(scrtop - sign < -10){
-			$('#header').css('height', $('#header_image').height().toString() + 'px');
-		}
-		sign = scrtop;
-	}
-	
-}
-
-
-
-function getScrollTop(){
-    var scrollTop = 0;
-    if(document.documentElement&&document.documentElement.scrollTop){
-        scrollTop=document.documentElement.scrollTop;
-    }
-    else if(document.body){
-        scrollTop=document.body.scrollTop;
-    }
-    return scrollTop;
-}
-
-
-
-function getClientHeight(){
-    var clientHeight=0;
-    if(document.body.clientHeight&&document.documentElement.clientHeight){
-        var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;        
-    }
-    else{
-        var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;    
-    }
-    return clientHeight;
-}
-
-
-function getScrollHeight(){
-    return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
-}

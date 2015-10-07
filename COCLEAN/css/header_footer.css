@@ -8,24 +8,33 @@ body{
 	width: 100%;
 	top: 0px;
 	overflow:hidden;
-	z-index:2038;
+	z-index: 4097;
+	background-color: RGB(49, 49, 49);
+	transition: height 0.5s;
+	-moz-transition: height 0.5s; /* Firefox 4 */
+	-webkit-transition: height 0.5s; /* Safari 和 Chrome */
 }
 
 #header_image{
 	position: absolute;
 	overflow:hidden;
 	width: 100%;
-	z-index:2038;
+	z-index:4097;
 }
 
+#goto{
+	position: absolute;
+	width: 100%;
+	text-indent: 5%;
+	color: RGB(238, 238, 238);;
+}
 
 #header_button{
 	position: absolute;
 	overflow:hidden;
-	height: 100%;
 	top: 0px;
 	right: 0px;
-	z-index: 2039;
+	z-index: 4098;
 }
 
 .contact_img{
@@ -52,7 +61,8 @@ body{
 	width: 80%;
 }
 
-#curve{
+
+.curve{
 	position: absolute;
 	height: 1px;
 	width: 90%;
@@ -97,6 +107,7 @@ body{
 	background-color: RGB(219, 219, 219);
 	border-radius: 0 0 10px 10px;
 }
+
 
 .language{
 	position: absolute;

@@ -3,13 +3,6 @@ body{
 	font-family: 微软雅黑;
 }
 
-#header{
-	position: fixed;
-	width: 100%;
-	overflow:hidden;
-	z-index:2038;
-}
-
 #cover{
 	position: fixed;
 	background-color: #ffffff;
@@ -33,22 +26,7 @@ body{
 	z-index:2038;
 }
 
-#header_image{
-	position: absolute;
-	overflow:hidden;
-	width: 100%;
-	z-index:2038;
-}
 
-
-#header_button{
-	position: absolute;
-	overflow:hidden;
-	height: 100%;
-	top: 0px;
-	right: 0px;
-	z-index: 2039;
-}
 
 .image{
 	position: absolute;

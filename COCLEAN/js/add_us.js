@@ -1,4 +1,3 @@
-var sign = 10, listflag = false;
 var width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 
@@ -23,7 +22,7 @@ var change_language_height = 16 * width;
 var top_now = 0;
 
 window.onload = function(){
-	$('#header').css('height', $('#header_image').height().toString() + 'px');
+	set_header();
 	set_job_list();
 	set_change_language();
 	set_content();
@@ -148,71 +147,4 @@ down.onclick = function(){
 	$('#change_language').css('display', 'none');
 }
 
-function set_language(){
-	if(language){
-		$('#language_now').html('中文');
-		$('#this_language').html('中文');
-		$('#other_language').html('English');
-		$('#other_language_img').attr('src', 'img/english.png');
-		$('#this_language_img').attr('src', 'img/chinese.png');
-		$('#language_img').attr('src', 'img/chinese.png');
-	}
-	else{
-		$('#language_now').html('English');
-		$('#this_language').html('English');
-		$('#other_language').html('中文');
-		$('#other_language_img').attr('src', 'img/chinese.png');
-		$('#this_language_img').attr('src', 'img/english.png');
-		$('#language_img').attr('src', 'img/english.png');
-	}
-}
 
-
-window.onscroll = function () {	
-	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;
-	var height = document.documentElement.clientHeight||document.body.clientHeight;
-	if (scrtop > sign){
-		if(scrtop - sign > 20){
-			$('#header').css('height', '0px');
-		}
-		sign = scrtop;  
-		
-		    
-	}
-	else if(scrtop < sign){
-		if(scrtop - sign < -10){
-			$('#header').css('height', $('#header_image').height().toString() + 'px');
-		}
-		sign = scrtop;
-	}
-	
-}
-
-
-function getScrollTop(){
-    var scrollTop = 0;
-    if(document.documentElement&&document.documentElement.scrollTop){
-        scrollTop=document.documentElement.scrollTop;
-    }
-    else if(document.body){
-        scrollTop=document.body.scrollTop;
-    }
-    return scrollTop;
-}
-
-
-function getClientHeight(){
-    var clientHeight=0;
-    if(document.body.clientHeight&&document.documentElement.clientHeight){
-        var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;        
-    }
-    else{
-        var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;    
-    }
-    return clientHeight;
-}
-
-
-function getScrollHeight(){
-    return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
-}
