@@ -9,6 +9,7 @@ var down = document.getElementById('down');
 var goto_production = document.getElementById('goto_production');
 var goto_aboutus = document.getElementById('goto_aboutus');
 var goto_addus = document.getElementById('goto_addus');
+var header_button = document.getElementById('header_button');
 
 
 var top_padding = 8 * width;
@@ -150,12 +151,11 @@ header_button.ontouchend = function(){
 	}
 }
 
-/*
+
 header_button.onmouseup = header_button.ontouchend;
 goto_production.onmouseup = goto_production.ontouchend;
 goto_aboutus.onmouseup = goto_aboutus.ontouchend;
 goto_addus.onmouseup = goto_addus.ontouchend;
-*/
 
 another_change_img.onclick = function(){
 	$('#change_language').css('display', 'none');

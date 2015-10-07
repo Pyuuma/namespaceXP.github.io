@@ -35,6 +35,7 @@ body{
 	top: 0px;
 	right: 0px;
 	z-index: 4098;
+	cursor: pointer;
 }
 
 .contact_img{
