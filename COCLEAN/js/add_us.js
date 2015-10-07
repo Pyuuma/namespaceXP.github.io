@@ -60,7 +60,7 @@ function set_job_list(){
 }
 
 function set_content(){
-	$('#content').css('top', ($('#job_list').height() + $('#header').height()).toString() + 'px');
+	$('#content').css('top', ($('#job_list').height() + $('#header_image').height()).toString() + 'px');
 	$('#content').css('height', 100 * height - ($('#job_list').height() + $('#header').height() + $('#contact').height()).toString() + 'px');
 	$('#content').css('left', (left_padding).toString() + 'px');
 	$('#content').css('font-size', content_fontsize.toString() + 'px');
