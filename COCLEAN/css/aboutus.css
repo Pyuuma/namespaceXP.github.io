@@ -36,9 +36,8 @@ body{
 
 .content{
 	position: absolute;
-	color: RGB(87, 87, 87);
+	color: RGB(181, 181, 181);
 	text-align : left;
-	display:inline;
 }
 
 .member{
