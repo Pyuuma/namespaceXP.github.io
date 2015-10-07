@@ -29,7 +29,7 @@ window.onload = function(){
 	set_member_title();
 	set_members();
 	set_change_language();
-
+	$('#cover').css('display', 'none');
 }
 
 function set_title(){

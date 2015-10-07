@@ -17,6 +17,15 @@ body{
 	text-align: center;
 }
 
+#cover{
+	position: fixed;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 4096;
+}
+
 .border{
 	position: absolute;
 	background-color: RGB(153, 153, 153);

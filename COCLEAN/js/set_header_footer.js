@@ -84,6 +84,7 @@ function set_change_language(){
 	
 	$('#change_language').css('display', 'none');
 	
+	top_now += contact_height;
 }
 
 

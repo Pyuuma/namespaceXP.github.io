@@ -10,6 +10,14 @@ body{
 	z-index:2038;
 }
 
+#cover{
+	position: fixed;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 4096;
+}
 
 #footer{
 	position: fixed;
@@ -19,7 +27,11 @@ body{
 	z-index:2038;
 }
 
-
+#blank{
+	position: absolute;
+	width: 100%;
+	z-index:2038;
+}
 
 #header_image{
 	position: absolute;
@@ -114,59 +126,5 @@ body{
 	color: RGB(200, 200, 200);
 	text-align: left;
 	left: 69%;
-}
-
-#contact{
-	position: relative;
-	width: 100%;
-	color: RGB(137, 137, 137);
-	background-color: RGB(238,238,238);
-}
-
-#contact_title{
-	position: absolute;
-	left: 5%;
-	width: 40%;
-}
-
-#contact_address{
-	position: absolute;
-	left: 5%;
-	top: 24%;
-	width: 80%;
-}
-
-#curve{
-	position: absolute;
-	height: 1px;
-	width: 90%;
-	left: 5%;
-	background-color: RGB(209, 209, 209);
-}
-
-
-#copyright{
-	position: absolute;
-	color: RGB(181, 181, 181);;
-	left: 5%;
-}
-
-#go_jd{
-	position: absolute;
- 	border:thin solid #ffffff;
-	text-align: center;
-}
-
-
-#blank{
-	position: relative;
-	width: 100%;
-	background-color: #eeeeee;
-	height: 100px;
-	bottom: 0px;
-}
-
-.contact_img{
-	position: absolute;
 }
 

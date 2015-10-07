@@ -24,7 +24,6 @@ var top_now = 0;
 
 window.onload = function(){
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
-
 	set_job_list();
 	set_change_language();
 	set_content();
