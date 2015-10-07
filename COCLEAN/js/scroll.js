@@ -80,6 +80,8 @@ window.onload = function(){
 	$('#go_jd').css('border-radius', ($('#go_jd').height() / 2).toString() + 'px');
 	$('.footer_word').css('bottom', (($('#footer').height() - $('.footer_word').height()) / 2).toString() + 'px');
 	$('#go_jd').css('bottom', (($('#footer').height() - $('#go_jd').height()) / 2).toString() + 'px');
+	
+	set_change_language();
 }
 
 
