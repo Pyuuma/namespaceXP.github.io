@@ -32,7 +32,7 @@ window.onload = function(){
 
 
 function set_job_list(){
-	$('#job_list').css('top', $('#header').height().toString() + 'px');
+	$('#job_list').css('top', $('#header_image').height().toString() + 'px');
 	$('#x-border2').css('bottom', '0px');
 	$('#job_list').css('height', ($('#header').width() * 540 / 2258).toString() + 'px');
 	$('#x-border1').css('bottom', ($('#job_list').height() / 2).toString() + 'px');
