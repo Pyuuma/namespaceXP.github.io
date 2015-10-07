@@ -36,36 +36,33 @@ body{
 
 .content{
 	position: absolute;
-	top: -24%;
 	color: RGB(87, 87, 87);
 	text-align : left;
+	display:inline;
 }
 
 .member{
-	position: absolute;
+	position: relative;
 	color: RGB(87, 87, 87);
 	text-align : left;
 }
 
-.leftname{
+.name{
 	position: absolute;
-	left : 0px;
+	top: 19%;
+	color: RGB(84, 84, 84);
 	text-align : left;
 }
 
-.left_word{
+.word{
 	position: absolute;
-	left: 0px;
+	top: 36%;
+	color: RGB(181, 181, 181);
 	text-align : left;
 }
 
-.left_photo{
+.photo{
 	position: absolute;
-	left: 0px;
-	right: 10%;
+	width: 41.7%;
 }
 
-.right_photo{
-	position: absolute;
-	right: 0px;
-}

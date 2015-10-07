@@ -9,7 +9,7 @@ var down = document.getElementById('down');
 
 var title_font_rate = 0.333;
 var member_width = 85;
-var member_height = 60;
+var member_height = 68;
 var members = 10;
 var content_font = 2.4;
 var motto_height = 19.04;
@@ -40,9 +40,9 @@ function set_title(){
 }
 
 function set_content(){
-	$('.content').css('width', (content_width * width).toString() + 'px');
+	$('.content').css('width', ((content_width / 2 + 50) * width).toString() + 'px');
 	$('.content').css('left', ((50 - content_width / 2)  * width).toString() + 'px');
-	$('.content').css('font-size', ((content_width * width) / 32).toString() + 'px');
+	$('.content').css('font-size', ((content_width * width) / 30).toString() + 'px');
 	$('.content').css('line-height', (content_line_height * content_font * width).toString() + 'px');
 }
 
@@ -79,9 +79,13 @@ function set_members(){
 	$('.member').css('height', (member_height * width).toString() + 'px');
 	$('.member').css('width', (member_width * width).toString() + 'px');
 	
-	$('.right_photo').css('top', (($('.member').height() - $('.member').height()).toString() + 'px');
-	$('.member').css('height', (member_height * width).toString() + 'px');
-	$('.member').css('height', (member_height * width).toString() + 'px');
+	$('.photo').css('top', (($('.member').height() - $('.photo').height())/ 2).toString() + 'px');
+	$('.name').css('font-size', $('.content').css('font-size'));
+	$('.word').css('font-size', $('.content').css('font-size'));
+	$('.word').css('line-height', (content_line_height * parseInt($('.content').css('font-size'))).toString() + 'px');
+	
+	
+	
 	top_now += $('#members').height();
 }
 
