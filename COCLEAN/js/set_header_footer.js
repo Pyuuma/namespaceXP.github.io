@@ -21,7 +21,9 @@ var change_language_innerwidth = 2 * width;
 var change_language_height = 16 * width;
 
 function set_change_language(){
-	
+	if(top_now == 0){
+		top_now = 100 * height -  contact_height;
+	}
 	$('#contact').css('top', top_now.toString() + 'px');
 	$('#contact').css('height', contact_height.toString() + 'px');
 	$('#contact_title').css('font-size',(3.8 * width).toString() + 'px');

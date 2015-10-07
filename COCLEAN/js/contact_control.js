@@ -20,14 +20,14 @@ var language = 1;
 var language_now_width = 13 * width;
 var change_language_innerwidth = 2 * width;
 var change_language_height = 16 * width;
+var top_now = 0;
 
 window.onload = function(){
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
 
 	set_job_list();
-	set_content();
 	set_change_language();
-	
+	set_content();
 	job1.style.color = 'RGB(27, 190, 231)';
 }
 
