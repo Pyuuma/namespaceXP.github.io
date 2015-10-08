@@ -234,11 +234,13 @@ function show_cover(){
 	$('#cover').css('z-index', 4);
 	$('#cover').css('opacity', 0.5);
 	$('#cover').css('background-color', '#111111');
+	$('body').css('overflow', 'hidden');
 }
 
 function hide_cover(){
 	$('#cover').css('background-color', 'transparent');
 	$('#cover').css('z-index', 2);
+	$('body').css('overflow', 'auto');
 }
 
 window.onscroll = function () {	
