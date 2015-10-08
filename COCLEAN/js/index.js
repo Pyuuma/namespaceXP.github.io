@@ -88,7 +88,7 @@ function set_suspend(){
 
 $('#watch_video').click(function(){
 	$('#video').css('display', 'block');
-
+	show_cover();
 });
 
 
