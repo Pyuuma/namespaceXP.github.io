@@ -229,7 +229,15 @@ $('#cover').click(function(){
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
 	listflag = false;
 	hide_cover();
-})
+});
+
+$('#goto_weibo').click(function(){
+	window.location.href = 'http://weibo.com/coclean';
+});
+
+$('#weibo_img').click(function(){
+	window.location.href = 'http://weibo.com/coclean';
+});
 
 
 function show_cover(){
