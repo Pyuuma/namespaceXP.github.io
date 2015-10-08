@@ -30,7 +30,7 @@ var language_now_width = 13 * width;
 var change_language_innerwidth = 2 * width;
 var change_language_height = 16 * width;
 var header_full_height = 86;
-var wechat_load_width = 18;
+var wechat_load_width = 15;
 var goto_button_height = 13.2;
 var goto_button_img_height = 8;
 
