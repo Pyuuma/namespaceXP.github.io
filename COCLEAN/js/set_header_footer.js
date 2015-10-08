@@ -5,6 +5,7 @@ var sign = 10, listflag = false;
 var another_change_img = document.getElementById('another_change_img');
 var change_img = document.getElementById('change_img');
 var wechat_img = document.getElementById('wechat_img');
+var goto_wechat = document.getElementById('goto_wechat');
 var up = document.getElementById('up');
 var down = document.getElementById('down');
 var goto_production = document.getElementById('goto_production');
@@ -16,10 +17,11 @@ var header_button = document.getElementById('header_button');
 var top_padding = 8 * width;
 var left_padding = 4 * width;
 var content_fontsize = 2.8 * width;
+var header_fontsize = 3.6 * width;
 var job_fontrate = 3.6; 
 var contact_height = 32 * width;
 var lineheight_rate = 1.8; 
-var goto_lineheight_rate = 3.5; 
+var goto_lineheight_rate = 3.6; 
 var language_height = 9.6 * width;
 var copyright_height = 2 * width;
 var chosen = 1;
@@ -27,15 +29,27 @@ var language = 1;
 var language_now_width = 13 * width;
 var change_language_innerwidth = 2 * width;
 var change_language_height = 16 * width;
-var header_full_height = 42;
+var header_full_height = 86;
 var wechat_load_width = 18;
+var goto_button_height = 13.2;
+var goto_button_img_height = 8;
 
 function set_header(){
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
 	$('#header_button').css('height', $('#header_image').height().toString() + 'px');
 	$('#goto').css('top', $('#header_image').height().toString() + 'px');
-	$('#goto').css('font-size', content_fontsize.toString() + 'px');
-	$('#goto').css('line-height', (content_fontsize * goto_lineheight_rate).toString() + 'px');
+	$('#goto').css('height', (header_full_height  * width - $('#header_image').height()).toString() + 'px');
+	$('#goto').css('font-size', header_fontsize.toString() + 'px');
+	$('#goto').css('line-height', (header_fontsize * goto_lineheight_rate).toString() + 'px');
+	$('.goto_button').css('height', (goto_button_height * width).toString() + 'px');
+	$('.goto_button_word').css('height', (goto_button_height * width).toString() + 'px');
+	$('.goto_button_word').css('line-height', (goto_button_height * width).toString() + 'px');
+	$('#hidden_wechat_1').css('height', (goto_button_height * width).toString() + 'px');
+	$('#hidden_wechat_1').css('line-height', (goto_button_height * width).toString() + 'px');
+	$('#hidden_wechat_2').css('height', (goto_button_height * width).toString() + 'px');
+	$('#hidden_wechat_2').css('line-height', (goto_button_height * width).toString() + 'px');
+	$('.goto_button_img').css('height', (goto_button_img_height * width).toString() + 'px');
+	$('.goto_button_img').css('top', (($('.goto_button').height() - goto_button_img_height * width)/ 2).toString() + 'px');
 }
 
 function set_change_language(){
@@ -169,6 +183,21 @@ wechat_img.onclick = function(){
 	}
 	else{
 		$('#wechat_load').css('display', 'none');
+	}
+}
+
+goto_wechat.onclick = function(){
+	if($('#hidden_wechat_1').css('display') == 'none'){
+		$('#hidden_wechat_1').css('display', 'block');
+		$('#hidden_wechat_2').css('display', 'block');
+		$('#head_wechat').css('display', 'none');
+		$('#goto_wechat_word').css('display', 'none');
+	}
+	else{
+		$('#hidden_wechat_1').css('display', 'none');
+		$('#hidden_wechat_2').css('display', 'none');
+		$('#head_wechat').css('display', 'block');
+		$('#goto_wechat_word').css('display', 'block');
 	}
 }
 

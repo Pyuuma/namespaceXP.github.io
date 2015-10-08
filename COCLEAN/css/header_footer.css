@@ -27,7 +27,6 @@ body{
 	width: 100%;
 	color: RGB(238, 238, 238);;
 	text-align: right;
-	text-indent: -5%;
 }
 
 #header_button{
@@ -67,8 +66,8 @@ body{
 .curve{
 	position: absolute;
 	height: 1px;
-	width: 90%;
-	left: 5%;
+	width: 92.4%;
+	left: 3.8%;
 	background-color: RGB(209, 209, 209);
 }
 
@@ -115,12 +114,47 @@ body{
 	display : none;
 }
 
+#hidden_wechat_1{
+	position: absolute;
+	top: 0;
+	left: 15%;
+	display : none;
+}
+
+#hidden_wechat_2{
+	top: 0;
+	position: absolute;
+	right: 15%;
+	display : none;
+	color: RGB(0, 158, 190);
+}
+
 .language{
 	position: absolute;
 	text-align: center;
 }
 
+.goto_button{
+	position: absolute;
+	background-color: RGB(50, 50, 50);
+	border-radius: 10px;
+	width: 44%;
+	bottom: 15%;
+	text-align: center;
+}
+
+.goto_button_word{
+	position: absolute;
+	top: 0;
+	right: 15%;
+}
+
+.goto_button_img{
+	position: absolute;
+	left: 15%;
+}
+
 .goto_list{
 	position: relative;
-	right: 5%;
+	right: 3.8%;
 }
