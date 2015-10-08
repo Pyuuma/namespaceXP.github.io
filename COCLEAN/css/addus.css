@@ -10,6 +10,7 @@ body{
 	position: absolute;
 	width: 100%;
 	background-color: RGB(238, 238, 238);
+	z-index: 3;
 }
 
 #cover{
