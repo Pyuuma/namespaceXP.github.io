@@ -6,7 +6,7 @@ var top_now;
 window.onload = function(){
 	set_header();
 	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
-
+	set_video();
 	set_title();
 	set_suspend();
 	set_change_language();
@@ -21,6 +21,11 @@ function set_title(){
 	$('.title').css('line-height', $('.title').height().toString() + 'px');
 	$('.title').css('top', (0.058 * $('.page').height()).toString() + 'px');
 	set_content();
+}
+
+function set_video(){
+	$('#video').attr('height', width * 390 / 6);
+	$('#video').css('top', (50 * height - $('#video').attr('height') / 2).toString() + 'px');
 }
 
 function set_content(){
@@ -81,4 +86,16 @@ function set_suspend(){
 	$('.footer_word').css('bottom', (($('#footer').height() - $('.footer_word').height()) / 2).toString() + 'px');
 	$('#go_jd').css('bottom', (($('#footer').height() - $('#go_jd').height()) / 2).toString() + 'px');
 }
+
+$('#watch_video').click(function(){
+	$('#video').css('display', 'block');
+	$('#cover').css('opacity', 0.5);
+	$('#cover').css('background-color', '#111111');
+	$('#cover').css('display', 'block');
+});
+
+$('#cover').click(function(){
+	$('#video').css('display', 'none');
+	$('#cover').css('display', 'none');
+})
 

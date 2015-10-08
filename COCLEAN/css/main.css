@@ -20,6 +20,15 @@ body{
 	z-index:2038;
 }
 
+#video{
+	position: fixed;
+	width: 100%;
+	top: 20%;
+	display : none;
+	z-index: 4099;
+}
+
+
 #blank{
 	position: absolute;
 	width: 100%;
