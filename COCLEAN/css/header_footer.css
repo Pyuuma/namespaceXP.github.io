@@ -44,6 +44,7 @@
 	width: 100%;
 	color: RGB(137, 137, 137);
 	background-color: RGB(238,238,238);
+	z-index : 3;
 }
 
 #contact_title{

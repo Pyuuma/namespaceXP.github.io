@@ -207,7 +207,7 @@ another_change_img.onclick = function(){
 	$('#change_language').css('display', 'none');
 }
 
-change_img.onclick = function(){
+change_img.onclick = language_now.onclick = function(){
 	$('#change_language').css('display', 'block');
 }
 
