@@ -92,7 +92,7 @@ $('#watch_video').click(function(){
 });
 
 function stop_video(){
-	video.window.location.reload();
+	window.open(document.all.video.src,'video','');
 	$('#video').css('display', 'none');
 }
 
