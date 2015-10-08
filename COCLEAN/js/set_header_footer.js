@@ -170,12 +170,12 @@ header_button.ontouchend = function(){
 	}
 }
 
-
+/*
 header_button.onmouseup = header_button.ontouchend;
 goto_production.onmouseup = goto_production.ontouchend;
 goto_aboutus.onmouseup = goto_aboutus.ontouchend;
 goto_addus.onmouseup = goto_addus.ontouchend;
-
+*/
 
 wechat_img.onclick = function(){
 	if($('#wechat_load').css('display') == 'none'){
