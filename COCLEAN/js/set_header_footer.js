@@ -4,6 +4,7 @@ var sign = 10, listflag = false;
 
 var another_change_img = document.getElementById('another_change_img');
 var change_img = document.getElementById('change_img');
+var wechat_img = document.getElementById('wechat_img');
 var up = document.getElementById('up');
 var down = document.getElementById('down');
 var goto_production = document.getElementById('goto_production');
@@ -27,6 +28,7 @@ var language_now_width = 13 * width;
 var change_language_innerwidth = 2 * width;
 var change_language_height = 16 * width;
 var header_full_height = 42;
+var wechat_load_width = 18;
 
 function set_header(){
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
@@ -56,6 +58,9 @@ function set_change_language(){
 	
 	$('#weibo_img').css('right',(3 * width).toString() + 'px');
 	$('#wechat_img').css('right',(16 * width).toString() + 'px');
+	$('#wechat_load').css('right',(parseInt($('#wechat_img').css('right')) + $('#wechat_img').width() / 2).toString() + 'px');
+	$('#wechat_load').css('width',(wechat_load_width * width).toString() + 'px');
+	$('#wechat_load').css('top',(parseInt($('#wechat_img').css('top')) - $('#wechat_load').height()).toString() + 'px');
 	$('#curve').css('bottom', language_height.toString() + 'px');
 	$('#copyright').css('bottom', ((parseInt($('#curve').css('bottom')) - $('#copyright').height()) / 2).toString() + 'px');
 	
@@ -158,6 +163,15 @@ goto_aboutus.onmouseup = goto_aboutus.ontouchend;
 goto_addus.onmouseup = goto_addus.ontouchend;
 */
 
+wechat_img.onclick = function(){
+	if($('#wechat_load').css('display') == 'none'){
+		$('#wechat_load').css('display', 'block');
+	}
+	else{
+		$('#wechat_load').css('display', 'none');
+	}
+}
+
 
 another_change_img.onclick = function(){
 	$('#change_language').css('display', 'none');
@@ -176,6 +190,7 @@ up.onclick = function(){
 down.onclick = function(){
 	$('#change_language').css('display', 'none');
 }
+
 
 window.onscroll = function () {	
 	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;

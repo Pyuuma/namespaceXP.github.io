@@ -109,6 +109,10 @@ body{
 	border-radius: 0 0 10px 10px;
 }
 
+#wechat_load{
+	position: absolute;
+	display : none;
+}
 
 .language{
 	position: absolute;
