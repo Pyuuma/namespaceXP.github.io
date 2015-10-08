@@ -91,4 +91,8 @@ $('#watch_video').click(function(){
 	show_cover();
 });
 
+function stop_video(){
+	video.window.location.reload();
+	$('#video').css('display', 'none');
+}
 

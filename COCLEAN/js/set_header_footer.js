@@ -222,7 +222,7 @@ down.onclick = function(){
 }
 
 $('#cover').click(function(){
-	$('#video').css('display', 'none');
+	stop_video();
 	header_button.src = 'img/menu.png';
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
 	listflag = false;
@@ -275,7 +275,7 @@ function getScrollTop(){
 
 
 function getClientHeight(){
-    var clientHeight=0;
+    var clientHeight = 0;
     if(document.body.clientHeight&&document.documentElement.clientHeight){
         var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;        
     }
