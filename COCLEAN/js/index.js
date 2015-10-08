@@ -11,11 +11,10 @@ window.onload = function(){
 	set_suspend();
 	set_change_language();
 	set_blank();
-	$('#cover').css('display', 'none');
+	hide_cover();
 }
 
 function set_title(){
-	
 	$('.title').css('height', (7 * width).toString() + 'px');
 	$('.title').css('font-size', $('.title').height().toString() + 'px');
 	$('.title').css('line-height', $('.title').height().toString() + 'px');
@@ -89,14 +88,7 @@ function set_suspend(){
 
 $('#watch_video').click(function(){
 	$('#video').css('display', 'block');
-	$('#cover').css('opacity', 0.5);
-	$('#cover').css('background-color', '#111111');
-	$('#cover').css('display', 'block');
+
 });
 
-$('#cover').click(function(){
-	$('#video').css('display', 'none');
-	$('#cover').css('display', 'none');
-	$('#header').css('height', $('#header_image').height().toString() + 'px');
-})
 

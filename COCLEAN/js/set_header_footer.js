@@ -159,23 +159,23 @@ header_button.onclick = function(){
 		$('#header').css('height', (header_full_height * width).toString() + 'px');
 		$('#cover').css('opacity', 0.5);
 		$('#cover').css('background-color', '#111111');
-		$('#cover').css('display', 'block');
+		show_cover();
 		listflag = true;
 	}
 	else{
 		this.src = 'img/menu.png';
 		$('#header').css('height', $('#header_image').height().toString() + 'px');
-		$('#cover').css('display', 'none');
+		hide_cover();
 		listflag = false;
 	}
 }
 
-/*
-header_button.onmouseup = header_button.ontouchend;
+
+//header_button.onmouseup = header_button.ontouchend;
 goto_production.onmouseup = goto_production.ontouchend;
 goto_aboutus.onmouseup = goto_aboutus.ontouchend;
 goto_addus.onmouseup = goto_addus.ontouchend;
-*/
+
 
 
 wechat_img.onclick = function(){
@@ -221,6 +221,25 @@ down.onclick = function(){
 	$('#change_language').css('display', 'none');
 }
 
+$('#cover').click(function(){
+	$('#video').css('display', 'none');
+	header_button.src = 'img/menu.png';
+	$('#header').css('height', $('#header_image').height().toString() + 'px');
+	listflag = false;
+	hide_cover();
+})
+
+
+function show_cover(){
+	$('#cover').css('z-index', 4);
+	$('#cover').css('opacity', 0.5);
+	$('#cover').css('background-color', '#111111');
+}
+
+function hide_cover(){
+	$('#cover').css('background-color', 'transparent');
+	$('#cover').css('z-index', 2);
+}
 
 window.onscroll = function () {	
 	var scrtop = document.documentElement.scrollTop||document.body.scrollTop;
