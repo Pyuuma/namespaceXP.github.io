@@ -97,5 +97,6 @@ $('#watch_video').click(function(){
 $('#cover').click(function(){
 	$('#video').css('display', 'none');
 	$('#cover').css('display', 'none');
+	$('#header').css('height', $('#header_image').height().toString() + 'px');
 })
 
