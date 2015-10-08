@@ -35,6 +35,7 @@ body{
 	color: RGB(187, 187, 187);
 	overflow-y: scroll;
 	overflow-x: auto;
+	z-index : 3;
 }
 
 #change_language{
