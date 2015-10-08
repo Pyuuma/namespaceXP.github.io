@@ -4,15 +4,15 @@ body{
 }
 
 #header{
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	top: 0px;
 	overflow:hidden;
 	z-index: 4097;
 	background-color: RGB(49, 49, 49);
-	transition: height 0.5s;
-	-moz-transition: height 0.5s; /* Firefox 4 */
-	-webkit-transition: height 0.5s; /* Safari 和 Chrome */
+	transition: height 0.4s;
+	-moz-transition: height 0.4s; /* Firefox 4 */
+	-webkit-transition: height 0.4s; /* Safari 和 Chrome */
 }
 
 #header_image{
