@@ -9,10 +9,10 @@ body{
 	top: 0px;
 	overflow:hidden;
 	z-index: 4097;
-	background-color: RGB(49, 49, 49);
-	transition: height 0.4s;
-	-moz-transition: height 0.4s; /* Firefox 4 */
-	-webkit-transition: height 0.4s; /* Safari 和 Chrome */
+	background-color: RGB(67, 67, 67);
+	transition: height 0.3s;
+	-moz-transition: height 0.3s; /* Firefox 4 */
+	-webkit-transition: height 0.3s; /* Safari 和 Chrome */
 }
 
 #header_image{
@@ -25,8 +25,9 @@ body{
 #goto{
 	position: absolute;
 	width: 100%;
-	text-indent: 5%;
 	color: RGB(238, 238, 238);;
+	text-align: right;
+	text-indent: -5%;
 }
 
 #header_button{
@@ -117,4 +118,9 @@ body{
 .language{
 	position: absolute;
 	text-align: center;
+}
+
+.goto_list{
+	position: relative;
+	right: 5%;
 }
