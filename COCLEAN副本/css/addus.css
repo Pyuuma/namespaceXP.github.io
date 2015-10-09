@@ -1,0 +1,88 @@
+body{
+	color: #ffffff;
+	font-family: 微软雅黑;
+	background-color: RGB(244, 244, 244);
+	color: RGB(82, 82, 82);
+	overflow: hidden;
+}
+
+#job_list{
+	position: absolute;
+	width: 100%;
+	background-color: RGB(238, 238, 238);
+	z-index: 3;
+}
+
+#cover{
+	position: fixed;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 4096;
+}
+
+.job_div{
+	position: absolute;
+	width: 33.333333%;
+	text-align: center;
+}
+
+#content{
+	position: absolute;
+	width: 96%;
+	text-align: left;
+	color: RGB(187, 187, 187);
+	overflow-y: scroll;
+	overflow-x: auto;
+	z-index : 3;
+}
+
+#change_language{
+	position: absolute;
+	bottom: 0;
+	border: thin solid RGB(204, 204, 204);
+	border-radius: 10px;
+}
+
+#up{
+	position: absolute;
+	width : 100%;
+	height : 50%;
+	top: 0;
+	background-color: RGB(246, 246, 246);
+	border-radius: 10px 10px 0 0;
+}
+
+#down{
+	position: absolute;
+	width : 100%;
+	height : 50%;
+	bottom: 0;
+	background-color: RGB(219, 219, 219);
+	border-radius: 0 0 10px 10px;
+}
+
+
+.subtitle{
+	color: RGB(83, 83, 83);
+}
+
+
+.x_border{
+	position: absolute;
+	background-color: RGB(178, 178, 178);
+	width: 100%;
+	height: 1px;
+}
+
+.language{
+	position: absolute;
+	text-align: center;
+}
+
+.y_border{
+	position: absolute;
+	background-color: RGB(178, 178, 178);
+	width: 1px;
+}

@@ -7,7 +7,7 @@ var up = document.getElementById('up');
 var down = document.getElementById('down');
 
 var title_font_rate = 0.333;
-var member_width = 90;
+var member_width = 85;
 var member_height = 68;
 var members = 10;
 var content_font = 2.4;
@@ -75,7 +75,7 @@ function set_members(){
 	$('#members').css('top', top_now.toString() + 'px');
 	$('#members').css('left', (50 * width - (member_width * width / 2)).toString() + 'px');
 	$('#members').css('height', (members * member_height * width).toString() + 'px');
-	$('#members').css('width', (50 * width + (member_width * width / 2)).toString() + 'px');
+	$('#members').css('width', (member_width * width).toString() + 'px');
 	
 	$('.member').css('height', (member_height * width).toString() + 'px');
 	$('.member').css('width', (member_width * width).toString() + 'px');

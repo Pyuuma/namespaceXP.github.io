@@ -7,20 +7,27 @@ var pr = 0.5;
 var mainCycle;   //主循环变量
 var temp_map = new Array;
 var mapCanvas = document.getElementById('mapCanvas');
+var new_envolve = document.getElementById('new_envolve');
 var cnt = 0;
 var autoflag = false;
+var timer;
+
+function check_valid_input(){
+	if(isNaN(pr)|| pr >=1 || pr < 0 || isNaN(row) || row > 200 || row < 4 ||  isNaN(timer) || timer < 1){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
 
 function init(){   //初始化函数
 	var temp;
-	row = prompt("请输入地图尺寸(2 ~ 320)", 16);
-	while(isNaN(row)|| row > 320 || row < 2 || Math.round(row) != row){
-		alert('输入不合法，请重新输入地图尺寸!');
-		row = prompt("请输入地图尺寸(2 ~ 320)", 16);
-	}
-	pr = prompt("请输入生物密度（小于1的正数）：", 0.5);
-	while(isNaN(pr)|| pr >=1 || pr < 0){
+	row = $('#input_size').val();
+	timer = $('#input_speed').val();
+	pr = $('#input_pr').val();
+	if(check_valid_input()){
 		alert('输入不合法，请重新输入生物密度!');
-		pr = prompt("请输入生物密度（小于1的正数）：", 0.5);
 	}
 	temp = map_width % row;
 	len = (map_width - temp) / row;
@@ -39,13 +46,10 @@ function init(){   //初始化函数
 	mapCanvas.style.display = 'block';  //地图布局
 	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
 	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#new_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
 	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
 	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
 	$('#count').css('top', window.innerHeight / 3);
 	$('#new_envolve').html("卷土重来");
@@ -56,9 +60,6 @@ function init(){   //初始化函数
 }
 
 function initialize(){
-	$('#new_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#envolve').width()) / 2);
-	$('#new_envolve').css('display', 'block');
 	mapCanvas.style.display = 'none';
 	$('#envolve').css('display', 'none');
 	$('#new_envolve').html("开始霸业");
@@ -80,6 +81,14 @@ function init_map(len){
 	map[Math.round(Math.random() * (row - 1))][Math.round(Math.random() * (row - 1))] = 1;
 }
 
+new_envolve.onclick = function(){
+	alert(1);
+	clearInterval(mainCycle);
+	autoflag = false;
+	initialize();
+	init();
+	draw_map();
+};
 
 window.onresize = function(){   //保证布局
 	mapCanvas.style.width = (map_width).toString() + 'px';
@@ -90,16 +99,13 @@ window.onresize = function(){   //保证布局
 	mapCanvas.style.top = ((window.innerHeight - map_width) / 2).toString() + 'px';
 	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
 	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#new_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
 	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
 	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#new_envolve').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
 	$('#count').css('top', window.innerHeight / 3);
-	draw_map();
+	//draw_map();
 }
 
 function get_next_generation(){     //得到下一代
@@ -188,17 +194,11 @@ $('#envolve').click(envolve);
 $('#auto_envolve').click(function(){
 	if(autoflag == false){
 		autoflag = true;
-		mainCycle = setInterval('envolve()', 100); 
+		mainCycle = setInterval('envolve()', timer); 
 	}
 });
 
-$('#new_envolve').click(function(){
-	clearInterval(mainCycle);
-	autoflag = false;
-	initialize();
-	init();
-	draw_map(); 
-});
+
 
 $('#stop_envolve').click(function(){
 	clearInterval(mainCycle);

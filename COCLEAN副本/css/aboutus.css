@@ -1,0 +1,76 @@
+body{
+	color: #ffffff;
+	font-family: 微软雅黑;
+	background-color: RGB(246, 246, 246);
+	color: RGB(82, 82, 82);
+	overflow-y: scroll;
+}
+
+#everyone{
+	position: absolute;
+	width: 100%;
+}
+
+#motto{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+#cover{
+	position: fixed;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 4096;
+}
+
+.border{
+	position: absolute;
+	background-color: RGB(153, 153, 153);
+	width: 100%;
+	bottom: 0;
+	height: 1px;
+}
+
+
+.title{
+	position: absolute;
+	width: 100%;
+	color: RGB(87, 87, 87);
+	background-color: RGB(238, 238, 238);
+	text-align : left;
+}
+
+.content{
+	position: absolute;
+	color: RGB(181, 181, 181);
+	text-align : left;
+}
+
+.member{
+	position: relative;
+	color: RGB(87, 87, 87);
+	text-align : left;
+}
+
+.name{
+	position: absolute;
+	top: 19%;
+	color: RGB(84, 84, 84);
+	text-align : left;
+}
+
+.word{
+	position: absolute;
+	top: 36%;
+	color: RGB(181, 181, 181);
+	text-align : left;
+}
+
+.photo{
+	position: absolute;
+	width: 41.7%;
+}
+
