@@ -219,9 +219,11 @@ down.onclick = function(){
 }
 
 $('#cover').click(function(){
-	if("undefined" != typeof(stop_video)){
+	/*
+	if("undefined" != typeof(stop_video){
 		stop_video();
 	}
+	*/
 	header_button.src = 'img/menu.png';
 	$('#header').css('height', $('#header_image').height().toString() + 'px');
 	listflag = false;
