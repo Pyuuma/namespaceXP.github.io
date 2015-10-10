@@ -29,7 +29,22 @@ window.onload = function(){
 	set_members();
 	set_change_language();
 	hide_cover();
+	alert(100 * width);
 }
+window.onresize = unction(){
+	set_header();
+	set_title();
+	set_content();
+	set_company();
+	set_everyone();
+	set_motto();
+	set_member_title();
+	set_members();
+	set_change_language();
+	hide_cover();
+	alert(100 * width);
+} 
+
 
 function set_title(){
 	$('#company_title').css('top', top_now.toString() + 'px');

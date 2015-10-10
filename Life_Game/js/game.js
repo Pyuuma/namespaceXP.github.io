@@ -22,12 +22,14 @@ function check_valid_input(){
 }
 
 function init(){   //初始化函数
+	$('#count').html('鼠标点击可筑城，开始您的霸业吧！');
+	cnt = 0;
 	var temp;
 	row = $('#input_size').val();
 	timer = $('#input_speed').val();
 	pr = $('#input_pr').val();
 	if(check_valid_input()){
-		alert('输入不合法，请重新输入生物密度!');
+		alert('输入不合法，请重新输入!');
 	}
 	temp = map_width % row;
 	len = (map_width - temp) / row;
@@ -36,38 +38,39 @@ function init(){   //初始化函数
 	}
 	map_width = len * row;
 	init_map(row);   //初始化地图
-
-	mapCanvas.style.width = (map_width).toString() + 'px';
-	mapCanvas.style.height = (map_width).toString() + 'px';
-	mapCanvas.setAttribute('width', map_width);
-	mapCanvas.setAttribute('height', map_width);
+	set_mapCanvas();
+}
+window.onload = function(){	
 	mapCanvas.style.left = ((window.innerWidth - map_width) / 2).toString() + 'px';
 	mapCanvas.style.top = ((window.innerHeight - map_width) / 2).toString() + 'px';
-	mapCanvas.style.display = 'block';  //地图布局
+	$('#control_board').css('top', (window.innerHeight - $('#control_board').height()) / 2 - 40);
+	$('#control_board').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#control_board').width() / 2);
+	$('#count').css('top',(window.innerHeight + $('#control_board').height()) / 2);
+	$('#count').css('left', $('#control_board').css('left'));
 	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
 	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
 	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
 	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
 	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
-	$('#count').css('top', window.innerHeight / 3);
-	$('#new_envolve').html("卷土重来");
-	$('#envolve').css('display', 'block');
-	$('#auto_envolve').css('display', 'block');
-	$('#stop_envolve').css('display', 'block');
-	$('#count').css('display', 'block');
 }
 
-function initialize(){
-	mapCanvas.style.display = 'none';
-	$('#envolve').css('display', 'none');
-	$('#new_envolve').html("开始霸业");
-	cnt = 0;
-	$('#count').html('您的霸业已延续了' + cnt.toString() +'代');
-	$('#auto_envolve').css('display', 'none');
-	$('#stop_envolve').css('display', 'none');
-	$('#count').css('display', 'none');
+function set_mapCanvas(){
+	mapCanvas.style.width = (map_width).toString() + 'px';
+	mapCanvas.style.height = (map_width).toString() + 'px';
+	mapCanvas.setAttribute('width', map_width);
+	mapCanvas.setAttribute('height', map_width);
+	$('#control_board').css('top', (window.innerHeight - $('#control_board').height()) / 2 - 40);
+	$('#control_board').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#control_board').width() / 2);
+	$('#count').css('top',(window.innerHeight + $('#control_board').height()) / 2);
+	$('#count').css('left', $('#control_board').css('left'));
+	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
+	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
+	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
+	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
+	$('#envolve').css('display', 'block');
 }
 
 function init_map(len){
@@ -82,30 +85,15 @@ function init_map(len){
 }
 
 new_envolve.onclick = function(){
-	alert(1);
 	clearInterval(mainCycle);
 	autoflag = false;
-	initialize();
 	init();
 	draw_map();
 };
 
 window.onresize = function(){   //保证布局
-	mapCanvas.style.width = (map_width).toString() + 'px';
-	mapCanvas.style.height = (map_width).toString() + 'px';
-	mapCanvas.setAttribute('width', map_width);
-	mapCanvas.setAttribute('height', map_width);
-	mapCanvas.style.left = ((window.innerWidth - map_width) / 2).toString() + 'px';
-	mapCanvas.style.top = ((window.innerHeight - map_width) / 2).toString() + 'px';
-	$('#envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 - 70);
-	$('#auto_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2);
-	$('#stop_envolve').css('top', (window.innerHeight - $('#envolve').height()) / 2 + 70);
-	$('#envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#auto_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#stop_envolve').css('right', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#envolve').width() / 2);
-	$('#count').css('left', (window.innerWidth - $('#mapCanvas').width()) / 4 - $('#count').width() / 2);
-	$('#count').css('top', window.innerHeight / 3);
-	//draw_map();
+	set_mapCanvas();
+	draw_map();
 }
 
 function get_next_generation(){     //得到下一代
@@ -115,30 +103,46 @@ function get_next_generation(){     //得到下一代
 		for(var j = 0; j < row; j++){
 			temp = 0;
 			if(i > 0){
-				temp = temp + map[i - 1][j];
-				if(j > 0){
-					temp = temp + map[i - 1][j - 1];
+				if(map[i - 1][j] == 1){
+					temp = temp + 1;
+				}
+				if(i > 1){
+					if(map[i - 2][j] == 1){
+						temp = temp + 1;
+					}
 				}
 			}
 			if(j > 0){
-				temp = temp + map[i][j - 1];
-				if(i < row - 1){
-					temp = temp + map[i + 1][j - 1];
+				if(map[i][j - 1] == 1){
+					temp = temp + 1;
+				}
+				if(j > 1){
+					if(map[i][j - 2] == 1){
+						temp = temp + 1;
+					}
 				}
 			}
 			if(i < row - 1){
-				temp = temp + map[i + 1][j];
-				if(j < row - 1){
-					temp = temp + map[i + 1][j + 1];
+				if(map[i + 1][j] == 1){
+					temp = temp + 1;
+				}
+				if(i < row - 2){
+					if(map[i + 2][j] == 1){
+						temp = temp + 1;
+					}
 				}
 			}
 			if(j < row - 1){
 				temp = temp + map[i][j + 1];
-				if(i > 0){
-					temp = temp + map[i - 1][j + 1];
+				if(j < row - 2){
+					temp = temp + map[i][j + 2];
 				}
 			}
-			if(temp == 2){
+			
+			if(map[i][j] == -1){
+				temp_map[i][j] = -1;
+			}
+			else if(temp == 2){
 				temp_map[i][j] = map[i][j];
 			}
 			else if(temp == 3){
@@ -170,8 +174,11 @@ function draw_map(){   //画地图
 	var context = mapCanvas.getContext('2d');
 	for(var i = 0; i < row; i++){
 		for(var j = 0; j < row; j++){
-			if(map[i][j] != 0){
+			if(map[i][j] == 1){
 				context.fillStyle = "#ffff00";
+			}
+			else if(map[i][j] == -1){
+				context.fillStyle = "#0000ff";
 			}
 			else{
 				context.fillStyle = "#666666";
@@ -194,10 +201,23 @@ $('#envolve').click(envolve);
 $('#auto_envolve').click(function(){
 	if(autoflag == false){
 		autoflag = true;
-		mainCycle = setInterval('envolve()', timer); 
+		mainCycle = setInterval('envolve()', 1000 / timer); 
 	}
 });
 
+mapCanvas.onclick = function(e){
+	if(len != 640){
+  	 	var r = Math.floor((e.clientX - parseInt(this.style.left) - 2) / len);
+		var c = Math.floor((e.clientY - parseInt(this.style.top) - 2) / len);
+		if(map[c][r] == 1){
+			alert('此处已有生灵，不宜筑城！');
+		}
+		else{
+		map[c][r] = -1;
+		}
+		draw_map();
+	}  
+}
 
 
 $('#stop_envolve').click(function(){
@@ -205,4 +225,3 @@ $('#stop_envolve').click(function(){
 	autoflag = false;
 });
 
-initialize();

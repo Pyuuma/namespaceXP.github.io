@@ -3,7 +3,9 @@ var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeig
 var top_now;
 
 
-window.onload = function(){
+window.onresize = window.onload = function(){
+	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
 	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
 	set_video();
@@ -72,12 +74,11 @@ function set_blank(){
 function set_suspend(){
 	var footer_fontsize_rate = 0.34;
 	var button_height_rate = 0.6;
-	var button_width_broaden_rate = 1.4;
-	
+	var button_width = 40;
 	
 	$('.footer_word').css('font-size',($('#footer').height() * footer_fontsize_rate).toString() + 'px');
 	$('#go_jd').css('height', ($('#footer').height() * button_height_rate));
-	$('#go_jd').css('width', ($('#go_jd').width() * button_width_broaden_rate));
+	$('#go_jd').css('width', (width * button_width));
 	$('#go_jd').css('line-height', ($('#go_jd').height()).toString() + 'px');
 	$('#buybuybuy').css('left', (10 * width).toString() + 'px');
 	$('#go_jd').css('right', (10 * width  - $('#go_jd').width() *  1 / 7).toString() + 'px');
