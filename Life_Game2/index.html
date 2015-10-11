@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>生命传奇·霸业2.0.0</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<canvas id = 'mapCanvas' class = 'map' width = '640px' height = '640px'>
+	</canvas>
+	<div id = 'envolve' class = 'button'>霸业传承</div>
+	<div id = 'auto_envolve' class = 'button'>自动传承</div>
+	<div id = 'stop_envolve' class = 'button'>停止传承</div>
+	<div id = 'count'>开始您的霸业吧！</div>
+	<div id = 'control_board'>
+		<p id = 'control_title'>设置您的领土</p>
+		<p id = 'size_hint' class = 'board_hint_word'>疆界边长：(4~200)</p>
+		<p id = 'speed_hint' class = 'board_hint_word'>传承速率：(次/秒)</p>
+		<p id = 'size_hint' class = 'board_hint_word'>人口密度：(0~1)</p>
+		<input id = 'input_size' type = 'text' class = 'board_input' style = 'top: 60px' />
+		<input id = 'input_speed' type = 'text' class = 'board_input' style = 'top: 115px' />
+		<input id = 'input_pr' type = 'text' class = 'board_input' style = 'top: 175px' />
+		<div id = 'new_envolve' class = 'button'>
+			开疆拓土！
+		</div>
+	</div>
+	<script src="js/show.js"></script>
+	<script src="js/control.js"></script>
+</body>
