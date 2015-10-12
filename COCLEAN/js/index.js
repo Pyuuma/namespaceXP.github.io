@@ -24,17 +24,7 @@ var browser={
 }
 
 $(document).ready(function(){
-	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
-	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
-	set_header();
-	set_content();
-	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
-	set_video();
-	set_title();
-	set_suspend();
-	set_change_language();
-	set_blank();
-	setTimeout(hide_cover, 10);
+
 });
 
 
@@ -139,3 +129,26 @@ function stop_video(){
 	refresh();
 }
 
+
+var $$ = function(func){
+	if(document.addEventListener){
+		window.addEventListener('load', func, false);
+	}
+	else if(document.attachEvent){
+		window.attachEvent('onload', func);
+	}
+}
+
+$$(function(){
+	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
+	set_header();
+	set_content();
+	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
+	set_video();
+	set_title();
+	set_suspend();
+	set_change_language();
+	set_blank();
+	setTimeout(hide_cover, 10);
+})
