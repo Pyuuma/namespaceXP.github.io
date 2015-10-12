@@ -29,7 +29,7 @@ window.onload = function(){
 	set_members();
 	set_change_language();
 	hide_cover();
-	alert(100 * width);
+	//alert(100 * width);
 }
 window.onresize = function(){
 	set_header();
