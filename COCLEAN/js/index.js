@@ -23,7 +23,7 @@ var browser={
     language:(navigator.browserLanguage || navigator.language).toLowerCase()
 }
 
-window.onload = function(){
+$(document).ready(function(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
@@ -34,8 +34,8 @@ window.onload = function(){
 	set_suspend();
 	set_change_language();
 	set_blank();
-	setTimeout(hide_cover, 100);
-}
+	setTimeout(hide_cover, 10);
+});
 
 
 function refresh(){
