@@ -27,6 +27,7 @@ window.onresize = window.onload = function(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
+	set_content();
 	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
 	set_video();
 	set_title();
