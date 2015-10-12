@@ -37,7 +37,8 @@ window.onload = function(){
 	hide_cover();
 }
 
-window.onresize = function(){
+
+function refresh(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
@@ -49,6 +50,8 @@ window.onresize = function(){
 	set_change_language();
 	set_blank();
 }
+
+window.onresize = refresh;
 
 function set_title(){
 	$('.title').css('height', (7 * width).toString() + 'px');
@@ -131,5 +134,7 @@ function stop_video(){
 		window.open(document.all.video.src,'video','');
 	}
 	$('#video').css('display', 'none');
+	
+	refresh();
 }
 
