@@ -34,8 +34,9 @@ window.onload = function(){
 	set_suspend();
 	set_change_language();
 	set_blank();
-	alert(8);
+	
 	hide_cover();
+	alert(8);
 }
 
 
