@@ -31,7 +31,7 @@ window.onload = function(){
 	hide_cover();
 	alert(100 * width);
 }
-window.onresize = unction(){
+window.onresize = function(){
 	set_header();
 	set_title();
 	set_content();
