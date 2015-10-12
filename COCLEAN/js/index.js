@@ -34,9 +34,7 @@ window.onload = function(){
 	set_suspend();
 	set_change_language();
 	set_blank();
-	
-	hide_cover();
-	alert(8);
+	setTimeout(hide_cover, 100);
 }
 
 
