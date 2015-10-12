@@ -37,7 +37,7 @@ window.onload = function(){
 	hide_cover();
 }
 
-window.onresize= function(){
+window.onresize = function(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
@@ -127,7 +127,7 @@ $('#watch_video').click(function(){
 });
 
 function stop_video(){
-	if(!browser.versions.ios || ){
+	if(!browser.versions.ios){
 		window.open(document.all.video.src,'video','');
 	}
 	$('#video').css('display', 'none');
