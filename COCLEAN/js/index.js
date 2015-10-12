@@ -23,9 +23,19 @@ var browser={
     language:(navigator.browserLanguage || navigator.language).toLowerCase()
 }
 
-$(document).ready(function(){
-
-});
+window.onload = function(){
+	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
+	set_header();
+	set_content();
+	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
+	set_video();
+	set_title();
+	set_suspend();
+	set_change_language();
+	set_blank();
+	setTimeout(hide_cover, 10);
+}
 
 
 function refresh(){
@@ -129,7 +139,7 @@ function stop_video(){
 	refresh();
 }
 
-
+/*
 var $$ = function(func){
 	if(document.addEventListener){
 		window.addEventListener('load', func, false);
@@ -140,15 +150,9 @@ var $$ = function(func){
 }
 
 $$(function(){
-	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
-	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
-	set_header();
-	set_content();
-	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
-	set_video();
-	set_title();
-	set_suspend();
-	set_change_language();
-	set_blank();
-	setTimeout(hide_cover, 10);
+
 })
+
+<iframe name = 'video' id = 'video' height=390 width = '100%' src="http://player.youku.com/embed/XMTM0Njk1Njc2MA==" frameborder = 0 allowfullscreen ></iframe>
+
+*/
