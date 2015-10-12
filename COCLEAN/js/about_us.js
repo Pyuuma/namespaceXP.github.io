@@ -32,6 +32,9 @@ window.onload = function(){
 	//alert(100 * width);
 }
 window.onresize = function(){
+	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
+	top_now = $('#header_image').height();
 	set_header();
 	set_title();
 	set_content();

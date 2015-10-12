@@ -101,15 +101,15 @@ function set_change_language(){
 	
 	$('.language').css('height', (parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
 	$('.language').css('width', (language_now_width * width).toString() + 'px');
-	$('.language').css('font-size', $('#this_language').height().toString() + 'px');
-	$('.language').css('line-height', $('#this_language').height().toString() + 'px');
-	$('.language').css('right', (parseInt($('#another_change_img').css('right')) + $('#another_change_img').width()).toString() + 'px');
-	$('.language').css('bottom', (((change_language_height * width / 2) - $('#this_language').height()) / 2).toString() + 'px');
+	$('.language').css('font-size',(parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
+	$('.language').css('line-height', (parseInt($('#curve').css('bottom')) * 0.29).toString() + 'px');
+	$('.language').css('right', (parseInt($('#another_change_img').css('right')) + parseInt($('#another_change_img').css('width'))).toString() + 'px');
+	$('.language').css('bottom', (((change_language_height * width / 2) - parseInt($('#this_language').css('height'))) / 2).toString() + 'px');
 	
-	$('#this_language_img').css('right', (parseInt($('.language').css('right')) + $('.language').width()).toString() + 'px');
-	$('#this_language_img').css('bottom', (((change_language_height * width / 2) - $('#language_img').height()) / 2).toString() + 'px');
-	$('#other_language_img').css('right', (parseInt($('.language').css('right')) + $('.language').width()).toString() + 'px');
-	$('#other_language_img').css('bottom', (((change_language_height * width / 2) - $('#language_img').height()) / 2).toString() + 'px');
+	$('#this_language_img').css('right', (parseInt($('.language').css('right')) + parseInt($('.language').css('width'))).toString() + 'px');
+	$('#this_language_img').css('bottom', (((change_language_height * width / 2) - parseInt($('#language_img').css('height'))) / 2).toString() + 'px');
+	$('#other_language_img').css('right', (parseInt($('.language').css('right')) + parseInt($('.language').css('width'))).toString() + 'px');
+	$('#other_language_img').css('bottom', (((change_language_height * width / 2) - parseInt($('#language_img').css('height'))) / 2).toString() + 'px');
 	
 	$('#change_language').css('right', (parseInt($('#change_img').css('right')) - parseInt($('#another_change_img').css('right')) - 1).toString() + 'px');
 	$('#change_language').css('bottom', (parseInt($('#change_img').css('bottom')) - parseInt($('#another_change_img').css('bottom')) - 1).toString() + 'px');
