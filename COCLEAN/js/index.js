@@ -1,6 +1,7 @@
 var width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 var height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 var top_now;
+var video = null;
 
 var browser={
     versions:function(){
@@ -125,6 +126,10 @@ function set_suspend(){
 }
 
 $('#watch_video').click(function(){
+	if(video == null){
+		create_video();
+		set_video();
+	}
 	$('#video').css('display', 'block');
 	window.onresize = function(){};
 	show_cover();
@@ -137,6 +142,16 @@ function stop_video(){
 	$('#video').css('display', 'none');
 	window.onresize = refresh;
 	refresh();
+}
+
+function create_video(){
+	video = document.createElement('iframe');
+	video.style.width = '100%';
+	video.height = 390;
+	video.src = 'http://player.youku.com/embed/XMTM0Njk1Njc2MA=='
+	video.name = video.id = 'video';
+	video.frameborder = 0;
+	document.body.appendChild(video);
 }
 
 /*
