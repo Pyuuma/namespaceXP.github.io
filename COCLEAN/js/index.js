@@ -113,7 +113,9 @@ $('#watch_video').click(function(){
 });
 
 function stop_video(){
-	window.open(document.all.video.src,'video','');
+	if(!browser.versions.ios){
+		window.open(document.all.video.src,'video','');
+	}
 	$('#video').css('display', 'none');
 }
 
