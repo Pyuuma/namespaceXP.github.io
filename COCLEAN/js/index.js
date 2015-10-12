@@ -126,6 +126,7 @@ function set_suspend(){
 
 $('#watch_video').click(function(){
 	$('#video').css('display', 'block');
+	window.onresize = function(){};
 	show_cover();
 });
 
@@ -134,7 +135,7 @@ function stop_video(){
 		window.open(document.all.video.src,'video','');
 	}
 	$('#video').css('display', 'none');
-	
+	window.onresize = refresh;
 	refresh();
 }
 
