@@ -27,21 +27,14 @@ window.onload = function(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
-	alert(1);
 	set_content();
-		alert(2);
 	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
-		alert(3);
 	set_video();
-		alert(4);
 	set_title();
-		alert(5);
 	set_suspend();
-		alert(6);
 	set_change_language();
-		alert(7);
 	set_blank();
-		alert(8);
+	alert(8);
 	hide_cover();
 }
 
