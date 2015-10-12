@@ -23,7 +23,7 @@ var browser={
     language:(navigator.browserLanguage || navigator.language).toLowerCase()
 }
 
-window.onresize = window.onload = function(){
+window.onload = function(){
 	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
 	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
 	set_header();
@@ -35,6 +35,19 @@ window.onresize = window.onload = function(){
 	set_change_language();
 	set_blank();
 	hide_cover();
+}
+
+window.onresize= function(){
+	width = (document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth) / 100;
+	height = (document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight) / 100;
+	set_header();
+	set_content();
+	$('#footer').css('height', $('#footer_image').height().toString() + 'px');
+	set_video();
+	set_title();
+	set_suspend();
+	set_change_language();
+	set_blank();
 }
 
 function set_title(){
@@ -114,7 +127,7 @@ $('#watch_video').click(function(){
 });
 
 function stop_video(){
-	if(!browser.versions.ios){
+	if(!browser.versions.ios || ){
 		window.open(document.all.video.src,'video','');
 	}
 	$('#video').css('display', 'none');
