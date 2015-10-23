@@ -27,11 +27,11 @@ function get_dish_list(){
 
 
 function get_type_list(){
+	alert(1);
 	$.getJSON("http://namespaceXP.github.io/yajia/js/dishtypes.json", function(json){
 		for(var i = 0; i < json.types.length; i++){
 			typelist[i] = init_type(json.types[i].name, json.types[i].id);
 		}
-		set_dish_list();
 	})
 }
 
@@ -485,8 +485,9 @@ $('#cover').click(function(){
 	$('#ordered').css('z-index', 5);
 });
 
-set_type_list();
+get_type_list();
+get_dish_list();
 set_sort_index();
 set_type_name();
 set_footer();
-get_dish_list();
+
