@@ -8,7 +8,7 @@ function init_dish(dname, id, rank, price, image, number){
 	dish.id = id;
 	dish.rank = rank;
 	dish.price = price;
-	dish.image = image;
+	dish.img = image;
 	dish.number = number;
 	return dish;
 }

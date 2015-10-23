@@ -170,6 +170,7 @@ function set_dish_list(){
 		dish_div.style.top = (i * parseInt(dish_div.style.height)).toString() + 'px';
 		dish_image.style.height =  (0.55 * parseInt(dish_div.style.height)).toString() + 'px';
 		dish_image.style.width = dish_image.style.height;
+		dish_image.src = "img/small_img/" + dishlist[i].img;
 		dish_image.style.top =  ((parseInt(dish_div.style.height) - parseInt(dish_image.style.height)) / 2).toString() + 'px';
 		dish_image.style.left = dish_image.style.top;
 		dish_name.style.left = (parseInt(dish_image.style.height) + 2 * parseInt(dish_image.style.left)).toString() + 'px';
