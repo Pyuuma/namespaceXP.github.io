@@ -12,7 +12,8 @@ var restaurant_name = "XP咸鱼馆";
 var chosen_list = new Array;
 var type = 0;    //当前页面显示的菜类型
 var chosen = 0;  //总共选菜数
-var dishlist = new Array;
+var dishlist = new Array; 
+var typelist = new Array;
 
 
 function get_dish_list(){
@@ -20,6 +21,17 @@ function get_dish_list(){
 		for(var i = 0; i < json.dishes.length; i++){
 			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
 		}
+		set_dish_list();
+	})
+}
+
+
+function get_type_list(){
+	$.getJSON("http://namespaceXP.github.io/yajia/js/dishtypes.json", function(json){
+		for(var i = 0; i < json.types.length; i++){
+			typelist[i] = init_type(json.types[i].name, json.types[i].id);
+		}
+		set_dish_list();
 	})
 }
 
@@ -100,7 +112,7 @@ function set_dish_list_style(){
 	$('#dish_list').css("width", ($("#header").width() - $("#type_list").width()));
 }
 
-function set_dish_list(){   //
+function set_dish_list(){   
 	set_dish_list_style();
 
 	for(var i = 0; i < dishlist.length; i++){
@@ -161,8 +173,8 @@ function set_dish_list(){   //
 		border.style.width = dish_div.style.width;
 		border.style.bottom = 0;
 		border.style.backgroundColor = '#cdcdcd';
-		dish_add.src = 'img/add_order_amount.png';
-		dish_minus.src = 'img/minus_order_amount.png';
+		dish_add.src = 'icons/add_order_amount.png';
+		dish_minus.src = 'icons/minus_order_amount.png';
 		dish_add.style.bottom = (2 * height).toString() + 'px';
 		dish_minus.style.bottom = dish_add.style.bottom;
 		dish_add.style.height = (3.2 * height).toString() + 'px';
@@ -190,18 +202,19 @@ function set_dish_list(){   //
 			dish_stars[j].style.height = dish_rank.style.height;
 			dish_rank.appendChild(dish_stars[j]);
 			if(j < dishlist[i].rank - 0.75){
-				dish_stars[j].src = 'img/star_yellow.png';
+				dish_stars[j].src = 'icons/star_yellow.png';
 			}
 			else if(j > dishlist[i].rank -0.75 && j < dishlist[i].rank + 0.25){
-				dish_stars[j].src = 'img/star_half.png';
+				dish_stars[j].src = 'icons/star_half.png';
 			}
 			else{
-				dish_stars[j].src = 'img/star_grey.png';
+				dish_stars[j].src = 'icons/star_grey.png';
 			}
 		}
 		
 		
-		dish_add.onclick = function(){
+		dish_add.onclick = function(e){
+			e.stopPropagation();
 			var this_chosen = parseInt(this.parentNode.childNodes[3].innerHTML);   //本菜被点的量
 			this.parentNode.childNodes[3].innerHTML = (this_chosen + 1).toString();
 			if(this_chosen == 0){
@@ -281,8 +294,8 @@ function set_preview(){
 		border.style.width = '95%';
 		border.style.left = '2.5%';
 		
-		dish_add.src = 'img/add_order_amount.png';
-		dish_minus.src = 'img/minus_order_amount.png';
+		dish_add.src = 'icons/add_order_amount.png';
+		dish_minus.src = 'icons/minus_order_amount.png';
 		dish_add.style.bottom = (2 * height).toString() + 'px';
 		dish_minus.style.bottom = dish_add.style.bottom;
 		dish_add.style.height = (3.2 * height).toString() + 'px';
@@ -333,8 +346,7 @@ function set_preview(){
 		preview_list.appendChild(dish_div);
 	
 	}
-}
-;
+};
 
 
 function set_correctable(){
@@ -381,8 +393,8 @@ function set_correctable(){
 		border.style.width = '95%';
 		border.style.left = '2.5%';
 		
-		dish_add.src = 'img/add_order_amount.png';
-		dish_minus.src = 'img/minus_order_amount.png';
+		dish_add.src = 'icons/add_order_amount.png';
+		dish_minus.src = 'icons/minus_order_amount.png';
 		dish_add.style.bottom = (2 * height).toString() + 'px';
 		dish_minus.style.bottom = dish_add.style.bottom;
 		dish_add.style.height = (3.2 * height).toString() + 'px';
@@ -472,8 +484,9 @@ $('#cover').click(function(){
 	$('#order_go').css('z-index', 5);
 	$('#ordered').css('z-index', 5);
 });
+
 set_type_list();
 set_sort_index();
 set_type_name();
 set_footer();
-set_dish_list();
+get_dish_list();

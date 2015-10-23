@@ -1,4 +1,4 @@
-var typelist = new Array;
+
 
 var orderlist = new Array;
 
@@ -13,6 +13,14 @@ function init_dish(dname, id, rank, price, image, number){
 	return dish;
 }
 
+function init_type(name, id){
+	var type = new Object();
+	type.name = name;
+	type.id = id;
+	return type;
+}
+
+
 function init_order(dname, id, rank, price, image, number){
 	var dish = new Object();
 	dish.name = dname;
@@ -22,7 +30,7 @@ function init_order(dname, id, rank, price, image, number){
 	return dish;
 }
 
-typelist = ['经典小吃','经典美食','金牌咖喱','意大利面'];
+
 
 dishlist = [
 	init_dish('炸薯条', 233, 3.5, 15, 2,35),
