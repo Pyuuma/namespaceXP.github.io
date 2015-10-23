@@ -1,7 +1,7 @@
 {
 	"dishes":[{
 		"id":1,
-        "img": "potatochips.jpg",
+        "img": "potatochips.png",
 		"name": "炸薯条",
 		"score": 4.6,
 		"price": 6.45,

@@ -10,13 +10,14 @@ var height = window_height / 100;
 
 var restaurant_name = "XP咸鱼馆";
 var chosen_list = new Array;
-var type = 0;    //当前页面显示的菜类型
 var chosen = 0;  //总共选菜数
+var chosen_type = 0;   //目前选中的菜类型
 var dishlist = new Array; 
 var typelist = new Array;
 
 
-function get_dish_list(){
+function get_dish_list(dishtype){   //传入类型的ID
+	$('#dish_list').html("");
 	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_type.json", function(json){
 		for(var i = 0; i < json.dishes.length; i++){
 			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
@@ -27,11 +28,12 @@ function get_dish_list(){
 
 
 function get_type_list(){
-	alert(1);
 	$.getJSON("http://namespaceXP.github.io/yajia/js/dishtypes.json", function(json){
 		for(var i = 0; i < json.types.length; i++){
 			typelist[i] = init_type(json.types[i].name, json.types[i].id);
 		}
+		set_type_list();
+		set_type_name();
 	})
 }
 
@@ -39,23 +41,33 @@ function set_type_list(){
 	for(var i = 0; i < typelist.length; i++){
 		var type_div = document.createElement('div');
 		var type_name = document.createElement('div');
-		var border = document.createElement('div');
-		var type_name_id = 'type_name_' + i.toString();
-		var type_id = 'type_' + i.toString();
-		
+		var border = document.createElement('div');		
 		type_div.setAttribute('class', 'type_div');
-		type_div.setAttribute('id', type_id);
+		type_div.setAttribute('id', typelist[i].id);
 		type_name.setAttribute('class', 'type_name');
-		type_name.setAttribute('id', type_name_id);
 		type_name.style.color = '#888888';
 		type_div.style.height = (8 * height).toString() + 'px';
-		type_name.innerHTML = typelist[i];
+		type_name.innerHTML = typelist[i].name;
 		border.style.height = '1px';
 		border.style.width = '100%';
 		border.style.backgroundColor = '#cdcdcd';
+		if(i == chosen_type){
+			type_div.style.backgroundColor = "#ffffff";
+		}
 		
-		type_div.onclick = function(){
-			type = i;
+		type_div.onclick = function(){   //切换菜类型
+			var chosen_div = document.getElementById(dishlist[chosen_type].id);
+			
+			chosen_div.style.backgroundColor = "#eeeeee";
+			for(i = 0; i < typelist.length; i++){
+				if(typelist[i].id == this.id){
+					chosen_type = i;
+					break;
+				}
+			}
+			this.style.backgroundColor = "#ffffff";
+			set_type_name();
+			get_dish_list();
 		}
 		
 		type_div.appendChild(type_name);
@@ -94,7 +106,7 @@ function set_type_name(){
 	$("#type_name").css("line-height", $("#type_name").height().toString() + 'px');
 	$("#type_name").css("font-size", 0.6 * $("#type_name").height());
 	$("#type_name").css("text-indent", 0.4 * $("#type_name").height().toString() + 'px');
-	$("#type_name").html('' + typelist[type]);
+	$("#type_name").html('' + typelist[chosen_type].name);
 }
 
 function set_footer(){
@@ -348,7 +360,6 @@ function set_preview(){
 	}
 };
 
-
 function set_correctable(){
 	$('#correctable_list').html('');
 	$('#correctable_list').css("height", (window_height - $("#header").height() - $("#sort_index").height() - $("#search").height()- $("#ordered").height() - $("#type_name").height()));
@@ -488,6 +499,5 @@ $('#cover').click(function(){
 get_type_list();
 get_dish_list();
 set_sort_index();
-set_type_name();
 set_footer();
 
