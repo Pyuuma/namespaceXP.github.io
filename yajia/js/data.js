@@ -1,5 +1,5 @@
 var typelist = new Array;
-var dishlist = new Array;
+
 var orderlist = new Array;
 
 function init_dish(dname, id, rank, price, image, number){
