@@ -1,0 +1,221 @@
+
+body {;
+	font-family: Helvetica;
+	font-weight: lighter;
+	font-size: 50%;
+	margin: 0px;
+	padding:0px;
+	color: #ffffff;
+	-moz-user-select: none;
+	-webkit-user-select: none; 
+}
+
+
+/*
+@media screen and (orientation: portrait) {
+*/
+
+
+#cover{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #222222;
+	z-index: 4;
+	-moz-opacity: 0.8;
+	-khtml-opaciy: 0.8;
+	opacity: 0.8;
+}
+#curve{
+	position: absolute;
+	width: 90%;
+	left: 5%;
+	top: 8%;
+	height:1px;
+	background-color: #cfcfcf;
+	z-index : 2;
+}
+
+
+#search{
+	position:absolute;
+	width: 100%;
+	height : 8%;
+	top: 8%;
+	background-color: #e6e6e6;
+}
+
+#search_go{
+	position:absolute;
+	height: 34%;
+	top: 32.4%;
+	left: 87%;
+	cursor:pointer;
+}
+
+
+#search_input{
+	position:absolute;
+	width: 86%;
+	height: 40%;
+	left: 7%;
+	top: 30%;
+	border-radius: 10px;
+	border : 0px;
+}
+
+#type_list{
+	position:absolute;
+	font-size: 2em;
+	width: 23%;
+	top: 16%;
+	height: 84%;
+	background-color: #eeeeee;
+	padding-top : -1px;
+	text-align：center;
+}
+
+.type_div{
+	position: relative;
+	background-color: #eeeeee;
+	padding : -1px;
+}
+
+.type_name{
+	position: absolute;
+	
+}
+
+.line{
+	position: absolute;
+	background-color: #eeeeee;
+	width : 1px;
+}
+
+.line2{
+	position: absolute;
+	background-color: #eeeeee;
+	height : 1px;
+}
+
+
+#sort_index{
+	position: absolute;
+	background-color: #dddddd;
+	text-align: center;
+	font-size: 1.7em;
+	color: #000000;
+}
+
+#type_name{
+	position: absolute;
+	background-color: #bfbfbf;
+	text-align: left;
+	width: 77%;
+	left: 23%;
+	top: 20%;
+	height: 3.6%;
+	color: #000000;
+}
+
+
+#ordered{
+	position: absolute;
+	height: 5%;
+	bottom: 0;
+	left: 23%;
+	background-color: #666666;
+	text-align: left;
+	width: 60%;
+	color: #000000;
+	z-index: 5;
+}
+
+
+#order_go{
+	position: absolute;
+	background-color: #bfbfbf;
+	text-align: center;
+	color: #000000;
+	height: 5%;
+	left: 83%;
+	width: 17%;
+	z-index: 5;
+	bottom: 0%;
+}
+
+
+
+.dish_list{
+	position: absolute;
+	text-align: center;
+	background-color: #ffffff;
+	color: #000000;
+	overflow: scroll;
+}
+
+
+.dish_div{
+	position: absolute;
+	cursor: pointer;
+}
+
+.dish_name{
+	position: absolute;
+	font-size: 2.4em;
+}
+
+
+.dish_dollar{
+	position: absolute;
+	font-weight: medium;
+	font-size: 2em;
+	color: #ff3300;
+}
+
+
+
+.dish_price{
+	position: absolute;
+	font-weight: medium;
+	font-size: 2.4em;
+	color: #ff3300;
+}
+
+.dish_number{
+	position: absolute;
+	font-weight: medium;
+	font-size: 1.6em;
+	color: #666666;
+}
+
+.dish_image{
+	position: absolute;
+	text-align: center;
+	color: #000000;
+	overflow: scroll;
+	border: thin solid #666666;
+}
+
+
+.dish_rank{
+	position: absolute;
+}
+
+.dish_stars{
+	position: absolute;
+	text-align: center;
+	color: #000000;
+	overflow: scroll;
+}
+
+
+.dish_chosen{
+	position: absolute;
+	font-size: 3em;
+}
+
+.dish_button{
+	position: absolute;
+	cursor: pointer;
+}

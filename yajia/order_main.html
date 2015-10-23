@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>点菜界面</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/order_main.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<div id = 'cover' style = 'display:none'>
+	</div>
+	
+	<div id = "header"> 
+		<img id = "logo" />
+		<div id = 'restaurant_name'>
+		</div>
+		<div id = 'call_service'>
+			呼叫
+		</div>
+	</div> 
+
+	<div id = 'search'>
+		<input id = 'search_input' type = 'text'/>
+		<img id = 'search_go' src = 'img/search.png'/>
+	</div>
+	
+	<div id = 'type_list'>
+	</div>
+	
+	<div id = 'sort_index'>
+		<div id = 'sort_by_amount' style = 'float: left'>
+			销量
+		</div>
+		<div id = 'line1' class = 'line'>
+		</div>
+		<div id = 'sort_by_price' style = 'float: left'>
+			价格
+		</div>
+		<div id = 'line2' class = 'line'>
+		</div>
+		<div id = 'sort_by_evaluation' style = 'float: left'>
+			评价
+		</div>
+	</div>
+	
+	<div id = 'type_name'>
+	</div>
+	
+	<div id = 'dish_list' class = 'dish_list'>
+	</div>
+	
+	<div id = 'ordered'>
+	</div>
+	
+	<div id = 'order_go'>
+		确认
+	</div>
+	
+	<div id = 'search' style = "display: none">
+	
+	</div>
+	
+	<div id = 'preview_list' class = 'dish_list' style = 'display: none; z-index: 5'>
+	</div>
+	
+	<div id = 'order_ready'>
+		<div id = 'correctable_list' class = 'dish_list' style = 'display: none; z-index: 5'>
+		</div>
+		<div id = 'continue_order'>继续点菜
+		</div>
+		<div id = 'order_now'>下 单
+		<div>
+	</div>
+	
+	<script src="js/data.js"></script>
+	<script src="js/draw_header.js"></script>
+	<script src="js/draw_order_main.js"></script>
+
+	<script src="js/draw_header.js"></script>
+	<script text= "text/javascript">
+	window.onload = function()
+	{
+		$("#continue_order").css("line-height",$("#continue_order").height()+"px");
+		$("#pay_online").css("line-height",$("#pay_online").height()+"px");
+	}
+	</script>
+</body>

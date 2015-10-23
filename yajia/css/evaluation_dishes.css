@@ -1,0 +1,31 @@
+#evaluation_text
+{
+	position:absolute;
+	left:10%;
+	width:80%;
+	top:15%;
+	color:black;
+}
+
+#evaluate_dishes
+{
+	position:absolute;
+	width:100%;
+}
+
+.dish_img
+{
+	position:absolute;
+	width:10%;
+	left:10%;
+	top:0%;
+}
+
+.evaluation_input
+{
+	position:absolute;
+	left:30%;
+	width:60%;
+	top:20px;
+	height:20px;
+}

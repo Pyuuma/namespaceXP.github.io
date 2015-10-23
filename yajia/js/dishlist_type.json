@@ -1,0 +1,33 @@
+{
+	"dishs":[{
+        "img": "potatochips.jpg",
+		"name": "炸薯条",
+		"score": 4.6,
+		"price": 6.45,
+		"sell": 800
+	},{
+        "img": "oilstick.jpg",
+		"name": "炸油条",
+		"score": 3.2,
+		"price": 2.00,
+		"sell": 4000
+    },{
+        "img": "sweetpotato.jpg",
+		"name": "烤红薯",
+		"score": 5.0,
+		"price": 2.5,
+		"sell": 2000
+    },{
+        "img": "chikenleg.jpg",
+		"name": "炸鸡腿",
+		"score": 4.0,
+		"price": 5,
+		"sell": 700
+    },{
+        "img": "boneandflesh.jpg",
+		"name": "骨肉相连",
+		"score": 2.0,
+		"price": 6.45,
+		"sell": 800
+    }]
+}

@@ -1,0 +1,55 @@
+#pay_bill
+{
+	position:absolute;
+	width:100%;
+	color:black;
+}
+
+#share_bill
+{
+	position:absolute;
+	width:100%;
+	color:black;
+}
+
+.pay_go
+{
+	position:absolute;
+	width:20%;
+	right:5%;
+	text-align:center;
+	height:20px;
+	top:55px;
+	background-color:#4E56FF;
+	border-radius:20px;
+	color:white;
+}
+
+.pay_introduction
+{
+	position:absolute;
+	top:60px;
+	left:5%;
+	width:90%;
+	word-wrap:break-word;
+	color:#999999;
+}
+
+#footer
+{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	height:40px;
+	background-color:rgb(78,78,78);
+}
+
+#check_order
+{
+	position:absolute;
+	background-color:rgb(86,209,118);
+	right:0;
+	height:100%;
+	text-align:center;
+	line-height:40px;
+}

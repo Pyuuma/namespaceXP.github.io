@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>支付界面</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/show_dish.css" />
+	<link rel="stylesheet" type="text/css" href="css/pay_online.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+</head>
+
+<body>
+	<div id = "header"> 
+		<img id = "logo" />
+		<div id = 'restaurant_name'>
+		</div>
+		<div id = 'call_service'>
+			呼叫
+		</div>
+	</div>
+	<div id = "unpaid_bill" style = "position:absolute;color:black;width:100%;background-color:#FFFF99">
+		<div id = "unpaid_bill0" style = "position:absolute;">本单还有</div>
+		<div id = "unpaid_bill1" style = "position:absolute;">1221.30</div>
+		<div id = "unpaid_bill2" style = "position:absolute;">元待付款</div>
+		<div class = "show_dividing" style = "bottom:-20px"></div>
+	</div>
+	<div id = "pay_bill">
+		<div class = "show_title" style = "top:0px">土豪请客</div>
+		<hr size=1 class = "show_dish_dividing">
+		<div class = "pay_introduction" >您将全额支付账单</div>
+		<div class= "pay_go">确认支付</div>
+		<div class = "show_dividing" style = "bottom:-40px"></div>
+	</div>
+	<div id = "share_bill">
+		<div class = "show_title" style = "top:0px">共享账单</div>
+		<hr size=1 class = "show_dish_dividing">
+		<div class = "pay_introduction">您将和小伙伴们分享账单</div>
+		<div class = "pay_introduction" style = "top:100px;">您将支付&nbsp<input style = "width:65px;"/>&nbsp元</div>
+		<div class = "pay_go" style = "top:95px">确认支付</div>
+	</div>
+	<div id = "footer">
+		<div id = "check_order">查看菜单</div>
+	</div>
+	<script src="js/draw_header.js"></script>
+	<script src="js/pay_online.js"></script>
+</body>

@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>评价</title>
+		<script src="js/jquery.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<style type="text/css"> 
+			ul, li {margin: 0; padding: 0; border: 0;} 
+			.shop-rating { 
+				position:absolute;
+				left:10%;
+				top:20%;
+				height: 25px; 
+				overflow: hidden; 
+				zoom: 1; 
+				padding: 2px 0; 
+				z-index: 999; 
+				font:12px Arial; 
+				color:#000; 
+				line-height:1.2em 
+			} 
+			.shop-rating span { 
+				height: 23px; 
+				display: block; 
+				line-height: 23px; 
+				float: left; 
+			} 
+			.shop-rating span.title { 
+				width: 125px; 
+				text-align: right; 
+				margin-right: 5px; 
+			} 
+			.shop-rating ul { 
+				float: left; 
+			} 
+			.shop-rating .result { 
+				margin-left: 20px; 
+				padding-top: 2px; 
+			} 
+			.shop-rating .result span { 
+				color: #ff6d02; 
+			} 
+			.rating-level, 
+			.rating-level a { 
+				background: url("img/star.png") no-repeat scroll 1000px 1000px; 
+			} 
+			.rating-level { 
+				background-position: 0px 0px; 
+				width: 120px; 
+				height: 23px; 
+				position: relative; 
+				z-index: 1000; 
+			} 
+			.shop-rating .result em { 
+				color: #f60; 
+				font-family: arial; 
+				font-weight: bold; 
+			} 
+			.rating-level li { 
+				display: inline; 
+			} 
+			.rating-level a { 
+				line-height: 23px; 
+				height: 23px; 
+				position: absolute; 
+				top: 0px; 
+				left: 0px; 
+				text-indent: -999em; 
+				*zoom: 1; 
+				outline: none; 
+			} 
+			.rating-level a.one-star { 
+				width: 20%; 
+				z-index: 6; 
+			} 
+			.rating-level a.two-stars { 
+				width: 40%; 
+				z-index: 5; 
+			} 
+			.rating-level a.three-stars { 
+				width: 60%; 
+				z-index: 4; 
+			} 
+			.rating-level a.four-stars { 
+				width: 80%; 
+				z-index: 3; 
+			} 
+			.rating-level a.five-stars { 
+				width: 100%; 	
+				z-index: 2; 
+			} 
+			.rating-level .current-rating, .rating-level a:hover {background-position:0 -28px} 
+			.rating-level a.one-star:hover,.rating-level a.two-stars:hover,.rating-level a.one-star.current-rating,.rating-level a.two-stars.current-rating{background-position:0 -116px;} 
+			.rating-level .three-stars .current-rating,.rating-level .four-stars .current-rating,.rating-level .five-stars .current-rating{background-position:0 -28px;} 
+		</style> 
+	</head> 
+	<body> 
+	<script>
+		function createStars(i)
+		{
+			var rating = document.createElement("div");
+			rating.setAttribute("class","shop_rating");
+			document.body.appendChild(rating);
+			var title = document.createElement("span");
+			title.setAttribute("class","title"); 
+			rating.appendChild(title);	
+			var level = document.createElement("ul");
+			level.setAttribute("class","rating-level");
+			level.setAttribute("id","stars"+i);
+			rating.appendChild(level);
+			var rating_li1 = document.createElement("li");
+			var rating_a1 = document.createElement("a");
+			level.appendChild(rating_li1);
+			rating_li1.appendChild(rating_a1);
+			rating_a1.setAttribute("class","one-star");
+			rating_a1.setAttribute("star:value","20");
+			rating_a1.setAttribute("href","javascript:void(0);");
+			var rating_li2 = document.createElement("li");
+			var rating_a2 = document.createElement("a");
+			level.appendChild(rating_li2);
+			rating_li2.appendChild(rating_a2);
+			rating_a2.setAttribute("class","two-stars");
+			rating_a2.setAttribute("star:value","40");
+			rating_a2.setAttribute("href","javascript:void(0);");
+			var rating_li3 = document.createElement("li");
+			var rating_a3 = document.createElement("a");
+			level.appendChild(rating_li3);
+			rating_li3.appendChild(rating_a3);
+			rating_a3.setAttribute("class","three-stars");
+			rating_a3.setAttribute("star:value","60");
+			rating_a3.setAttribute("href","javascript:void(0);");
+			var rating_li4 = document.createElement("li");
+			var rating_a4 = document.createElement("a");
+			level.appendChild(rating_li4);
+			rating_li4.appendChild(rating_a4);
+			rating_a4.setAttribute("class","four-stars");
+			rating_a4.setAttribute("star:value","80");
+			rating_a4.setAttribute("href","javascript:void(0);");
+			var rating_li5 = document.createElement("li");
+			var rating_a5 = document.createElement("a");
+			level.appendChild(rating_li5);
+			rating_li5.appendChild(rating_a5);
+			rating_a5.setAttribute("class","five-stars");
+			rating_a5.setAttribute("star:value","100");
+			rating_a5.setAttribute("href","javascript:void(0);");
+			var tip = document.createElement("span");
+			rating.appendChild(tip);
+			tip.setAttribute("class","result");
+			tip.setAttribute("id","stars"+i+"-tips");
+			var rating_input = document.createElement("input");
+			rating_input.setAttribute("type","hidden");
+			rating_input.setAttribute("id","stars"+i+"-input");
+			rating_input.setAttribute("name","b");
+			rating_input.setAttribute("value"," ");
+			rating_input.setAttribute("size","2");
+			rating.appendChild(rating_input);
+		}
+		function createStarsSettings(i)
+		{
+			var TB = function() { 	
+				var T$ = function(id) { return document.getElementById(id) } 
+				var T$$ = function(r, t) { return (r || document).getElementsByTagName(t) } 
+				var Stars = function(cid, rid, hid, config) { 
+					var lis = T$$(T$(cid), 'li'), curA; 
+					for (var i = 0, len = lis.length; i < len; i++) { 
+						lis[i]._val = i; 
+						lis[i].onclick = function() { 
+						T$(rid).innerHTML = '<em>' + (T$(hid).value = T$$(this, 'a')[0].getAttribute('star:value')) + '分</em> - ' + config.info[this._val]; 
+						curA = T$$(T$(cid), 'a')[T$(hid).value / config.step - 1]; 
+						}; 
+					lis[i].onmouseout = function() { 
+						curA && (curA.className += config.curcss); 
+					} 
+					lis[i].onmouseover = function() { 
+						curA && (curA.className = curA.className.replace(config.curcss, '')); 
+					} 
+					} 
+				}; 
+				return {Stars: Stars} 
+			}().Stars('stars'+i, 'stars'+i+'-tips', 'stars'+i+'-input', { 
+			'info' : ['味道极差', '味道不咋地', '味道一般', '挺好吃的', '超级好吃'], 
+			'curcss': ' current-rating', 
+			'step': 20 
+			}); 
+		}
+		createStars(2);
+		createStars(3);
+		createStars(4);	
+		createStarsSettings(2);
+		createStarsSettings(3);
+		createStarsSettings(4);	
+	</script>
+	</body> 
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>初始界面</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<div id = "header"> 
+		<img id = "logo" />
+		<div id = 'restaurant_name'>
+		</div>
+		<div id = 'call_service'>
+			呼叫
+		</div>
+	</div> 
+	<div id = "continue_order" style = "position:absolute;width:50%;left:25%;text-align:center;height:10%;top:30%;background-color:#4E56FF;border-radius:20px">
+		继续点餐
+	</div>
+	<div id = "pay_online" style = "position:absolute;width:50%;left:25%;text-align:center;height:10%;top:60%;background-color:#4E56FF;border-radius:20px">
+		在线支付
+	</div>
+	<script src="js/draw_header.js"></script>
+	<script text= "text/javascript">
+	window.onload = function()
+	{
+		$("#continue_order").css("line-height",$("#continue_order").height()+"px");
+		$("#pay_online").css("line-height",$("#pay_online").height()+"px");
+	}
+	</script>
+</body>
