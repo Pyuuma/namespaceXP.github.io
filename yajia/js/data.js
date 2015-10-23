@@ -1,7 +1,3 @@
-
-
-var orderlist = new Array;
-
 function init_dish(dname, id, rank, price, image, number){
 	var dish = new Object();
 	dish.name = dname;
@@ -21,7 +17,7 @@ function init_type(dname, id){
 }
 
 
-function init_order(dname, id, rank, price, image, number){
+function init_order(dname, id, rank, price, number){
 	var dish = new Object();
 	dish.name = dname;
 	dish.id = id;
@@ -30,3 +26,12 @@ function init_order(dname, id, rank, price, image, number){
 	return dish;
 }
 
+
+function init_comment(id, date, score, content){
+	var aContent = new Object();
+	aContent.date = date;
+	aContent.id = id;
+	aContent.score = score;
+	aContent.content = content;
+	return aContent;
+}

@@ -1,11 +1,27 @@
 
+
+
 var restaurant_name = "XP咸鱼馆";
 var chosen_list = new Array;
 var chosen = 0;  //总共选菜数
 var chosen_type = 0;   //目前选中的菜类型
 var dishlist = new Array; 
 var typelist = new Array;
+var orderlist = new Array;   //目前的点菜单
+var commentlist = new Array;
 
+Array.prototype.remove=function(dx) 
+{ 
+    if(isNaN(dx)||dx>this.length){return false;} 
+    for(var i=0,n=0;i<this.length;i++) 
+    { 
+        if(this[i]!=this[dx]) 
+        { 
+            this[n++]=this[i];
+        } 
+    } 
+    this.length -= 1; 
+} 
 
 function get_dish_list(dishtype){   //传入类型的ID
 	$('#dish_list').html("");
@@ -26,6 +42,54 @@ function get_type_list(){
 		set_type_list();
 		set_type_name();
 	})
+}
+
+function set_dish_view(dishid){   //根据菜的ID显示详细信息
+	var border_height = 6;
+	set_show_dish_info();
+	
+	$("#show_dish_introduction_div").css("top", (border_height * width + $("#show_dish_picture").height() + $("#show_dish_info").height()).toString() + 'px');
+	$("#show_dish_introduction_div").css("height", (19 * width).toString() + 'px');
+	
+	$("#show_dish_comment_div").css("top", (2 * border_height * width + $("#show_dish_picture").height() + $("#show_dish_info").height() + $("#show_dish_introduction_div").height()).toString() + 'px');
+		
+}
+
+function set_show_dish_comment(){
+	commentlist = [];
+	$.getJSON("http://namespaceXP.github.io/yajia/js/dishcomment_id.json", function(json){
+		for(var i = 0; i < json.comment_list.length; i++){
+			commentlist[i] = init_comment(json.comment_list[i].User_id, json.comment_list[i].date, json.comment_list[i].score, json.comment_list[i].content);
+		}
+	})
+}
+
+function set_show_dish_info(){
+	var name_font = 5;
+	var name_top = 2;
+	var stars_top = 9;
+	var price_top = 13;
+ 	$("#show_dish_info").css("top", $("#show_dish_picture").height().toString() + 'px');
+	$("#show_dish_info").css("height", (19 * width).toString() + 'px');
+	$("#show_dish_name").css("font-size", (name_font * width).toString() + 'px');
+	$("#show_dish_name").css("height", (name_font * width).toString() + 'px');
+	$("#show_dish_name").css("top", (name_top * width).toString() + 'px');
+	
+	$("#show_dish_rank0").css("top", (stars_top * width).toString() + 'px');
+	
+	$("#show_dish_price").css("font-size", (name_font * width).toString() + 'px');
+	$("#show_dish_price").css("height", (name_font * width).toString() + 'px');
+	$("#show_dish_price").css("bottom", (1 * width).toString() + 'px');
+	
+	$("#add_order_amount").css("height", 6 * width.toString() + 'px');
+	$("#minus_order_amount").css("height", 6 * width.toString() + 'px');
+	$("#add_order_amount").css("bottom",'0px');
+	$("#minus_order_amount").css("bottom",'0px');
+	$("#add_order_amount").css("right", 4 * width.toString() + 'px');
+	$("#minus_order_amount").css("right", 18 * width.toString() + 'px');
+	$("#show_dish_order_amount").css("width",(8 * width).toString() + 'px');
+	$("#show_dish_order_amount").css("right", (4 * width + $("#minus_order_amount").height()).toString() + 'px');
+	$("#show_dish_order_amount").css("font-size", (name_font * width).toString() + 'px');
 }
 
 function set_type_list(){
@@ -144,7 +208,7 @@ function set_dish_list(){
 		dish_div.setAttribute('id', dishlist[i].id);
 		
 		dish_div.onclick = function(){
-			document.location.href = 'show_dish.html';
+		
 		}
 		
 		dish_div.ontouchstart = dish_div.onmouseover = function(){
@@ -193,10 +257,17 @@ function set_dish_list(){
 		dish_chosen.style.lineHeight = dish_chosen.style.height;
 		dish_chosen.style.bottom = dish_add.style.bottom;
 		
-		dish_name.innerHTML = dishlist[i].name;
+		dish_div.name = dishlist[i].name;
+		dish_div.price  = dishlist[i].price;
+		dish_div.rank = dishlist[i].rank;
+		
+		
+		dish_name.innerHTML = dish_div.name;
 		dish_price.innerHTML = '￥' + dishlist[i].price;
 		dish_chosen.innerHTML = 0;
 		dish_number.innerHTML = '月售' + dishlist[i].number + '份';
+		
+		
 		
 		for(var j = 0; j < 5; j++){  //星级
 			dish_stars[j] =  document.createElement('img');
@@ -217,25 +288,67 @@ function set_dish_list(){
 		
 		
 		dish_add.onclick = function(e){
+			var i;
 			e.stopPropagation();
 			var this_chosen = parseInt(this.parentNode.childNodes[3].innerHTML);   //本菜被点的量
 			this.parentNode.childNodes[3].innerHTML = (this_chosen + 1).toString();
 			if(this_chosen == 0){
 				this.parentNode.childNodes[3].style.display = 'block';
 				this.parentNode.childNodes[7].style.display = 'block';
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id == this.parentNode.id){
+						break;
+					}
+				}
+				if(i == orderlist.length){
+					orderlist[i] = init_order(this.parentNode.name, this.parentNode.id, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				else{
+					orderlist[i].number++;
+				}
+			}
+			else{
+				if(0 == orderlist.length){
+					orderlist[0] = init_order(this.parentNode.name, this.parentNode.id, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id == this.parentNode.id){
+						break;
+					}
+				}
+				if(i == orderlist.length){
+					orderlist[i] = init_order(this.parentNode.name, this.parentNode.id, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				else{
+					orderlist[i].number++;
+				}
 			}
 			chosen++;
 			$("#ordered").html("已选(" + chosen + ')');
 		}
 		
-		dish_minus.onclick = function(){
+		dish_minus.onclick = function(e){
+			e.stopPropagation();
 			var this_chosen = parseInt(this.parentNode.childNodes[3].innerHTML);   //本菜被点的量
 			if(this_chosen > 0){
 				this.parentNode.childNodes[3].innerHTML = (this_chosen - 1).toString();
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id = this.parentNode.id){
+						break;
+					}
+				}
+				orderlist[i].number--;
 			}
 			if(this_chosen == 1){
 				this.parentNode.childNodes[3].style.display = 'none';
 				this.parentNode.childNodes[7].style.display = 'none';
+				
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id = this.parentNode.id){
+						break;
+					}
+				}
+				orderlist.remove(i);
 			}
 			chosen--;
 			$("#ordered").html("已选(" + chosen + ')');
@@ -260,7 +373,7 @@ function set_preview(){
 	$('#preview_list').css("top", ($("#header").height() + $("#search").height() + $("#sort_index").height() + $("#type_name").height()));
 	$('#preview_list').css("left", $("#type_list").width() + 2);
 	$('#preview_list').css("width", ($("#header").width() - $("#type_list").width() - 2));
-	for(var i = 0; i < dishlist.length; i++){
+	for(var i = 0; i < orderlist.length; i++){
 		chosen_list[i] = 0;
 		var dish_div = document.createElement('div');
 		var dish_name = document.createElement('div');
@@ -312,9 +425,9 @@ function set_preview(){
 		dish_chosen.style.lineHeight = dish_chosen.style.height;
 		dish_chosen.style.bottom = dish_add.style.bottom;
 		
-		dish_name.innerHTML = dishlist[i].name;
-		dish_price.innerHTML = '￥' + dishlist[i].price;
-		dish_chosen.innerHTML = 0;
+		dish_name.innerHTML = orderlist[i].name;
+		dish_price.innerHTML = '￥' + orderlist[i].price;
+		dish_chosen.innerHTML = orderlist[i].number;
 		
 		
 		dish_add.onclick = function(){
