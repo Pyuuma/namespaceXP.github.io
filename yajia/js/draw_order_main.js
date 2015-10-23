@@ -113,7 +113,6 @@ function set_footer(){
 	$("#ordered").css("line-height", $("#ordered").height().toString() + 'px');
 	$("#ordered").html("已选(" + chosen + ')');
 	$("#ordered").css("text-indent", 2 * height.toString() + 'px');
-	
 	$("#order_go").css("line-height", $("#order_go").height().toString() + 'px');
 }
 
@@ -497,8 +496,4 @@ $('#cover').click(function(){
 	$('#ordered').css('z-index', 5);
 });
 
-get_type_list();
-get_dish_list();
-set_sort_index();
-set_footer();
 
