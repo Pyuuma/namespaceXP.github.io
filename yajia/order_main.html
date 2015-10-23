@@ -82,6 +82,11 @@
 	<script text= "text/javascript">
 	window.onload = function()
 	{
+		var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight;
+		var window_width = document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth;
+		var width = window_width / 100;
+		var height = window_height / 100;
+		
 		$("#continue_order").css("line-height",$("#continue_order").height()+"px");
 		$("#pay_online").css("line-height",$("#pay_online").height()+"px");
 		get_type_list();

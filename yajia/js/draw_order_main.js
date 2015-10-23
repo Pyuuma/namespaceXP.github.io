@@ -1,12 +1,3 @@
-var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight;
-var window_width = document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth;
-var width = window_width / 100;
-var height = window_height / 100;
-
-var restaurant_name = "XP咸鱼馆";var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight;
-var window_width = document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth;
-var width = window_width / 100;
-var height = window_height / 100;
 
 var restaurant_name = "XP咸鱼馆";
 var chosen_list = new Array;
@@ -495,5 +486,6 @@ $('#cover').click(function(){
 	$('#order_go').css('z-index', 5);
 	$('#ordered').css('z-index', 5);
 });
+
 
 
