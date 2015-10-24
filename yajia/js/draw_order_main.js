@@ -10,9 +10,11 @@ var typelist = new Array;
 var orderlist = new Array;   //目前的点菜单
 var commentlist = new Array;
 
+var border_height = 6;
+
 Array.prototype.remove=function(dx) 
 { 
-    if(isNaN(dx)||dx>this.length){return false;} 
+    if(isNaN(dx)|| dx>this.length){return false;} 
     for(var i=0,n=0;i<this.length;i++) 
     { 
         if(this[i]!=this[dx]) 
@@ -45,23 +47,85 @@ function get_type_list(){
 }
 
 function set_dish_view(dishid){   //根据菜的ID显示详细信息
-	var border_height = 6;
 	set_show_dish_info();
-	
-	$("#show_dish_introduction_div").css("top", (border_height * width + $("#show_dish_picture").height() + $("#show_dish_info").height()).toString() + 'px');
-	$("#show_dish_introduction_div").css("height", (19 * width).toString() + 'px');
-	
-	$("#show_dish_comment_div").css("top", (2 * border_height * width + $("#show_dish_picture").height() + $("#show_dish_info").height() + $("#show_dish_introduction_div").height()).toString() + 'px');
-		
+	set_show_dish_introduction();
+	set_show_dish_comment();
+	$("#show_dish_comment_div").css("top", (2 * border_height * width).toString() + 'px');
 }
 
 function set_show_dish_comment(){
+	var star_height = 3;
+	var height = 0;
+	var comment_div_height = 14;
+	var show_dish_comments = document.getElementById("show_dish_comments");
 	commentlist = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/js/dishcomment_id.json", function(json){
 		for(var i = 0; i < json.comment_list.length; i++){
 			commentlist[i] = init_comment(json.comment_list[i].User_id, json.comment_list[i].date, json.comment_list[i].score, json.comment_list[i].content);
 		}
+				
+		for(var i = 0; i < commentlist.length; i++){
+			var comment_dish_stars = new Array;  //五颗星
+			var comment_div = document.createElement("div");
+			var comment_id = document.createElement("div");
+			var comment_content = document.createElement("div");
+			var comment_date = document.createElement("div");
+			var comment_rank = document.createElement("div");
+			
+			comment_div.setAttribute("id", 'comment_' + i.toString());
+			
+			comment_div.setAttribute("class", 'comment_div');
+			comment_rank.setAttribute("class", 'comment_rank');
+			comment_date.setAttribute("class", 'comment_date');
+			comment_id.setAttribute("class", 'comment_id');
+			comment_content.setAttribute("class", 'comment_content');
+			
+			comment_id.innerHTML = commentlist[i].id;
+			comment_date.innerHTML = commentlist[i].date;
+			comment_content.innerHTML = commentlist[i].content;
+			
+			$(".comment_div").css("height", (comment_div_height * width).toString() + 'px');
+			$(".comment_rank").css("height", (star_height * width).toString() + 'px');
+			
+			for(var j = 0; j < 5; j++){  //星级
+				comment_dish_stars[j] =  document.createElement('img');
+				comment_dish_stars[j].setAttribute('class', 'dish_stars');
+				comment_dish_stars[j].style.position = 'relative';
+				comment_dish_stars[j].style.height = (star_height * width).toString() + 'px';
+				comment_rank.appendChild(comment_dish_stars[j]);
+				if(j < commentlist[i].score - 0.75){
+					comment_dish_stars[j].src = 'icons/star_yellow.png';
+				}
+				else if(j > commentlist[i].score - 0.75 && j < commentlist[i].score + 0.25){
+					comment_dish_stars[j].src = 'icons/star_half.png';
+				}
+				else{
+					comment_dish_stars[j].src = 'icons/star_grey.png';
+				}
+			}
+				
+			comment_div.appendChild(comment_rank);
+			comment_div.appendChild(comment_date);
+			comment_div.appendChild(comment_id);
+			comment_div.appendChild(comment_content);
+			show_dish_comments.appendChild(comment_div);
+		}
+		$(".comment_rank").css('top', (1 * width).toString() + 'px');
+		$(".comment_date").css('top', (1 * width).toString() + '0px');
+		$(".comment_date").css('left', (20 * width).toString() + 'px');
+		$(".comment_id").css('right', (5 * width).toString() + 'px');
+		$(".comment_id").css('top', (1 * width).toString() + 'px');
+		$(".comment_content").css('top', (5 * width).toString() + 'px');
 	})
+	$("#blank").css("top",(3).toString() + 'px');
+}
+
+function set_show_dish_introduction(){
+	$("#show_dish_introduction_div").css("top", (border_height * width).toString() + 'px');
+	$("#show_dish_introduction_div").css("height", (24 * width).toString() + 'px');
+	$("#show_dish_introduction_div").css("height", (24 * width).toString() + 'px');
+	$("#blank").css("height", (6 * height).toString() + 'px');
+	$(".show_title").css("font-size", (4 * width).toString() + 'px');
 }
 
 function set_show_dish_info(){
@@ -70,7 +134,7 @@ function set_show_dish_info(){
 	var stars_top = 9;
 	var price_top = 13;
  	$("#show_dish_info").css("top", $("#show_dish_picture").height().toString() + 'px');
-	$("#show_dish_info").css("height", (19 * width).toString() + 'px');
+	$("#show_dish_info").css("height", (23 * width).toString() + 'px');
 	$("#show_dish_name").css("font-size", (name_font * width).toString() + 'px');
 	$("#show_dish_name").css("height", (name_font * width).toString() + 'px');
 	$("#show_dish_name").css("top", (name_top * width).toString() + 'px');
@@ -79,17 +143,19 @@ function set_show_dish_info(){
 	
 	$("#show_dish_price").css("font-size", (name_font * width).toString() + 'px');
 	$("#show_dish_price").css("height", (name_font * width).toString() + 'px');
-	$("#show_dish_price").css("bottom", (1 * width).toString() + 'px');
+	$("#show_dish_price").css("bottom", (3 * width).toString() + 'px');
 	
 	$("#add_order_amount").css("height", 6 * width.toString() + 'px');
 	$("#minus_order_amount").css("height", 6 * width.toString() + 'px');
-	$("#add_order_amount").css("bottom",'0px');
-	$("#minus_order_amount").css("bottom",'0px');
+	$("#add_order_amount").css("bottom",(3 * width).toString() + 'px');
+	$("#minus_order_amount").css("bottom", (3 * width).toString() + 'px');
 	$("#add_order_amount").css("right", 4 * width.toString() + 'px');
 	$("#minus_order_amount").css("right", 18 * width.toString() + 'px');
 	$("#show_dish_order_amount").css("width",(8 * width).toString() + 'px');
 	$("#show_dish_order_amount").css("right", (4 * width + $("#minus_order_amount").height()).toString() + 'px');
 	$("#show_dish_order_amount").css("font-size", (name_font * width).toString() + 'px');
+	$("#show_dish_order_amount").css("bottom", (3 * width).toString() + 'px');
+	$("#dish_view").css("height", ($("#show_dish_picture").height() + $("#show_dish_info").height() + 2).toString() + 'px');
 }
 
 function set_type_list(){
