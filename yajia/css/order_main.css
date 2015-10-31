@@ -1,4 +1,4 @@
-
+	
 body {;
 	font-family: Helvetica;
 	font-weight: lighter;
@@ -9,7 +9,7 @@ body {;
 	-moz-user-select: none;
 	-webkit-user-select: none; 
 	overflow-x:hidden;
-	overflow-y: scroll;
+	overflow-y: hidden;
 }
 
 
@@ -17,13 +17,28 @@ body {;
 @media screen and (orientation: portrait) {
 */
 
+#show_line{
+	position: absolute;
+	width: 33.333%;
+	height: 8%;
+	background-color: #4E56FF;
+	bottom: 4%;
+	left: 0;
+	transition: left 0.25s;
+	-moz-transition: left 0.25s; /* Firefox 4 */
+	-webkit-transition: left 0.25s; /* Safari 和 Chrome */
+}
+
 
 #dish_view{
 	position: relative;
 	z-index: 8;
 	background-color: #aaaaaa;
 	height: 94%;
-	overflow-x:hidden;
+	overflow:hidden;
+	transition: left 0.5s;
+	-moz-transition: left 0.5s; /* Firefox 4 */
+	-webkit-transition: left 0.5s; /* Safari 和 Chrome */
 }
 
 #cover{
@@ -55,26 +70,25 @@ body {;
 	background-color: #e6e6e6;
 }
 
-#search_go{
+
+
+#preview_list{
 	position:absolute;
-	height: 34%;
-	top: 32.4%;
-	left: 87%;
+	left: 0%;
+	bottom: 6%;
+	height : 0%;
 	cursor:pointer;
+	transition: height 0.3s;
+	-moz-transition: height 0.3s; /* Firefox 4 */
+	-webkit-transition: height 0.3s; /* Safari 和 Chrome */
 }
 
-
-#search_input{
-	position:absolute;
-	width: 86%;
-	height: 40%;
-	left: 7%;
-	top: 30%;
-	border-radius: 10px;
-	border : 0px;
-	text-align: left;
-	text-indent: 10px;
+#correctable_list{
+	transition: height 0.3s;
+	-moz-transition: height 0.3s; /* Firefox 4 */
+	-webkit-transition: height 0.3s; /* Safari 和 Chrome */
 }
+
 
 #type_list{
 	position:absolute;
@@ -95,7 +109,6 @@ body {;
 
 .type_name{
 	position: absolute;
-	
 }
 
 .line{
@@ -125,8 +138,8 @@ body {;
 	text-align: left;
 	width: 77%;
 	left: 23%;
-	top: 20%;
-	height: 3.6%;
+	top: 20.5%;
+	height: 3.8%;
 	color: #000000;
 }
 
@@ -137,7 +150,7 @@ body {;
 	bottom: 0;
 	left: 0%;
 	font-size: 160%;
-	background-color: #666666;
+	background-color: #888888;
 	text-align: left;
 	width: 83%;
 	color: #000000;
@@ -150,7 +163,7 @@ body {;
 }
 
 #show_dish_info{
-	position: absolute;
+	position: relative;
 	width: 100%;
 	background-color: #eeeeee;
 }
@@ -198,6 +211,13 @@ body {;
 	bottom: 10%;
 }
 
+#show_dish_sale_amount{
+	color: #222222;
+	position: absolute;
+	width: 100%;
+	left: 4%;
+}
+
 #show_dish_rank0{
 	position: absolute;
 	width: 100%;
@@ -206,7 +226,7 @@ body {;
 
 .comment_div{
 	position: relative;
-	top: -10%;
+	top: -11110%;
 	width: 100%;
 }
 
@@ -248,9 +268,12 @@ body {;
 
 
 .dish_div{
-	position: absolute;
+	position: relative;
 	cursor: pointer;
 	height: 20%;
+	transition: left 0.3s;
+	-moz-transition: left 0.3s; /* Firefox 4 */
+	-webkit-transition: height 0.3s; /* Safari 和 Chrome */
 }
 
 .dish_name{
@@ -335,4 +358,17 @@ body {;
 .comment_date{
 	position: absolute;
 
+}
+
+#search_button{
+	position: absolute;
+	cursor: pointer;
+	width: 90%;
+	left: 5%;
+	height: 50%;
+	top: 25%;
+	background-color: #ffffff;
+	color: #888888;
+	text-indent: 5%;
+	border-radius: 5px;
 }

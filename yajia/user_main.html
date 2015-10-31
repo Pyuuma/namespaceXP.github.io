@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>初始界面</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/user_main.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<div id = "header"> 
+		<img id = "logo" />
+		<div id = 'restaurant_name'>
+		</div>
+		<div id = 'call_service'>
+			呼叫
+		</div>
+	</div> 
+	<div id = "welcome"> 尊敬的顾客，欢迎来到雅佳川菜馆！</div>
+	<div id = "continue_order" class = "main_button" style = "top:40%;">
+		要去点菜
+	</div>
+	<div id = "pay_online" class = "main_button" style = "top:55%;">
+		想玩游戏
+	</div>
+	<div id = "pay_online" class = "main_button" style = "top:70%;">
+		我要买单
+	</div>
+	<script src="js/draw_header.js"></script>
+	<script src="js/user_main.js"></script>
+	<script text= "text/javascript">
+	window.onload = function()
+	{
+		$(".main_button").css("line-height",$(".main_button").height()+"px");
+	}
+	</script>
+</body>

@@ -1,0 +1,79 @@
+#search_view{
+	position: absolute; 
+	display: block; 
+	height: 100%; 
+	width: 100%; 
+	left: 0; 
+	top: 0;
+	z-index: 4;
+	background-color: #cccccc;
+	overflow:hidden;
+	transition: left 0.5s;
+	-moz-transition: left 0.5s; /* Firefox 4 */
+	-webkit-transition: left 0.5s; /* Safari 和 Chrome */
+}
+
+#search_bar{
+	position: absolute; 
+	display: block; 
+	height: 8%; 
+	width: 100%; 
+	left: 0; 
+	top: 0;
+	z-index: 4;
+	background-color: #ffffff;
+}
+
+#search_input{
+	position:absolute;
+	width: 72%;
+	height: 50%;
+	left: 10%;
+	top: 25%;
+	border-radius: 5px;
+	border : 0px;
+	text-align: left;
+	text-indent: 10%;
+	background-color: #dddddd;
+}
+
+#search_image{
+	position:absolute;
+	height: 34%;
+	top: 32.4%;
+	left: 12%;
+	cursor:pointer;
+}
+
+#search_go{
+	position:absolute;
+	background-color: #4E56FF;
+	width: 12%;
+	height: 50%;
+	top: 25%;
+	right: 4%;
+	text-align: center;
+	cursor:pointer;
+	border-radius: 5px;
+}
+
+#hot_search{
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	height: 20%;
+	top: 11%;
+	background-color: #ffffff;
+	color: #888888;
+	text-indent: 5%;
+}
+
+#hot_title{
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 11%;
+	background-color: #ffffff;
+	color: #888888;
+	text-indent: 5%;
+}
