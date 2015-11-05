@@ -12,7 +12,10 @@ var commentlist = new Array;
 var hotlist = new Array;
 var searchlist = new Array;
 var border_height = 6;
+var hot_font = 3.4;
+var hot_blank_rate = 1.8;
 var now_dish = -1;    //当前正在查看的菜肴
+
 
 Array.prototype.remove=function(dx) 
 { 
@@ -27,22 +30,53 @@ Array.prototype.remove=function(dx)
     this.length -= 1; 
 } 
 
+
+$("#sort_default").click(function(){
+	$('#show_line').css('left', "0");
+	$("#sort_default").css('color', "#66ccff");
+	$("#sort_by_amount").css('color', "#222222");
+	$("#sort_by_price").css('color', "#222222");
+	$("#sort_by_evaluation").css('color', "#222222");
+	
+	$("#show_sort").html("智能排序");
+	$('#sort_list').css('height','0px');
+});
+
+
 $("#sort_by_amount").click(function(){
 	$('#show_line').css('left', "0");
 	dishlist.sort(function(a, b){return a.number > b.number? -1:1});
 	set_dish_list();
+	$("#sort_by_amount").css('color', "#66ccff");
+	$("#sort_default").css('color', "#222222");
+	$("#sort_by_price").css('color', "#222222");
+	$("#sort_by_evaluation").css('color', "#222222");
+	$("#show_sort").html("人气最高");
+	$('#sort_list').css('height','0px');
 });
 
 $("#sort_by_price").click(function(){
 	$('#show_line').css('left', "33.3333%");
 	dishlist.sort(function(a, b){return a.price < b.price? -1:1});
 	set_dish_list();
+	$("#show_sort").html("物美价廉");
+	$("#sort_by_price").css('color', "#66ccff");
+	$("#sort_default").css('color', "#222222");
+	$("#sort_by_amount").css('color', "#222222");
+	$("#sort_by_evaluation").css('color', "#222222");
+	$('#sort_list').css('height','0px');
 });
 
 $("#sort_by_evaluation").click(function(){
 	$('#show_line').css('left', "66.6666%");
 	dishlist.sort(function(a, b){return a.rank > b.rank? -1:1});
 	set_dish_list();
+	$("#show_sort").html("好评优先");
+	$("#sort_by_evaluation").css('color', "#66ccff");
+	$("#sort_default").css('color', "#222222");
+	$("#sort_by_amount").css('color', "#222222");
+	$("#sort_by_price").css('color', "#222222");
+	$('#sort_list').css('height','0px');
 });
 
 function get_dish_list(dishtype){   //传入类型的ID
@@ -71,10 +105,13 @@ function get_search_list(keynode){   //传入类型的ID
 $('#back').click(function(){
 	$('#dish_view').css('left', '100%');
 	$('body').css('overflow-y', 'hidden');
+	setTimeout("$('#dish_view').css('z-index', 4)", 1000);
 });
 
 $('#search_go').click(function(){
 	get_search_list();
+	$("#hot_search").css('display', "none");
+	$("#search_list").css('display', "block");
 });
 
 $('#search_back').click(function(){
@@ -209,9 +246,23 @@ function set_show_dish_info(dishid){
 	var stars_top = 9;
 	var price_top = 13;
 	
+	for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+		if(orderlist[i].id == dishlist[dishid].id){
+			break;
+		}
+	}
+	if(i == orderlist.length){
+			$("#show_dish_order_amount").html("0");
+	}
+	else{
+		$("#show_dish_order_amount").html(orderlist[i].id);
+	}
+	
 	$("#show_dish_name").html(dishlist[dishid].name);
 	$("#show_dish_price").html('￥' + dishlist[dishid].price);
 	$("#show_dish_sale_amount").html('月售'+ dishlist[dishid].number + '份');
+	
+	
 	$("#show_dish_info").css("height", (23 * width).toString() + 'px');
 	$("#show_dish_name").css("font-size", (name_font * width).toString() + 'px');
 	$("#show_dish_name").css("height", (name_font * width).toString() + 'px');
@@ -251,6 +302,7 @@ function set_show_dish_info(dishid){
 }
 
 function set_type_list(){
+	var type_list = document.getElementById("type_list");
 	$('#show_line').css('left', "0");
 	$('#type_list').html('');
 	for(var i = 0; i < typelist.length; i++){
@@ -261,28 +313,30 @@ function set_type_list(){
 		type_div.setAttribute('id', typelist[i].id);
 		type_name.setAttribute('class', 'type_name');
 		type_name.style.color = '#888888';
-		type_div.style.height = (8 * height).toString() + 'px';
+		type_div.style.height = (4 * height).toString() + 'px';
+		type_div.style.top = (i * 4 * height).toString() + 'px';
 		type_name.innerHTML = typelist[i].name;
 		border.style.height = '1px';
 		border.style.width = '100%';
 		border.style.backgroundColor = '#cdcdcd';
 		if(i == chosen_type){
-			type_div.style.backgroundColor = "#ffffff";
+			type_name.style.color = "#66ccff";
 		}
 		
 		type_div.onclick = function(){   //切换菜类型
 			var chosen_div = document.getElementById(typelist[chosen_type].id);
 			
-			chosen_div.style.backgroundColor = "#eeeeee";
+			chosen_div.childNodes[0].style.color = "#888888";
 			for(i = 0; i < typelist.length; i++){
 				if(typelist[i].id == this.id){
 					chosen_type = i;
 					break;
 				}
 			}
-			this.style.backgroundColor = "#ffffff";
+			this.childNodes[0].style.color = "#66ccff";
 			set_type_name();
 			get_dish_list();
+			$('#type_list').css('height', '0px');
 		}
 		
 		type_div.appendChild(type_name);
@@ -291,30 +345,21 @@ function set_type_list(){
 	}
 	
 	$(".type_name").css("top",($(".type_div").height() - $(".type_name").height())/2);
-	$(".type_name").css("left",($(".type_div").width() - $(".type_name").width())/2);
+	$(".type_name").css("left", 5 * width + 'px');
 }
 
-function set_sort_index(){
-	$("#sort_index").css("width",($("#header").width() - $("#type_list").width()));
-	$("#sort_index").css("left", $("#type_list").width());
-	$("#sort_index").css("top", $("#header").height() + $("#search").height());
-	$("#sort_index").css("height", 4.5 * height);
+function set_sort_list(){
+	$(".header_bar_list_item").css("height", 4 * height + "px");
+	$(".header_bar_list_item").css("line-height", 4 * height + "px");
+}
+
+function set_header_bar(){
+	$("#line1").css("left", $("#header_bar").width() / 3);
+	$("#line2").css("left", 2 * $("#header_bar").width() / 3);
+	$("#line1").css("height", $("#header_bar").height());
+	$("#line2").css("height", $("#header_bar").height());
 	
-	$("#sort_by_amount").css("width", $("#sort_index").width() / 3);
-	$("#sort_by_price").css("width", $("#sort_index").width() / 3);
-	$("#sort_by_evaluation").css("width", $("#sort_index").width() / 3);
-	$("#line1").css("left", $("#sort_index").width() / 3);
-	$("#line2").css("left", 2 * $("#sort_index").width() / 3);
-	
-	$("#sort_by_amount").css("height", $("#sort_index").height());
-	$("#sort_by_price").css("height", $("#sort_index").height());
-	$("#sort_by_evaluation").css("height", $("#sort_index").height());
-	$("#line1").css("height", $("#sort_index").height());
-	$("#line2").css("height", $("#sort_index").height());
-	
-	$("#sort_by_amount").css("line-height", $("#sort_index").height().toString() + 'px');
-	$("#sort_by_price").css("line-height", $("#sort_index").height().toString() + 'px');
-	$("#sort_by_evaluation").css("line-height", $("#sort_index").height().toString() + 'px');
+	$(".header_bar_button").css("line-height", $("#header_bar").height().toString() + 'px');
 }
 
 function set_type_name(){
@@ -332,10 +377,8 @@ function set_footer(){
 }
 
 function set_dish_list_style(){
-	$('#dish_list').css("height", (window_height - $("#header").height() - $("#sort_index").height() - $("#search").height()- $("#ordered").height() - $("#type_name").height()));
-	$('#dish_list').css("top", ($("#header").height() + $("#search").height() + $("#sort_index").height() + $("#type_name").height() - 3));
-	$('#dish_list').css("left", $("#type_list").width());
-	$('#dish_list').css("width", ($("#header").width() - $("#type_list").width()));
+	$('#dish_list').css("height", (window_height - $("#header").height() - $("#header_bar").height() - $("#ordered").height() - $("#type_name").height()));
+	$('#dish_list').css("top", ($("#header").height() + $("#header_bar").height() + $("#type_name").height() + 2));
 }
 
 function set_dish_list(){  
@@ -372,16 +415,17 @@ function set_dish_list(){
 		dish_div.onclick = function(){
 			set_dish_view(this.index);
 			now_dish = this.index;
+			$('#dish_view').css('z-index', 6);
 			$('#dish_view').css('left', '0px');
 			$('body').css('overflow-y', 'scroll');
 		}
 		
 		dish_div.ontouchstart = dish_div.onmouseover = function(){
-			this.style.backgroundColor = '#cccccc';
+			this.style.background = '#aaaaaa';
 		}
 		
 		dish_div.ontouchend = dish_div.onmouseleave = function(){
-			this.style.backgroundColor = 'transparent';
+			this.style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(60, 60, 60)), to(RGB(51,51,51)))';
 		}
 		
 		dish_div.style.height = (16 * height).toString() + 'px';
@@ -403,8 +447,9 @@ function set_dish_list(){
 		dish_number.style.left = dish_name.style.left;
 		dish_number.style.bottom = dish_image.style.top;
 		border.style.width = dish_div.style.width;
+		border.style.height = "2px";
 		border.style.bottom = 0;
-		border.style.backgroundColor = '#cdcdcd';
+		border.style.backgroundColor = '#222222';
 		dish_add.src = 'icons/add_order_amount.png';
 		dish_minus.src = 'icons/minus_order_amount.png';
 		dish_add.style.bottom = (2 * height).toString() + 'px';
@@ -865,6 +910,9 @@ function show_search(){
 	get_hot_search();
 	$('#search_view').css('z-index', 5);
 	$('#search_view').css('left', '0px');
+	$('#search_input').val('');
+	$("#hot_search").css('display', "block");
+	$("#search_list").css('display', "none");
 }
 
 function hide_search(){
@@ -878,11 +926,12 @@ function set_search(){
 }
 
 function get_hot_search(){
+	$('#hot_title').css("font-size", hot_font * width + "px");
 	$('#hot_search_list').html("");
 	hotlist = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/js/hot_search.json", function(json){
 		for(var i = 0; i < json.keywords.length; i++){
-			hotlist[i] = keywords[i].name;
+			hotlist[i] = json.keywords[i].name;
 		}
 		set_hot_search_list();
 	})
@@ -893,9 +942,238 @@ function set_hot_search_list(){
 	for(var i = 0; i < hotlist.length; i++){
 		var search_div = document.createElement('div');
 		search_div.innerHTML = hotlist[i];
+		search_div.setAttribute('class', "hot_search_item");
+		search_div.style.fontSize = (hot_font * width) + "px";
+
+		search_div.style.height = (hot_blank_rate * hot_font * width) + "px";
+		search_div.style.lineHeight = search_div.style.height;
+		search_div.onclick = function(){
+			$('#search_input').val(this.innerHTML);
+			$("#search_go").trigger("click");
+		}
 		hot_search_list.appendChild(search_div);
 	}
 };
+
+function get_search_list(){
+	searchlist = [];
+	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_search.json", function(json){
+		for(var i = 0; i < json.dishes.length; i++){
+			searchlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
+		}
+		set_search_list();
+	})
+}
+
+function set_search_list(){
+	$('#search_list').html(""); 
+
+	for(var i = 0; i < searchlist.length; i++){
+		chosen_list[i] = 0;
+		var dish_stars = new Array;  //五颗星
+		var dish_div = document.createElement('div');
+		var dish_name = document.createElement('div');
+		var dish_chosen = document.createElement('div');   //点了几盘
+		var dish_price = document.createElement('div');
+		var dish_number = document.createElement('div');
+		var dish_rank = document.createElement('div');
+		var border = document.createElement('div');
+		var dish_image = document.createElement('img');
+		var dish_add = document.createElement('img');
+		var dish_minus = document.createElement('img');
+
+		dish_div.setAttribute('class', 'dish_div');
+		dish_chosen.setAttribute('class', 'dish_chosen');
+		dish_add.setAttribute('class', 'dish_button');
+		dish_minus.setAttribute('class', 'dish_button');
+		dish_name.setAttribute('class', 'dish_name');
+		dish_price.setAttribute('class', 'dish_price');
+		dish_number.setAttribute('class', 'dish_number');
+		dish_rank.setAttribute('class', 'dish_rank');
+		dish_image.setAttribute('class', 'dish_image');
+		border.setAttribute('class', 'line2');
+		dish_div.setAttribute('id', "search_" + searchlist[i].id);
+		dish_div.index = i;
+		
+		dish_div.onclick = function(){
+			set_dish_view(this.index);
+			now_dish = this.index;
+			$('#dish_view').css('z-index', 6);
+			$('#dish_view').css('left', '0px');
+			$('body').css('overflow-y', 'scroll');
+		}
+		
+		dish_div.ontouchstart = dish_div.onmouseover = function(){
+			this.style.backgroundColor = '#cccccc';
+		}
+		
+		dish_div.ontouchend = dish_div.onmouseleave = function(){
+			this.style.backgroundColor = 'transparent';
+		}
+		
+		dish_div.style.height = (16 * height).toString() + 'px';
+		dish_div.style.width =  $("#search_list").width().toString() + 'px';
+		//dish_div.style.top = (i * parseInt(dish_div.style.height)).toString() + 'px';
+		dish_image.style.height =  (0.55 * parseInt(dish_div.style.height)).toString() + 'px';
+		dish_image.style.width = dish_image.style.height;
+		dish_image.src = "img/small_img/" + dishlist[i].img;
+		dish_image.style.top =  ((parseInt(dish_div.style.height) - parseInt(dish_image.style.height)) / 2).toString() + 'px';
+		dish_image.style.left = dish_image.style.top;
+		dish_name.style.left = (parseInt(dish_image.style.height) + 2 * parseInt(dish_image.style.left)).toString() + 'px';
+		dish_name.style.top = dish_image.style.top;
+		dish_price.style.top = dish_image.style.top;
+		dish_price.style.right = dish_image.style.top;
+		dish_rank.style.left = dish_name.style.left;
+		dish_rank.style.top = (7.5 * height).toString() + 'px';
+		dish_rank.style.height = (2.2 * height).toString() + 'px';
+		dish_rank.style.width = (5 * parseInt(dish_rank.style.height) + 5).toString() + 'px';
+		dish_number.style.left = dish_name.style.left;
+		dish_number.style.bottom = dish_image.style.top;
+		border.style.width = dish_div.style.width;
+		border.style.bottom = 0;
+		border.style.backgroundColor = '#cdcdcd';
+		dish_add.src = 'icons/add_order_amount.png';
+		dish_minus.src = 'icons/minus_order_amount.png';
+		dish_add.style.bottom = (2 * height).toString() + 'px';
+		dish_minus.style.bottom = dish_add.style.bottom;
+		dish_add.style.height = (3.2 * height).toString() + 'px';
+		dish_minus.style.height = dish_add.style.height;
+
+		dish_add.style.right = dish_price.style.right;
+		dish_minus.style.right = (parseInt(dish_price.style.right) + 2.5 * parseInt(dish_add.style.height)).toString() + 'px';
+		dish_chosen.style.width =(parseInt(dish_minus.style.right) - parseInt(dish_add.style.right) - parseInt(dish_add.style.height)).toString() + 'px';
+		dish_chosen.style.right = (parseInt(dish_price.style.right) + parseInt(dish_add.style.height)).toString() + 'px';
+		dish_chosen.style.height = dish_add.style.height;
+		dish_chosen.style.fontSize = 0.8 * parseInt(dish_add.style.height) + 'px';
+		dish_chosen.style.lineHeight = dish_chosen.style.height;
+		dish_chosen.style.bottom = dish_add.style.bottom;
+		
+		dish_div.name = searchlist[i].name;
+		dish_div.price  = searchlist[i].price;
+		dish_div.rank = searchlist[i].rank;
+		dish_div.dishid = searchlist[i].id;
+		
+		dish_name.innerHTML = dish_div.name;
+		dish_price.innerHTML = '￥' + dish_div.price;
+		
+		for(var k = 0; k < orderlist.length; k++){
+			if(orderlist[k].id == dish_div.id){
+				break;
+			}
+		}
+
+		if(k < orderlist.length){
+			dish_chosen.innerHTML = orderlist[k].number;
+		}
+		else{
+			dish_chosen.innerHTML = 0;
+			dish_minus.style.display = 'none';
+			dish_chosen.style.display = 'none';
+		}
+		dish_number.innerHTML = '月售' + searchlist[i].number + '份';
+		
+		
+		
+		for(var j = 0; j < 5; j++){  //星级
+			dish_stars[j] =  document.createElement('img');
+			dish_stars[j].setAttribute('class', 'dish_stars');
+			dish_stars[j].style.position = 'relative';
+			dish_stars[j].style.height = dish_rank.style.height;
+			dish_rank.appendChild(dish_stars[j]);
+			if(j < searchlist[i].rank - 0.75){
+				dish_stars[j].src = 'icons/star_yellow.png';
+			}
+			else if(j > searchlist[i].rank -0.75 && j < searchlist[i].rank + 0.25){
+				dish_stars[j].src = 'icons/star_half.png';
+			}
+			else{
+				dish_stars[j].src = 'icons/star_grey.png';
+			}
+		}
+		
+		
+		dish_add.onclick = function(e){
+			var i;
+			e.stopPropagation();
+			var this_chosen = parseInt(this.parentNode.childNodes[3].innerHTML);   //本菜被点的量
+			this.parentNode.childNodes[3].innerHTML = (this_chosen + 1).toString();
+			if(this_chosen == 0){
+				this.parentNode.childNodes[3].style.display = 'block';
+				this.parentNode.childNodes[7].style.display = 'block';
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id == this.parentNode.dishid){
+						break;
+					}
+				}
+				if(i == orderlist.length){
+					orderlist[i] = init_order(this.parentNode.name, this.parentNode.dishid, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				else{
+					orderlist[i].number++;
+				}
+			}
+			else{
+				if(0 == orderlist.length){
+					orderlist[0] = init_order(this.parentNode.name, this.parentNode.dishid, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id == this.parentNode.dishid){
+						break;
+					}
+				}
+				if(i == orderlist.length){
+					orderlist[i] = init_order(this.parentNode.name, this.parentNode.dishid, this.parentNode.rank, this.parentNode.price, 1);
+				}
+				else{
+					orderlist[i].number++;
+				}
+			}
+			chosen++;
+			$("#ordered").html("已选(" + chosen + ')');
+		}
+		
+		dish_minus.onclick = function(e){
+			e.stopPropagation();
+			var this_chosen = parseInt(this.parentNode.childNodes[3].innerHTML);   //本菜被点的量
+			if(this_chosen > 0){
+				this.parentNode.childNodes[3].innerHTML = (this_chosen - 1).toString();
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id = this.parentNode.dishid){
+						break;
+					}
+				}
+				orderlist[i].number--;
+			}
+			if(this_chosen == 1){
+				this.parentNode.childNodes[3].style.display = 'none';
+				this.parentNode.childNodes[7].style.display = 'none';
+				
+				for(i = 0; i < orderlist.length; i++){    //在目前订单中寻找菜
+					if(orderlist[i].id = this.parentNode.dishid){
+						break;
+					}
+				}
+				orderlist.remove(i);
+			}
+			chosen--;
+			$("#ordered").html("已选(" + chosen + ')');
+		}
+		
+		dish_div.appendChild(dish_name);
+		dish_div.appendChild(dish_price);
+		dish_div.appendChild(dish_number);
+		dish_div.appendChild(dish_chosen);
+		dish_div.appendChild(dish_rank);
+		dish_div.appendChild(dish_image);
+		dish_div.appendChild(dish_add);
+		dish_div.appendChild(dish_minus);
+		if(i < dishlist.length - 1){
+			dish_div.appendChild(border);
+		}
+		search_list.appendChild(dish_div);
+	}
+}
+
 
 $('#search_button').click(function(){
 	show_search();
@@ -941,6 +1219,36 @@ $('#cover').click(function(){
 	set_dish_list();
 	$('#order_go').css('z-index', 5);
 	$('#ordered').css('z-index', 5);
+});
+
+$("#show_menu").click(function(){
+	$('#sort_list').css('height','0px');
+	if($('#type_list').height() === 0){
+		$('#type_list').css('height', 4 * typelist.length * height + 'px');	
+	}
+	else{
+		$('#type_list').css('height','0px');
+	}
+});
+
+$("#show_sort").click(function(){
+	$('#type_list').css('height','0px');
+	if($('#sort_list').height() === 0){
+		$('#sort_list').css('height', 4 * 4 * height + 'px');	
+	}
+	else{
+		$('#sort_list').css('height','0px');
+	}
+});
+
+$("#show_filter").click(function(){
+	$('#type_list').css('height','0px');
+	if($('#filter_choice').height() === 0){
+		$('#filter_choice').css('height', 4 * 4 * height + 'px');	
+	}
+	else{
+		$('#filter_choice').css('height','0px');
+	}
 });
 
 $('#continue_order').click(function(){

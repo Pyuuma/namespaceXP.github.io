@@ -14,9 +14,7 @@ function set_header(){
 	$('#logo').css("left", ($("#header").height() - $("#logo").height())/2);
 	
 	$('#restaurant_name').html(restaurant_name);
-	$('#restaurant_name').css("width", (40 * height).toString() + 'px');
-	$('#restaurant_name').css("left", $("#header").height());
-	$('#restaurant_name').css("font-size", (3.6 * height).toString() + 'px');
+	$('#restaurant_name').css("font-size", (2.8 * height).toString() + 'px');
 	$('#restaurant_name').css("line-height",  $("#restaurant_name").height().toString() + 'px');
 	
 	$('#call_service').css("font-size", (2.6 * height).toString() + 'px');

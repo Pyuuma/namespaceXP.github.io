@@ -12,12 +12,9 @@ body {
 /*
 @media screen and (orientation: portrait) {
 */
-#header{
-	position:absolute;
-	width: 100%;
-	height: 8%;
-	background-color: #4E56FF;
-}
+
+
+
 
 #logo{
 	position:absolute;
@@ -26,6 +23,10 @@ body {
 
 #restaurant_name{
 	position:absolute;
+	top: 0;
+	width: 40%;
+	left: 30%;
+	text-align: center;
 	height: 100%;
 }
 
@@ -34,4 +35,16 @@ body {
 	position:absolute;
 	height: 100%;
 	text-align: center;
+}
+
+
+
+#header{
+	position:absolute;
+	width: 100%;
+	height: 7%;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(RGB(255,0,40)), to(RGB(200, 0, 40)));/*谷歌*/ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(255, 0, 40)), to(RGB(200, 0, 40)));  /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, RGB(255, 0, 40), RGB(200, 0, 40));   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, RGB(255, 0, 40), RGB(200, 0, 0)); 
 }

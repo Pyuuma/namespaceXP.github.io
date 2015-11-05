@@ -6,6 +6,8 @@ body {
 	color: #ffffff;
 	-moz-user-select: none;
 	-webkit-user-select: none; 
+	background-size: 114%;
+	overflow: hidden;
 }
 
 
@@ -39,17 +41,33 @@ body {
 #welcome{
 	position:absolute;
 	width: 100%;
-	top: 30%;
+	top: 5%;
+	font-size: 1.2em;
 	text-align: center;
 	color: #222222;
 }
 
 .main_button{
 	position:absolute;
-	width:50%;
-	left:25%;
+	width:32%;
 	text-align:center;
-	height:10%;
 	background-color:#4E56FF;
-	border-radius:20px
+	border-radius: 5px;
+	-moz-opacity: 0.95;
+	-khtml-opaciy: 0.95;
+	opacity: 0.95;
+}
+
+.main_button_image{
+	position:absolute;
+	width:70%;
+	left: 15%;
+	top: 0%;
+}
+
+.main_button_word{
+	position:absolute;
+	width:70%;
+	left: 15%;
+	bottom: 10%;
 }

@@ -5,6 +5,7 @@
 	<script src="js/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 	<link rel="stylesheet" type="text/css" href="css/order_main.css" />
+	<link rel="stylesheet" type="text/css" href="css/dish_list.css" />
 	<link rel="stylesheet" type="text/css" href="css/alert.css" />
 	<link rel="stylesheet" type="text/css" href="css/preview.css" />
 	<link rel="stylesheet" type="text/css" href="css/search_view.css" />
@@ -67,43 +68,46 @@
 			<div id = "hot_title">热门搜索</div>
 			<div id = 'hot_search_list'></div>
 		</div>
+		<div id = "search_list"> </div>
 	</div>
 	<div id = "main" style = "top: 0; position: absolute; width: 100%; height: 94%; z-index : 3">
 		<div id = "header"> 
-			<img id = "logo"/>
 			<div id = 'restaurant_name'>
 			</div>
-			<div id = 'call_service'>
-				呼叫
-			</div>
+			<img id = 'call_service'/>
+			<img id = "search_button" src = "icons/search.png"/>
 		</div> 
-		
-		<div id = 'search'>
-			<div id = "search_button">
-				搜索菜品名称或食材
-			</div>
+			
+	<div id = 'header_bar'>
+		<div id = 'show_menu' class = "header_bar_button" style = 'float: left'>
+			菜品分类
 		</div>
-		
-	<div id = 'type_list'>
-	</div>
-	
-	<div id = 'sort_index'>
-		<div id = 'sort_by_amount' style = 'float: left'>
-			销量
-		</div>
+
 		<div id = 'line1' class = 'line'>
 		</div>
-		<div id = 'sort_by_price' style = 'float: left'>
-			价格
+		<div id = 'show_sort' class = "header_bar_button" style = 'float: left'>
+			智能排序
 		</div>
 		<div id = 'line2' class = 'line'>
 		</div>
-		<div id = 'sort_by_evaluation' style = 'float: left'>
-			评价
+		<div id = 'show_filter' class = "header_bar_button" style = 'float: left'>
+			筛选
 		</div>
-		<div id = 'show_line'></div>
+		
+		<div id = "type_list" class = "header_bar_list" style = "height: 0px"></div>
+		<div id = "sort_list" class = "header_bar_list" style = "height: 0px">
+			<div id = "sort_default" class = "header_bar_list_item" style = "color: #66ccff">智能排序</div>
+			<div id = "sort_by_evaluation" class = "header_bar_list_item">好评优先</div>
+			<div id = "sort_by_amount" class = "header_bar_list_item">人气最高</div>
+			<div id = "sort_by_price" class = "header_bar_list_item">物美价廉</div>
+		</div>
+		<div id = "filter_choice">
+			<p>按人数筛选：</p>
+			<p>按价格筛选：</p>
+			<div id ="filter_go">确认筛选</div>
+		</div>
 	</div>
-	
+	<div id = 'header_border'> </div>
 	<div id = 'type_name'>
 	</div>
 	
@@ -120,12 +124,12 @@
 	</div>
 	
 	
-	<div id = 'preview_list' class = 'dish_list' style = 'z-index: 5'>
+	<div id = 'preview_list' class = 'dish_list'>
 	</div>
 	
 	<div id = 'order_ready' style = 'display: none'>
 		<div id = "title">您的订单</div>
-		<div id = 'correctable_list' class = 'dish_list' style = 'z-index: 5'>
+		<div id = 'correctable_list' class = 'dish_list'>
 		</div>
 		<div id = 'continue_order'>继续点菜
 		</div>
@@ -152,9 +156,11 @@
 		$("#pay_online").css("line-height",$("#pay_online").height()+"px");
 		get_type_list();
 		get_dish_list();
-		set_sort_index();
+		set_header_bar();
+		set_sort_list();
 		set_footer();
 		set_search();
+		get_hot_search();
 	}
 	</script>
 </body>
