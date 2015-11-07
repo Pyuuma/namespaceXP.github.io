@@ -4,6 +4,7 @@ body {
 	font-weight: lighter;
 	margin: 0px;
 	color: #ffffff;
+	background-color: RGB(42, 43, 44);
 	-moz-user-select: none;
 	-webkit-user-select: none; 
 	background-size: 114%;
@@ -56,6 +57,9 @@ body {
 	-moz-opacity: 0.95;
 	-khtml-opaciy: 0.95;
 	opacity: 0.95;
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(255, 0, 40)), to(RGB(200, 0, 40)));  /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, RGB(255, 0, 40), RGB(200, 0, 40));   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, RGB(255, 0, 40), RGB(200, 0, 0)); 
 }
 
 .main_button_image{
