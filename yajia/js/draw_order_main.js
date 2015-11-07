@@ -438,14 +438,26 @@ function set_dish_list(){
 		dish_image.style.left = dish_image.style.top;
 		dish_name.style.left = (parseInt(dish_image.style.height) + 2 * parseInt(dish_image.style.left)).toString() + 'px';
 		dish_name.style.top = dish_image.style.top;
+		dish_name.style.fontSize = (3.2 * height).toString() + 'px';
+		dish_name.style.lineHeight = dish_name.style.fontSize;
+		dish_name.style.height = dish_name.style.lineHeight;
+		
 		dish_price.style.top = dish_image.style.top;
 		dish_price.style.right = dish_image.style.top;
-		dish_rank.style.left = dish_name.style.left;
-		dish_rank.style.top = (7.5 * height).toString() + 'px';
-		dish_rank.style.height = (2.2 * height).toString() + 'px';
+		dish_price.style.fontSize = (3.2 * height).toString() + 'px';
+		dish_price.style.height = dish_price.style.fontSize;
+		dish_price.style.lineHeight = dish_price.style.fontSize;
+		dish_rank.style.top = dish_image.style.top;
+		dish_rank.style.height = (2.3 * height).toString() + 'px';
+		dish_rank.style.right = (26 * width).toString() + 'px';
 		dish_rank.style.width = (5 * parseInt(dish_rank.style.height) + 5).toString() + 'px';
+		
 		dish_number.style.left = dish_name.style.left;
+		dish_number.style.fontSize = (2.2 * height).toString() + 'px';
+		dish_number.style.height = dish_number.style.fontSize;
+		dish_number.style.lineHeight = dish_number.style.fontSize;
 		dish_number.style.bottom = dish_image.style.top;
+		
 		border.style.width = dish_div.style.width;
 		border.style.height = "2px";
 		border.style.bottom = 0;

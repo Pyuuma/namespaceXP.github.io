@@ -8,9 +8,9 @@
 	z-index: 4;
 	background-color:RGB(61,61,61);
 	overflow:hidden;
-	transition: left 0.5s;
-	-moz-transition: left 0.5s; /* Firefox 4 */
-	-webkit-transition: left 0.5s; /* Safari 和 Chrome */
+	transition: left 0.25s;
+	-moz-transition: left 0.25s; /* Firefox 4 */
+	-webkit-transition: left 0.25s; /* Safari 和 Chrome */
 }
 
 #search_bar{
