@@ -24,10 +24,10 @@
 		我要买单
 		</p>
 	</div>
-	<div id = "go_game" class = "main_button" style = "left: 15%;">
-		<img class = "main_button_image" src = "icons/game.png" />
+	<div id = "go_dishlist" class = "main_button" style = "left: 15%;">
+		<img class = "main_button_image" src = "icons/orderlist.png" />
 		<p class = "main_button_word">
-			想玩游戏
+		查看已点	
 		</p>
 	</div>
 	<div id = "call_service" class = "main_button" style = "right: 15%;">
@@ -36,18 +36,19 @@
 		呼叫服务
 		</p>
 	</div>
-	<div id = "feedback" class = "main_button" style = "bottom: 12%; left: 15%;">
-		<img class = "main_button_image" src = "icons/call.png" />
+	<div id = "go_game" class = "main_button" style = "bottom: 12%; left: 15%;">
+		<img class = "main_button_image" src = "icons/game.png" />
 		<p class = "main_button_word">
-		提交反馈
+		想玩游戏
 		</p>
 	</div>
 	<div id = "contact_us" class = "main_button" style = "bottom: 12%; right: 15%;">
-		<img class = "main_button_image" src = "icons/contact_us.png" />
+		<img class = "main_button_image" src = "icons/call.png" />
 		<p class = "main_button_word">
-		关注我们
+		联系我们
 		</p>
 	</div>
+	<div id = "footer">酷爱点菜系统1.0.0</div>
 
 	<script src="js/draw_header.js"></script>
 	<script src="js/user_main.js"></script>
@@ -55,7 +56,7 @@
 	window.onload = function()
 	{
 		$(".main_button").css("height",$(".main_button").width() + "px");
-		$("#go_game").css("top", (window.innerHeight - $(".main_button").width()) / 2 + "px");
+		$("#go_dishlist").css("top", (window.innerHeight - $(".main_button").width()) / 2 + "px");
 		$("#call_service").css("top", (window.innerHeight - $(".main_button").width()) / 2 + "px");
 	}
 	</script>
