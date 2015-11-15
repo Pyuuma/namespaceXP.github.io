@@ -11,14 +11,11 @@
 	<meta name="HandheldFriendly" content="true">
 </head>
 
-<body>
+<body style = 'background-color: #333333'>
 	<div id = "header"> 
-		<img id = "logo" />
 		<div id = 'restaurant_name'>
 		</div>
-		<div id = 'call_service'>
-			呼叫
-		</div>
+					<img id = 'go_back' src = 'icons/back_grey.png' style = 'position: absolute; height: 50%; top: 25%; left: 2%; z-index: 6;' onclick = "document.location.href = 'user_main.html'">
 	</div>
 	<div id = "unpaid_bill" style = "position:absolute;color:black;width:100%;background-color:#FFFF99">
 		<div id = "unpaid_bill0" style = "position:absolute;">本单还有</div>
@@ -27,7 +24,7 @@
 		<div class = "show_dividing" style = "bottom:-20px"></div>
 	</div>
 	<div id = "pay_bill">
-		<div class = "show_title" style = "top:0px">土豪请客</div>
+		<div class = "show_title" style = "top:0px; color: #eeeeee">土豪请客</div>
 		<hr size=1 class = "show_dish_dividing">
 		<div class = "pay_introduction" >您将全额支付账单</div>
 		<div class= "pay_go">确认支付</div>

@@ -63,7 +63,7 @@ body {
 
 #preview_list{
 	position:absolute;
-	background-color: #66ccff;
+	background-color: #333333;
 	z-index: 8;
 	left: 0%;
 	bottom: 6%;
@@ -75,6 +75,7 @@ body {
 }
 
 #correctable_list{
+	background-color: #333333;
 	transition: height 0.3s;
 	-moz-transition: height 0.3s; /* Firefox 4 */
 	-webkit-transition: height 0.3s; /* Safari 和 Chrome */

@@ -8,7 +8,7 @@
 	transition: left 0.3s;
 	-moz-transition: left 0.3s; /* Firefox 4 */
 	-webkit-transition: height 0.3s; /* Safari 和 Chrome */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(60, 60, 60)), to(RGB(51,51,51)));  /* Safari 4-5, Chrome 1-9*/
-	background: -webkit-linear-gradient(top, RGB(60, 60, 60), RGB(51,51,51));   /*Safari5.1 Chrome 10+*/
-	background: -o-linear-gradient(top, RGB(60, 60, 60), RGB(51,51,51)); 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(50, 50, 50)), to(RGB(41,41,41)));  /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, RGB(50, 50, 50), RGB(41,41,41));   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, RGB(50, 50, 50), RGB(41,41,41)); 
 }

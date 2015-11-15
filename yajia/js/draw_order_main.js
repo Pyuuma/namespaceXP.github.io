@@ -15,7 +15,7 @@ var border_height = 6;
 var hot_font = 3.4;
 var hot_blank_rate = 1.8;
 var now_dish = -1;    //当前正在查看的菜肴
-
+var total_price = 0;
 
 Array.prototype.remove=function(dx) 
 { 
@@ -118,7 +118,6 @@ $('#search_back').click(function(){
 	hide_search();
 	get_type_list();
 	get_dish_list();
-	$('#type_name').html(typelist[0].name);
 });
 
 
@@ -143,7 +142,6 @@ function get_type_list(){
 			typelist[i] = init_type(json.types[i].name, json.types[i].id);
 		}
 		set_type_list();
-		set_type_name();
 	})
 }
 
@@ -334,7 +332,7 @@ function set_type_list(){
 				}
 			}
 			this.childNodes[0].style.color = "#66ccff";
-			set_type_name();
+			$('#show_menu').html(typelist[i].name);
 			get_dish_list();
 			$('#type_list').css('height', '0px');
 		}
@@ -360,13 +358,6 @@ function set_header_bar(){
 	$("#line2").css("height", $("#header_bar").height());
 	
 	$(".header_bar_button").css("line-height", $("#header_bar").height().toString() + 'px');
-}
-
-function set_type_name(){
-	$("#type_name").css("line-height", $("#type_name").height().toString() + 'px');
-	$("#type_name").css("font-size", 0.6 * $("#type_name").height());
-	$("#type_name").css("text-indent", 0.4 * $("#type_name").height().toString() + 'px');
-	$("#type_name").html('' + typelist[chosen_type].name);
 }
 
 function set_footer(){
@@ -540,6 +531,7 @@ function set_dish_list(){
 				else{
 					orderlist[i].number++;
 				}
+				total_price += parseFloat(orderlist[i].price);
 			}
 			else{
 				if(0 == orderlist.length){
@@ -556,6 +548,7 @@ function set_dish_list(){
 				else{
 					orderlist[i].number++;
 				}
+				total_price += parseFloat(orderlist[i].price);
 			}
 			chosen++;
 			$("#ordered").html("已选(" + chosen + ')');
@@ -572,6 +565,7 @@ function set_dish_list(){
 					}
 				}
 				orderlist[i].number--;
+				total_price -= parseFloat(orderlist[i].price);
 			}
 			if(this_chosen == 1){
 				this.parentNode.childNodes[3].style.display = 'none';
@@ -709,6 +703,8 @@ function set_preview(){
 				}
 			}
 			chosen++;
+			total_price += parseFloat(orderlist[i].price);
+			$('#total_price').html("￥" + total_price);
 			$("#ordered").html("已选(" + chosen + ')');
 		}
 		
@@ -723,6 +719,8 @@ function set_preview(){
 				}
 				orderlist[i].number--;
 			}
+			total_price = (parseInt(100 * total_price) - parseInt(100 * orderlist[i].price))/ 100;
+			$('#total_price').html("￥" + total_price);
 			if(this_chosen == 1){
 				this.parentNode.style.left = '100%';
 				this.parentNode.parentNode.removeChild(this.parentNode);
@@ -752,8 +750,35 @@ function set_preview(){
 		dish_div.appendChild(dish_minus);
 		dish_div.appendChild(border);
 		preview_list.appendChild(dish_div);
-	
 	}
+	var dish_div = document.createElement('div');
+	var dish_name = document.createElement('div');
+	var dish_price = document.createElement('div');
+	dish_price.setAttribute('id', 'total_price');
+
+	dish_div.setAttribute('class', 'dish_div');
+	dish_name.setAttribute('class', 'dish_name');
+	dish_price.setAttribute('class', 'dish_price');
+	
+	dish_div.style.height = (7 * height).toString() + 'px';
+	dish_div.style.width =  $("#preview_list").width().toString() + 'px';
+	//dish_div.style.top = (i * parseInt(dish_div.style.height)).toString() + 'px';
+
+	dish_name.style.fontSize = (0.33 * parseInt(dish_div.style.height)).toString() + 'px';
+	dish_name.style.lineHeight = dish_div.style.height;
+	dish_name.style.textIndent = dish_name.style.fontSize;
+	
+	dish_price.style.fontSize = (0.33 * parseInt(dish_div.style.height)).toString() + 'px';
+	dish_price.style.lineHeight = dish_div.style.height;
+	dish_price.style.left = (45 * width).toString() + 'px';
+	
+	dish_name.innerHTML = "总价:"
+	dish_price.innerHTML = '￥' + total_price;
+	
+	dish_div.appendChild(dish_name);
+	dish_div.appendChild(dish_price);
+	preview_list.appendChild(dish_div);
+	
 };
 
 function hide_preview(){
@@ -814,7 +839,7 @@ function set_correctable(){
 		
 		dish_price.style.fontSize = (0.33 * parseInt(dish_div.style.height)).toString() + 'px';
 		dish_price.style.lineHeight = dish_price.style.height = dish_div.style.height;
-		dish_price.style.left = (35 * width).toString() + 'px';
+		dish_price.style.left = (45 * width).toString() + 'px';
 		border.style.width = dish_div.style.width;
 		border.style.bottom = 0;
 		border.style.backgroundColor = '#cdcdcd';
@@ -856,6 +881,7 @@ function set_correctable(){
 				else{
 					orderlist[i].number++;
 				}
+		
 			}
 			else{
 				if(0 == orderlist.length){
@@ -874,6 +900,8 @@ function set_correctable(){
 				}
 			}
 			chosen++;
+			total_price += parseFloat(orderlist[i].price);
+			$('#corr_total_price').html("￥" + total_price);
 			$("#ordered").html("已选(" + chosen + ')');
 		}
 		
@@ -887,6 +915,8 @@ function set_correctable(){
 					}
 				}
 				orderlist[i].number--;
+				$('#corr_total_price').html("￥" + total_price);
+				total_price -= parseFloat(orderlist[i].price);
 			}
 			if(this_chosen == 1){
 				this.parentNode.style.left = '100%';
@@ -916,6 +946,33 @@ function set_correctable(){
 		dish_div.appendChild(border);
 		correctable_list.appendChild(dish_div);
 	}
+	var dish_div = document.createElement('div');
+	var dish_name = document.createElement('div');
+	var dish_price = document.createElement('div');
+	dish_price.setAttribute('id', 'corr_total_price');
+
+	dish_div.setAttribute('class', 'dish_div');
+	dish_name.setAttribute('class', 'dish_name');
+	dish_price.setAttribute('class', 'dish_price');
+	
+	dish_div.style.height = (7 * height).toString() + 'px';
+	dish_div.style.width =  $("#preview_list").width().toString() + 'px';
+	//dish_div.style.top = (i * parseInt(dish_div.style.height)).toString() + 'px';
+
+	dish_name.style.fontSize = (0.33 * parseInt(dish_div.style.height)).toString() + 'px';
+	dish_name.style.lineHeight = dish_div.style.height;
+	dish_name.style.textIndent = dish_name.style.fontSize;
+	
+	dish_price.style.fontSize = (0.33 * parseInt(dish_div.style.height)).toString() + 'px';
+	dish_price.style.lineHeight = dish_div.style.height;
+	dish_price.style.left = (45 * width).toString() + 'px';
+	
+	dish_name.innerHTML = "总价:"
+	dish_price.innerHTML = '￥' + total_price;
+	
+	dish_div.appendChild(dish_name);
+	dish_div.appendChild(dish_price);
+	correctable_list.appendChild(dish_div);
 }
 
 function show_search(){

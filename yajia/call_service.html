@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<title>呼叫服务</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/order_main.css" />
+	<link rel="stylesheet" type="text/css" href="css/call_service.css" />
+	<link rel="stylesheet" type="text/css" href="css/search_view.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<div id = 'cover' style = 'display:none'>
+	</div>
+	<textarea id = 'call_service_input' type = 'text'>请在这里输入您需要服务员的服务内容，我们将尽快安排处理。</textarea>
+	<div id = 'call_service_go'>
+			呼叫服务
+	</div>
+			
+
+	<div id = "hot_service">
+			<div id = "hot_title">常用服务</div>
+			<div id = 'hot_search_list'></div>
+	</div>
+	
+		<div id = "header"> 
+			<div id = 'restaurant_name'>
+			</div>
+						<img id = 'go_back' src = 'icons/back_grey.png' style = 'position: absolute; height: 50%; top: 25%; left: 2%; z-index: 6;' onclick = "document.location.href = 'user_main.html'">
+			<img id = 'call_service'/>
+			<img id = "search_button" src = "icons/search.png"/>
+		</div> 
+			
+	
+	
+	<script src="js/data.js"></script>
+	<script src="js/draw_header.js"></script>
+	<script src="js/draw_order_main.js"></script>
+
+	<script src="js/draw_header.js"></script>
+	<script text= "text/javascript">
+	window.onload = function()
+	{
+		var window_height = document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight;
+		var window_width = document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth;
+		var width = window_width / 100;
+		var height = window_height / 100;
+	
+	}
+	</script>
+</body>
