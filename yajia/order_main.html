@@ -19,7 +19,45 @@
 <body>
 	<div id = 'cover' style = 'display:none'>
 	</div>
+	<div id = "header"> 
+		<img id = 'go_back' src = 'icons/back_grey.png' style = 'position: absolute; height: 50%; top: 25%; left: 2%; z-index: 6;' onclick = "document.location.href = 'user_main.html'">
+		<div id = 'restaurant_name'>
+		</div>
+		<img id = 'call_service'/>
+		<img id = "search_button" src = "icons/search.png"/>
+	</div> 
+	<div id = 'header_bar'>
+		<div id = 'show_menu' class = "header_bar_button" style = 'float: left'>
+			菜品分类
+		</div>
+
+		<div id = 'line1' class = 'line'>
+		</div>
+		<div id = 'show_sort' class = "header_bar_button" style = 'float: left'>
+			智能排序
+		</div>
+		<div id = 'line2' class = 'line'>
+		</div>
+		<div id = 'show_filter' class = "header_bar_button" style = 'float: left'>
+			筛选
+		</div>
 	
+		<div id = "type_list" class = "header_bar_list" style = "height: 0px"></div>
+		<div id = "sort_list" class = "header_bar_list" style = "height: 0px">
+			<div id = "sort_default" class = "header_bar_list_item" style = "color: #66ccff">智能排序</div>
+			<div id = "sort_by_evaluation" class = "header_bar_list_item">好评优先</div>
+			<div id = "sort_by_amount" class = "header_bar_list_item">人气最高</div>
+			<div id = "sort_by_price" class = "header_bar_list_item">物美价廉</div>
+		</div>
+		<div id = "filter_choice">
+			<div id = "filter_hint1">按价格筛选：</div>
+			<input type = 'text' id = "price_min"/>
+			<div id = "filter_hint2">到</div>
+			<input type = 'text' id = "price_max"/>
+			<div id ="filter_go">确认筛选</div>
+		</div>
+	</div>
+	<div id = 'header_border'> </div>
 	<div id = 'dish_view' style = 'display: block; height: 100%; left: 100%; z-index: 4'>
 		<img id = 'back' src = 'icons/back.png' style = 'position: absolute; top: 1%; left: 2%; z-index: 6'>
 		<img id = "show_dish_picture" src = "img/large_img/roast_fish.jpg"/>
@@ -71,48 +109,7 @@
 		</div>
 		<div id = "search_list"> </div>
 	</div>
-	<div id = "main" style = "top: 0; position: absolute; width: 100%; height: 94%; z-index : 3">
-		<div id = "header"> 
-			<img id = 'go_back' src = 'icons/back_grey.png' style = 'position: absolute; height: 50%; top: 25%; left: 2%; z-index: 6;' onclick = "document.location.href = 'user_main.html'">
-			<div id = 'restaurant_name'>
-			</div>
-			<img id = 'call_service'/>
-			<img id = "search_button" src = "icons/search.png"/>
-		</div> 
-			
-	<div id = 'header_bar'>
-		<div id = 'show_menu' class = "header_bar_button" style = 'float: left'>
-			菜品分类
-		</div>
-
-		<div id = 'line1' class = 'line'>
-		</div>
-		<div id = 'show_sort' class = "header_bar_button" style = 'float: left'>
-			智能排序
-		</div>
-		<div id = 'line2' class = 'line'>
-		</div>
-		<div id = 'show_filter' class = "header_bar_button" style = 'float: left'>
-			筛选
-		</div>
-		
-		<div id = "type_list" class = "header_bar_list" style = "height: 0px"></div>
-		<div id = "sort_list" class = "header_bar_list" style = "height: 0px">
-			<div id = "sort_default" class = "header_bar_list_item" style = "color: #66ccff">智能排序</div>
-			<div id = "sort_by_evaluation" class = "header_bar_list_item">好评优先</div>
-			<div id = "sort_by_amount" class = "header_bar_list_item">人气最高</div>
-			<div id = "sort_by_price" class = "header_bar_list_item">物美价廉</div>
-		</div>
-		<div id = "filter_choice">
-			<div id = "filter_hint1">按价格筛选：</div>
-			<input type = 'text' id = "price_min"/>
-			<div id = "filter_hint2">到</div>
-			<input type = 'text' id = "price_max"/>
-			<div id ="filter_go">确认筛选</div>
-		</div>
-	</div>
-	<div id = 'header_border'> </div>
-	
+	<div id = "main" style = "top: 0; position: absolute; width: 100%; height: 94%; z-index : 2">			
 	<div id = 'dish_list' class = 'dish_list'>
 	</div>
 	
@@ -155,7 +152,7 @@
 		var height = window_height / 100;
 		$("#search_button").css("line-height",$("#search_button").height()+"px");
 		$("#continue_order").css("line-height",$("#continue_order").height()+"px");
-		$("#pay_online").css("line-height",$("#pay_online").height()+"px");
+		$("#pay_online").css("line-height",$("#pay_online").height() + "px");
 		get_type_list();
 		get_dish_list();
 		set_header_bar();
