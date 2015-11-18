@@ -1292,6 +1292,7 @@ $('#cover').click(function(){
 
 $("#show_menu").click(function(){
 	$('#sort_list').css('height','0px');
+	$('#filter_choice').css('height','0px');
 	if($('#type_list').height() === 0){
 		$('#type_list').css('height', 4 * typelist.length * height + 'px');	
 	}
@@ -1302,6 +1303,7 @@ $("#show_menu").click(function(){
 
 $("#show_sort").click(function(){
 	$('#type_list').css('height','0px');
+	$('#filter_choice').css('height','0px');
 	if($('#sort_list').height() === 0){
 		$('#sort_list').css('height', 4 * 4 * height + 'px');	
 	}
@@ -1312,13 +1314,22 @@ $("#show_sort").click(function(){
 
 $("#show_filter").click(function(){
 	$('#type_list').css('height','0px');
+	$('#sort_list').css('height','0px');
 	if($('#filter_choice').height() === 0){
-		$('#filter_choice').css('height', 4 * 4 * height + 'px');	
+		show_filter();
 	}
 	else{
 		$('#filter_choice').css('height','0px');
 	}
 });
+
+function show_filter(){
+	$('#filter_choice').css('height', 4 * 3 * height + 'px');	
+	$('#filter_choice').css('font-size', 4 * width + 'px');	
+	$('#filter_hint1').css('height', 4 * width + 'px');	
+	$('#filter_hint2').css('height', 4 * width + 'px');	
+}
+
 
 $('#continue_order').click(function(){
 	$('#cover').css('display', 'none');
