@@ -42,7 +42,6 @@ $("#sort_default").click(function(){
 	$('#sort_list').css('height','0px');
 });
 
-
 $("#sort_by_amount").click(function(){
 	$('#show_line').css('left', "0");
 	dishlist.sort(function(a, b){return a.number > b.number? -1:1});
@@ -80,6 +79,7 @@ $("#sort_by_evaluation").click(function(){
 });
 
 function get_dish_list(dishtype){   //传入类型的ID
+	//alert(dishtype);
 	dishlist = [];
 	$('#dish_list').html("");
 	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_type.json", function(json){
@@ -105,7 +105,7 @@ function get_search_list(keynode){   //传入类型的ID
 $('#back').click(function(){
 	$('#dish_view').css('left', '100%');
 	$('body').css('overflow-y', 'hidden');
-	setTimeout("$('#dish_view').css('z-index', 4)", 1000);
+	setTimeout("$('#dish_view').css('z-index', 4); $('#dish_view').css('display', 'none');", 1000);
 });
 
 $('#search_go').click(function(){
@@ -119,7 +119,6 @@ $('#search_back').click(function(){
 	get_type_list();
 	get_dish_list();
 });
-
 
 $('#add_order_amount').click(function(){
 	
@@ -333,8 +332,9 @@ function set_type_list(){
 			}
 			this.childNodes[0].style.color = "#66ccff";
 			$('#show_menu').html(typelist[i].name);
-			get_dish_list();
+			get_dish_list(typelist[i].id);
 			$('#type_list').css('height', '0px');
+			hide_cover_for_header();
 		}
 		
 		type_div.appendChild(type_name);
@@ -406,8 +406,9 @@ function set_dish_list(){
 		dish_div.onclick = function(){
 			set_dish_view(this.index);
 			now_dish = this.index;
+			$('#dish_view').css('display', 'block');
 			$('#dish_view').css('z-index', 6);
-			$('#dish_view').css('left', '0px');
+			setTimeout("$('#dish_view').css('left', '0px')", 10);
 			$('body').css('overflow-y', 'scroll');
 		}
 		
@@ -977,8 +978,9 @@ function set_correctable(){
 
 function show_search(){
 	get_hot_search();
+	$("#search_view").css('display', 'block');
 	$('#search_view').css('z-index', 5);
-	$('#search_view').css('left', '0px');
+	setTimeout("$('#search_view').css('left', '0px')", 10);
 	$('#search_input').val('');
 	$("#hot_search").css('display', "block");
 	$("#search_list").css('display', "none");
@@ -987,6 +989,7 @@ function show_search(){
 function hide_search(){
 	$('#search_view').css('z-index', 4);
 	$('#search_view').css('left', '100%');
+	setTimeout("$('#search_view').css('display', 'none')", 1000);
 }
 
 function set_search(){
@@ -1350,7 +1353,6 @@ function show_filter(){
 	$('#filter_hint1').css('height', 4 * width + 'px');	
 	$('#filter_hint2').css('height', 4 * width + 'px');	
 }
-
 
 $('#continue_order').click(function(){
 	$('#cover').css('display', 'none');
