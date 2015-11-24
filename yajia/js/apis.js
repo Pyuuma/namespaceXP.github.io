@@ -1,6 +1,11 @@
-function get_orderlist_by_id()  //根据订单ID获取订单的信息json
+function get_order_list()  //根据用户信息获取订单的信息json（格式见orderlist.json）
 {
-	
+	order_list = [];
+	$.getJSON("http://namespaceXP.github.io/yajia/json/orderlist.json", function(json){
+		for(var i = 0; i < json.order_list.length; i++){
+			order_list[i] = init_order(json.dishes[i].name, json.dishes[i].id, json.dishes[i].price, json.dishes[i].img, json.dishes[i].number);
+		}
+	})
 }
 
 function get_dish_list(dishtype){   //根据传入类型的ID获取菜的列表json

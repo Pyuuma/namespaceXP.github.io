@@ -16,10 +16,10 @@
 		"id":  4,
 		"img": "chickenleg.png",
 		"price": 5,
-		"number": 3,
+		"number": 3
     },{
 		"name": "骨肉相连",   
-		"id":  5,
+		"id": 5,
 		"img": "boneandflesh.png",
 		"price": 6.45,
 		"number": 6

@@ -9,6 +9,16 @@ function init_dish(dname, id, rank, price, image, number){
 	return dish;
 }
 
+function init_order(dname, id, price, image, number){
+	var dish = new Object();
+	dish.name = dname;
+	dish.id = id;
+	dish.price = price;
+	dish.img = image;
+	dish.number = number;
+	return dish;
+}
+
 function init_type(dname, id){
 	var type = new Object();
 	type.name = dname;

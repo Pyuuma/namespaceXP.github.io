@@ -1,3 +1,5 @@
+var order_list = new Array;
+
 function createEvaluation(i)
 {
 	var dish_evaluation = document.createElement("div");
@@ -8,7 +10,7 @@ function createEvaluation(i)
 	dish_evaluation.style.top = (i - 1)*100 + "px";
 	var dish_img = document.createElement("img");
 	dish_img.setAttribute("class","dish_img");
-	dish_img.src = "img/1.png";
+	dish_img.src = "img/small_img/" + order_list[i].img;
 	dish_evaluation.appendChild(dish_img);
 	var evaluation_input = document.createElement("input");
 	evaluation_input.setAttribute("class","evaluation_input");
@@ -19,10 +21,12 @@ function createEvaluation(i)
 
 window.onload = function()
 {
-	$("#evaluate_dishes").css("top",15*height + $("#evaluation_text").height() + 100 +"px");
-	createEvaluation(1);
-	createEvaluation(2);
-	createEvaluation(3);
+	get_order_list();
+	for(var i = 0; i < order_list.length; i++){
+		createEvaluation(i);
+	}
+	$("#evaluate_dishes").css("top", 15*height + $("#evaluation_text").height() + 100 +"px");
+	
 	$("#check_order").css("font-size",(4 * width).toString() + 'px');
 	$("#check_order").css("width",(20 * height).toString() + 'px');
 }
