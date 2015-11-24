@@ -17,8 +17,7 @@ var hot_blank_rate = 1.8;
 var now_dish = -1;    //当前正在查看的菜肴
 var total_price = 0;
 
-Array.prototype.remove=function(dx) 
-{ 
+Array.prototype.remove=function(dx){ 
     if(isNaN(dx)|| dx>this.length){return false;} 
     for(var i=0,n=0;i<this.length;i++) 
     { 
@@ -30,6 +29,11 @@ Array.prototype.remove=function(dx)
     this.length -= 1; 
 } 
 
+$('#back').click(function(){
+	$('#dish_view').css('left', '100%');
+	$('body').css('overflow-y', 'hidden');
+	setTimeout("$('#dish_view').css('z-index', 4); $('#dish_view').css('display', 'none');", 1000);
+});
 
 $("#sort_default").click(function(){
 	$('#show_line').css('left', "0");
@@ -78,38 +82,9 @@ $("#sort_by_evaluation").click(function(){
 	$('#sort_list').css('height','0px');
 });
 
-function get_dish_list(dishtype){   //传入类型的ID
-	//alert(dishtype);
-	dishlist = [];
-	$('#dish_list').html("");
-	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_type.json", function(json){
-		for(var i = 0; i < json.dishes.length; i++){
-			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
-		}
-		dishlist.sort(function(a, b){return a.number > b.number? -1:1});
-		set_dish_list();
-	})
-}
-
-function get_search_list(keynode){   //传入类型的ID
-	$('#dish_list').html("");
-	searchlist = [];
-	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_search.json", function(json){
-		for(var i = 0; i < json.dishes.length; i++){
-			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
-		}
-		set_dish_list();
-	})
-}
-
-$('#back').click(function(){
-	$('#dish_view').css('left', '100%');
-	$('body').css('overflow-y', 'hidden');
-	setTimeout("$('#dish_view').css('z-index', 4); $('#dish_view').css('display', 'none');", 1000);
-});
-
 $('#search_go').click(function(){
-	get_search_list();
+	var search_value = $('#search_input').val();
+	get_search_list(search_value);
 	$("#hot_search").css('display', "none");
 	$("#search_list").css('display', "block");
 });
@@ -135,15 +110,6 @@ $('#add_order_amount').click(function(){
 	}
 });
 
-function get_type_list(){
-	$.getJSON("http://namespaceXP.github.io/yajia/js/dishtypes.json", function(json){
-		for(var i = 0; i < json.types.length; i++){
-			typelist[i] = init_type(json.types[i].name, json.types[i].id);
-		}
-		set_type_list();
-	})
-}
-
 function set_dish_view(dishid){   //根据菜的ID显示详细信息
 	set_show_dish_info(dishid);
 	set_show_dish_introduction(dishid);
@@ -154,78 +120,72 @@ function set_dish_view(dishid){   //根据菜的ID显示详细信息
 }
 
 function set_show_dish_comment(dishid){
-	var star_height = 3;
 	var height = 0;
 	var comment_div_height = 14;
 	var show_dish_comments = document.getElementById("show_dish_comments");
 	commentlist = [];
-	show_dish_comments.innerHTML = '';
-	$.getJSON("http://namespaceXP.github.io/yajia/js/dishcomment_id.json", function(json){
-		for(var i = 0; i < json.comment_list.length; i++){
-			commentlist[i] = init_comment(json.comment_list[i].User_id, json.comment_list[i].date, json.comment_list[i].score, json.comment_list[i].content);
-		}
-				
-		for(var i = 0; i < commentlist.length; i++){
-			var comment_dish_stars = new Array;  //五颗星
-			var comment_div = document.createElement("div");
-			var comment_id = document.createElement("div");
-			var comment_content = document.createElement("div");
-			var comment_date = document.createElement("div");
-			var comment_rank = document.createElement("div");
-			var curve = document.createElement('hr');
-			
-			curve.size = 1;
-			curve.bottom = 0;
-			curve.width = '100%';
-			curve.style.position = 'absolute';
-			curve.style.bottom = '0px';
-			comment_div.setAttribute("id", 'comment_' + i.toString());
-			comment_div.setAttribute("class", 'comment_div');
-			comment_rank.setAttribute("class", 'comment_rank');
-			comment_date.setAttribute("class", 'comment_date');
-			comment_id.setAttribute("class", 'comment_id');
-			comment_content.setAttribute("class", 'comment_content');
-			
-			comment_id.innerHTML = commentlist[i].id;
-			comment_date.innerHTML = commentlist[i].date;
-			comment_content.innerHTML = commentlist[i].content;
-			
-			comment_div.style.height = (14 * width).toString() + 'px';
-			$(".comment_rank").css("height", (star_height * width).toString() + 'px');
-			
-			for(var j = 0; j < 5; j++){  //星级
-				comment_dish_stars[j] =  document.createElement('img');
-				comment_dish_stars[j].setAttribute('class', 'dish_stars');
-				comment_dish_stars[j].style.position = 'relative';
-				comment_dish_stars[j].style.height = (star_height * width).toString() + 'px';
-				comment_rank.appendChild(comment_dish_stars[j]);
-				if(j < commentlist[i].score - 0.75){
-					comment_dish_stars[j].src = 'icons/star_yellow.png';
-				}
-				else if(j > commentlist[i].score - 0.75 && j < commentlist[i].score + 0.25){
-					comment_dish_stars[j].src = 'icons/star_half.png';
-				}
-				else{
-					comment_dish_stars[j].src = 'icons/star_grey.png';
-				}
+	get_comment_list(dishid);
+}
+
+function set_comment_style(){
+	var star_height = 3;
+	for(var i = 0; i < commentlist.length; i++){
+		var comment_dish_stars = new Array;  //五颗星
+		var comment_div = document.createElement("div");
+		var comment_id = document.createElement("div");
+		var comment_content = document.createElement("div");
+		var comment_date = document.createElement("div");
+		var comment_rank = document.createElement("div");
+		var curve = document.createElement('hr');
+		
+		curve.size = 1;
+		curve.bottom = 0;
+		curve.width = '100%';
+		curve.style.position = 'absolute';
+		curve.style.bottom = '0px';
+		comment_div.setAttribute("id", 'comment_' + i.toString());
+		comment_div.setAttribute("class", 'comment_div');
+		comment_rank.setAttribute("class", 'comment_rank');
+		comment_date.setAttribute("class", 'comment_date');
+		comment_id.setAttribute("class", 'comment_id');
+		comment_content.setAttribute("class", 'comment_content');
+		
+		comment_id.innerHTML = commentlist[i].id;
+		comment_date.innerHTML = commentlist[i].date;
+		comment_content.innerHTML = commentlist[i].content;
+		
+		comment_div.style.height = (14 * width).toString() + 'px';
+		$(".comment_rank").css("height", (star_height * width).toString() + 'px');
+		
+		for(var j = 0; j < 5; j++){  //星级
+			comment_dish_stars[j] =  document.createElement('img');
+			comment_dish_stars[j].setAttribute('class', 'dish_stars');
+			comment_dish_stars[j].style.position = 'relative';
+			comment_dish_stars[j].style.height = (star_height * width).toString() + 'px';
+			comment_rank.appendChild(comment_dish_stars[j]);
+			if(j < commentlist[i].score - 0.75){
+				comment_dish_stars[j].src = 'icons/star_yellow.png';
 			}
-			comment_div.appendChild(comment_rank);
-			comment_div.appendChild(comment_date);
-			comment_div.appendChild(comment_id);
-			comment_div.appendChild(comment_content);
-			comment_div.appendChild(curve);
-			show_dish_comments.appendChild(comment_div);
+			else if(j > commentlist[i].score - 0.75 && j < commentlist[i].score + 0.25){
+				comment_dish_stars[j].src = 'icons/star_half.png';
+			}
+			else{
+				comment_dish_stars[j].src = 'icons/star_grey.png';
+			}
 		}
-		$(".comment_rank").css('top', (1 * width).toString() + 'px');
-		$(".comment_date").css('top', (1 * width).toString() + '0px');
-		$(".comment_date").css('left', (30 * width).toString() + 'px');
-		$(".comment_id").css('right', (5 * width).toString() + 'px');
-		$(".comment_id").css('top', (1 * width).toString() + 'px');
-		$(".comment_content").css('top', (5 * width).toString() + 'px');
-		
-		
-	})
-	$("#blank").css("top",(3).toString() + 'px');
+		comment_div.appendChild(comment_rank);
+		comment_div.appendChild(comment_date);
+		comment_div.appendChild(comment_id);
+		comment_div.appendChild(comment_content);
+		comment_div.appendChild(curve);
+		show_dish_comments.appendChild(comment_div);
+	}
+	$(".comment_rank").css('top', (1 * width).toString() + 'px');
+	$(".comment_date").css('top', (1 * width).toString() + '0px');
+	$(".comment_date").css('left', (30 * width).toString() + 'px');
+	$(".comment_id").css('right', (5 * width).toString() + 'px');
+	$(".comment_id").css('top', (1 * width).toString() + 'px');
+	$(".comment_content").css('top', (5 * width).toString() + 'px');
 }
 
 function set_show_dish_introduction(dishid){
@@ -254,7 +214,6 @@ function set_show_dish_info(dishid){
 	else{
 		$("#show_dish_order_amount").html(orderlist[i].id);
 	}
-	
 	$("#show_dish_name").html(dishlist[dishid].name);
 	$("#show_dish_price").html('￥' + dishlist[dishid].price);
 	$("#show_dish_sale_amount").html('月售'+ dishlist[dishid].number + '份');
@@ -272,6 +231,7 @@ function set_show_dish_info(dishid){
 	$("#show_dish_price").css("font-size", (name_font * width).toString() + 'px');
 	$("#show_dish_price").css("height", (name_font * width).toString() + 'px');
 	$("#show_dish_price").css("bottom", (3 * width).toString() + 'px');
+	$("#show_dish_price").css("wid", (3 * width).toString() + 'px');
 	
 	$("#add_order_amount").css("height", 6 * width.toString() + 'px');
 	$("#minus_order_amount").css("height", 6 * width.toString() + 'px');
@@ -280,7 +240,7 @@ function set_show_dish_info(dishid){
 	$("#add_order_amount").css("right", 4 * width.toString() + 'px');
 	$("#minus_order_amount").css("right", 18 * width.toString() + 'px');
 	$("#show_dish_order_amount").css("width",(8 * width).toString() + 'px');
-	$("#show_dish_order_amount").css("right", (4 * width + $("#minus_order_amount").height()).toString() + 'px');
+	$("#show_dish_order_amount").css("right", (10 * width).toString() + 'px');
 	$("#show_dish_order_amount").css("font-size", (name_font * width).toString() + 'px');
 	$("#show_dish_order_amount").css("bottom", (3 * width).toString() + 'px');
 	
@@ -993,20 +953,15 @@ function hide_search(){
 }
 
 function set_search(){
-	$('#search_go').css('line-height', $('#search_go').height() + 'px');
-	$('#search_go').css('font-size', (0.5 * $('#search_go').height()) + 'px');
+	$('#search_go').css('line-height', 4 * height + 'px');
+	$('#search_go').css('font-size', 2 * height + 'px');
 }
 
 function get_hot_search(){
 	$('#hot_title').css("font-size", hot_font * width + "px");
 	$('#hot_search_list').html("");
 	hotlist = [];
-	$.getJSON("http://namespaceXP.github.io/yajia/js/hot_search.json", function(json){
-		for(var i = 0; i < json.keywords.length; i++){
-			hotlist[i] = json.keywords[i].name;
-		}
-		set_hot_search_list();
-	})
+	get_hot_search_list();
 }
 
 function set_hot_search_list(){
@@ -1027,19 +982,8 @@ function set_hot_search_list(){
 	}
 };
 
-function get_search_list(){
-	searchlist = [];
-	$.getJSON("http://namespaceXP.github.io/yajia/js/dishlist_search.json", function(json){
-		for(var i = 0; i < json.dishes.length; i++){
-			searchlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
-		}
-		set_search_list();
-	})
-}
-
 function set_search_list(){
 	$('#search_list').html(""); 
-
 	for(var i = 0; i < searchlist.length; i++){
 		chosen_list[i] = 0;
 		var dish_stars = new Array;  //五颗星
