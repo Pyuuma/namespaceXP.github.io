@@ -9,7 +9,7 @@ function init_dish(dname, id, rank, price, image, number){
 	return dish;
 }
 
-function init_order(dname, id, price, image, number){
+function init_order_list_for_show(dname, id, price, image, number){
 	var dish = new Object();
 	dish.name = dname;
 	dish.id = id;

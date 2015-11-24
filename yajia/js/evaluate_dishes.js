@@ -22,9 +22,6 @@ function createEvaluation(i)
 window.onload = function()
 {
 	get_order_list();
-	for(var i = 0; i < order_list.length; i++){
-		createEvaluation(i);
-	}
 	$("#evaluate_dishes").css("top", 15*height + $("#evaluation_text").height() + 100 +"px");
 	
 	$("#check_order").css("font-size",(4 * width).toString() + 'px');

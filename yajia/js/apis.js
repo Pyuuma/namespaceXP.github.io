@@ -3,7 +3,11 @@ function get_order_list()  //根据用户信息获取订单的信息json（格�
 	order_list = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/json/orderlist.json", function(json){
 		for(var i = 0; i < json.order_list.length; i++){
-			order_list[i] = init_order(json.dishes[i].name, json.dishes[i].id, json.dishes[i].price, json.dishes[i].img, json.dishes[i].number);
+			order_list[i] = init_order_list_for_show(json.order_list[i].name, json.order_list[i].id, json.order_list[i].price,json.order_list[i].img, json.order_list[i].number);
+		}
+		
+		for(var i = 0; i < order_list.length; i++){
+			createEvaluation(i);
 		}
 	})
 }
