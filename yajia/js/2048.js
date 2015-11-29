@@ -168,6 +168,6 @@ window.onkeydown = function(e){
 	}
 }
 
-touch.on('#start', 'swipeleft',function(ev){
+touch.on('body', 'swipeleft',function(ev){
 	alert('left');
 });
