@@ -4,14 +4,11 @@ function createStars(i,div)
 	rating.setAttribute("class","shop_rating");
 	rating.style.position = "absolute";
 	rating.style.width = "60%";
-	rating.style.left = 30*width+"px";
-	rating.style.top = "0px";
+	rating.style.left = 40 * width+"px";
+	rating.style.bottom = "40px";
 	rating.style.color = "black";
 	div.appendChild(rating);
 	var title = document.createElement("span");
-	title.setAttribute("class","title"); 
-	title.innerHTML = "烤鱼 ￥65";
-	rating.appendChild(title);	
 	var level = document.createElement("ul");
 	level.setAttribute("class","rating-level");
 	level.setAttribute("id","stars"+i);

@@ -1,5 +1,6 @@
 function get_order_list()  //根据用户信息获取订单的信息json（格式见orderlist.json）
 {
+	var dish_evaluations = document.getElementById("evaluate_dishes");
 	order_list = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/json/orderlist.json", function(json){
 		for(var i = 0; i < json.order_list.length; i++){
@@ -9,6 +10,7 @@ function get_order_list()  //根据用户信息获取订单的信息json（格�
 		for(var i = 0; i < order_list.length; i++){
 			createEvaluation(i);
 		}
+		dish_evaluations.style.height = 24 * order_list.length * height + "px";
 	})
 }
 

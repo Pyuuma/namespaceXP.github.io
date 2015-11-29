@@ -126,11 +126,11 @@
 	position:absolute;
 	bottom:0;
 	width:100%;
-	height:20px;
-	background-color:#eeeeee;
-	-webkit-box-shadow:3px 3px 3px #eeeeee;
-	-moz-box-shadow:3px 3px 3px #eeeeee;
-	box-shadow:3px 3px 3px #eeeeee;
+	height:10px;
+	background-color:#cccccc;
+	-webkit-box-shadow:1px 1px 1px #cccccc;
+	-moz-box-shadow:1px 1px 1px #cccccc;
+	box-shadow:1px 1px 1px #cccccc;
 }
 
 #show_dish_introduction_div
