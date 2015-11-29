@@ -27,9 +27,6 @@ function getNumberBackgroundColor(number){
         case 2048:return"#09c";break;
         case 4096:return"#a6c";break;
         case 8192:return"#93c";break;
-
-
-
     }
     return "black";
 
@@ -45,7 +42,6 @@ function nospace(board){
         for (var j = 0; j < 4; j++) {
             if(board[i][j]==0)
             return false;
-
         }
     }
     return true;
