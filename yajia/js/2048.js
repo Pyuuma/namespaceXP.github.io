@@ -2,6 +2,7 @@ var window_height = document.all ? document.getElementsByTagName("html")[0].offs
 var window_width = document.all ? document.getElementsByTagName("html")[0].offsetWidth : window.innerWidth;
 var width = window_width / 100;
 var height = window_height / 100;
+var length = 0;
 
 function game2048(container)
 {
@@ -14,6 +15,8 @@ game2048.prototype = {
 		for(var i = 0, len = this.tiles.length; i < len; i++){
 			var tile = this.newTile(0);
 			tile.setAttribute('index', i);
+			tile.style.left = length * (i % 4) + 'px';
+			tile.style.top =  length * Math.floor(i / 4)+ 'px';
 			this.container.appendChild(tile);
 			this.tiles[i] = tile;
 		}
@@ -82,9 +85,10 @@ game2048.prototype = {
 		}
 		this.randomTile();
 	},
-	merge: function(prevTile, currTile){
+	merge: function(prevTile, currTile, dir){
 		var prevVal = prevTile.getAttribute('val');
 		var currVal = currTile.getAttribute('val');
+		
 		if(currVal != 0){
 			if(prevVal == 0){
 				this.setTileVal(prevTile, currVal);
@@ -136,6 +140,7 @@ var game, startBtn;
 
 window.onload = function(){
 	$('#div2048').css('height', $('#div2048').width() + 'px');
+	length =  $('#div2048').width() / 4.1;
 	$('#div2048').css('top',  (100 * height - $('#div2048').width()) / 2 + 'px');
 	$('#start').css('height', $('#start').width() + 'px');
 	var container = document.getElementById('div2048');
