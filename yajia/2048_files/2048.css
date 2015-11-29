@@ -2,6 +2,7 @@ header{
     display: block;
     margin: 0px auto;
     width: 100%;
+	color: #eeeeee;
     text-align: center;
 
 }
@@ -63,4 +64,8 @@ header p{
     text-align: center;
 
     position: absolute;
+}
+
+body{
+	background-color : RGB(42, 43, 44);
 }
