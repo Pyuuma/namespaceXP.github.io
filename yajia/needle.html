@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta name="x-key" content="fbfab7919bf139c1fc65bf79d3f55756">
 <meta charset="utf-8" />
-<title>见缝插针小游戏,来挑战看看你能过多少关</title><meta name="keywords" content="见缝插针,见缝插针小游戏,在线玩" />
+<title>见缝插针</title><meta name="keywords" content="见缝插针" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="full-screen" content="true"/>
@@ -11,9 +11,9 @@
 <meta name="360-fullscreen" content="true"/>
 <meta name="renderer" content="webkit">
 <style type="text/css">
-html,body{padding:0;margin:0;border:0;overflow:hidden;text-align:center;background-color:#aaa;-moz-user-select:none;-webkit-user-select:none;user-select:none;}
+html,body{padding:0;margin:0;border:0;overflow:hidden;text-align:center;background-color: #aaa;-moz-user-select:none;-webkit-user-select:none;user-select:none;}
 body{overflow:visible;}/* for Android Native Browser bug */
-canvas{background-color:#aaa;vertical-align:middle;opacity:1;border-top:solid 1px #000;}
+canvas{color: #aaa; vertical-align:middle;opacity:1;border-top:solid 1px #000;}
 .title{font-size:24px;font-family:微软雅黑,黑体;color:#000;letter-spacing:4px;margin-bottom:4px;}
 #gohw {position:fixed;z-index:99;bottom:0;left:0;width:100%;}
 #gohw a{display:block;width:100%;}
@@ -35,8 +35,6 @@ canvas{background-color:#aaa;vertical-align:middle;opacity:1;border-top:solid 1p
 </head>
 <body>
 
-<img src="wx.jpg" width="0" height="0" style="position:absolute">
-<div class="title"></div>
 <canvas id="stage" width="320" height="480"></canvas>
 <div id="gohw"></div>
 
@@ -48,23 +46,6 @@ canvas{background-color:#aaa;vertical-align:middle;opacity:1;border-top:solid 1p
 <script src="game.js?v=3"></script>
 </div>
 
-<script type="text/javascript">
-    
-
-    function level3366Fn(F){
-        //alert(F);
-        try{
-            document.title = window.shareData.desc = "我在见缝插针里插了"+F+"关，全世界只有5个人玩到了20关！"
-            //document.title = shareData.tTitle = "见缝插针，我已经过了"+F+"关，求超越！";
-            //submit_3366(F)
-        }catch(e){console.log(e)}
-    }
-
-    function share_3366(){
-        document.getElementById("share").style.display = "block";
-    }
-
-</script>
 </body>﻿<script type="text/javascript">
 /*
 var gameOption =
@@ -86,7 +67,4 @@ window.shareData = window.shareData || {
 </script>
 
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-
-
-
 </html>

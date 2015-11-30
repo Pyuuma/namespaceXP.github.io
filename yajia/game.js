@@ -28,6 +28,19 @@ function MC(t) {
     }
 }
 
+function level3366Fn(F){
+    //alert(F);
+    try{
+        document.title = window.shareData.desc = "我在见缝插针里插了"+F+"关，全世界只有5个人玩到了20关！"
+        //document.title = shareData.tTitle = "见缝插针，我已经过了"+F+"关，求超越！";
+        //submit_3366(F)
+    }catch(e){console.log(e)}
+}
+
+function share_3366(){
+    document.getElementById("share").style.display = "block";
+}
+
 function gohw() {
     setTimeout(function() {
         download()
