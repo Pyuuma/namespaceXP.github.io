@@ -997,7 +997,7 @@ function set_search_list(){
 		var dish_image = document.createElement('img');
 		var dish_add = document.createElement('img');
 		var dish_minus = document.createElement('img');
-
+		
 		dish_div.setAttribute('class', 'dish_div');
 		dish_chosen.setAttribute('class', 'dish_chosen');
 		dish_add.setAttribute('class', 'dish_button');

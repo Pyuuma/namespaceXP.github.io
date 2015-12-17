@@ -9,3 +9,7 @@ $("#call_service").click(function(){
 $("#pay_online").click(function(){
 	document.location.href = "pay_online.html";
 });
+
+$("#go_game").click(function(){
+	document.location.href = "game_main.html";
+});

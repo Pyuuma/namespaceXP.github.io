@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///Users/XP/namespaceXP/yajia/game_main.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>初始界面</title>
+	<script src="./初始界面_files/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="./初始界面_files/default.css">
+	<link rel="stylesheet" type="text/css" href="./初始界面_files/user_main.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	
+</head>
+
+<body>
+	<div id="continue_order" class="main_button" style="top: 12%; left: 15%; height: 128px;">
+		<img class="main_button_image" src="./初始界面_files/2048.png">
+		<p class="main_button_word">
+		2048
+		</p>
+	</div>
+	<div id="pay_online" class="main_button" style="top: 12%; right: 15%; height: 128px;">
+		<img class="main_button_image" src="./初始界面_files/pay.png">
+		<p class="main_button_word">
+		见缝插针
+		</p>
+	</div>
+	<div id="go_dishlist" class="main_button" style="left: 15%; height: 128px; top: 269px;">
+		<img class="main_button_image" src="./初始界面_files/orderlist.png">
+		<p class="main_button_word">
+		查看已点	
+		</p>
+	</div>
+	<div id="call_service" class="main_button" style="right: 15%; height: 128px; top: 269px;">
+		<img class="main_button_image" src="./初始界面_files/waiter.png">
+		<p class="main_button_word">
+		呼叫服务
+		</p>
+	</div>
+	<div id="go_game" class="main_button" style="bottom: 12%; left: 15%; height: 128px;">
+		<img class="main_button_image" src="./初始界面_files/game.png">
+		<p class="main_button_word">
+		想玩游戏
+		</p>
+	</div>
+	<div id="contact_us" class="main_button" style="bottom: 12%; right: 15%; height: 128px;">
+		<img class="main_button_image" src="./初始界面_files/call.png">
+		<p class="main_button_word">
+		联系我们
+		</p>
+	</div>
+	<div id="footer">想玩游戏</div>
+
+	<script src="./初始界面_files/draw_header.js"></script>
+	<script src="./初始界面_files/user_main.js"></script>
+	<script text="text/javascript">
+	window.onload = function()
+	{
+		$(".main_button").css("height",$(".main_button").width() + "px");
+		$("#go_dishlist").css("top", (window.innerHeight - $(".main_button").width()) / 2 + "px");
+		$("#call_service").css("top", (window.innerHeight - $(".main_button").width()) / 2 + "px");
+	}
+	</script>
+</body></html>

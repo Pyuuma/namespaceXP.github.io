@@ -32,9 +32,9 @@ function get_search_list(keynode){   //根据传入的关键字获取搜索结�
 	searchlist = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/json/dishlist_search.json", function(json){
 		for(var i = 0; i < json.dishes.length; i++){
-			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
+			searchlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
 		}
-		set_dish_list();
+		set_search_list();
 	})
 }
 

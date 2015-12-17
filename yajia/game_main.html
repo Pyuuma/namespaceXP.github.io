@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="UTF-8" />
-	<title>初始界面</title>
+	<title>想玩游戏</title>
 	<script src="js/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 	<link rel="stylesheet" type="text/css" href="css/user_main.css" />
@@ -12,16 +12,16 @@
 </head>
 
 <body>
-	<div id = "continue_order" class = "main_button" style = "top: 12%; left: 15%;">
-		<img class = "main_button_image" src = "icons/goorder.png" />
+	<div id = "continue_order" class = "main_button" style = "top: 12%; left: 15%;" onclick = "window.location.href='2048.html'">
+		<img class = "main_button_image" src = "icons/2048.png" />
 		<p class = "main_button_word">
-		要去点菜
+		2048
 		</p>
 	</div>
-	<div id = "pay_online" class = "main_button" style = "top:12%; right: 15%;">
-		<img class = "main_button_image" src = "icons/pay.png" />
+	<div id = "pay_online" class = "main_button" style = "top:12%; right: 15%;"  onclick = "window.location.href='needle.html'">
+		<img class = "main_button_image" src = "icons/needle.png" />
 		<p class = "main_button_word">
-		我要买单
+		见缝插针
 		</p>
 	</div>
 	<div id = "go_dishlist" class = "main_button" style = "left: 15%;">
@@ -45,13 +45,12 @@
 	<div id = "contact_us" class = "main_button" style = "bottom: 12%; right: 15%;">
 		<img class = "main_button_image" src = "icons/call.png" />
 		<p class = "main_button_word">
-		联系我们
+		返回上级
 		</p>
 	</div>
-	<div id = "footer">酷爱点菜系统1.0.0</div>
+	<div id = "footer">想玩游戏</div>
 
 	<script src="js/draw_header.js"></script>
-	<script src="js/user_main.js"></script>
 	<script text= "text/javascript">
 	window.onload = function()
 	{
