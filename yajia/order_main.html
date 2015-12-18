@@ -47,8 +47,11 @@
 		<div id = "type_list" class = "header_bar_list" style = "height: 0px"></div>
 		<div id = "sort_list" class = "header_bar_list" style = "height: 0px">
 			<div id = "sort_default" class = "header_bar_list_item" style = "color: #66ccff">智能排序</div>
+			<div class = 'line2' style = 'width: 95%; left: 2.5%; background-color: #444444'></div>
 			<div id = "sort_by_evaluation" class = "header_bar_list_item">好评优先</div>
+			<div class = 'line2' style = 'width: 95%; left: 2.5%;background-color: #444444'></div>
 			<div id = "sort_by_amount" class = "header_bar_list_item">人气最高</div>
+			<div class = 'line2' style = 'width: 95%;left: 2.5%; background-color: #444444'></div>
 			<div id = "sort_by_price" class = "header_bar_list_item">物美价廉</div>
 		</div>
 		<div id = "filter_choice">
@@ -156,7 +159,7 @@
 		$("#continue_order").css("line-height",$("#continue_order").height()+"px");
 		$("#pay_online").css("line-height",$("#pay_online").height() + "px");
 		get_type_list();
-		get_dish_list();
+		get_min_max();
 		set_header_bar();
 		set_sort_list();
 		set_footer();

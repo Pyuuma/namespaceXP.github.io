@@ -40,7 +40,7 @@ function get_search_list(keynode){   //根据传入的关键字获取搜索结�
 
 function get_filter_list(min, max){   //根据传入的最低值和最高值获取筛选结果列表json
 	$('#dish_list').html("");
-	searchlist = [];
+	dishlist = [];
 	$.getJSON("http://namespaceXP.github.io/yajia/json/dishlist_search.json", function(json){
 		for(var i = 0; i < json.dishes.length; i++){
 			dishlist[i] = init_dish(json.dishes[i].name, json.dishes[i].id, json.dishes[i].score, json.dishes[i].price, json.dishes[i].img, json.dishes[i].sell);
@@ -55,6 +55,7 @@ function get_type_list(){   //获取菜的类型列表json
 			typelist[i] = init_type(json.types[i].name, json.types[i].id);
 		}
 		set_type_list();
+		get_dish_list(typelist[0].id);
 	})
 }
 
@@ -77,4 +78,12 @@ function get_comment_list(dishid){  //根据传入的菜id获取菜的评论列�
 		set_comment_style();		
 	})
 	$("#blank").css("top",(3).toString() + 'px');
+}
+
+function get_min_max(dishid){  //获取菜价格的最小值和最大值
+	show_dish_comments.innerHTML = '';
+	$.getJSON("http://namespaceXP.github.io/yajia/json/min_max.json", function(json){
+		min_price = json.data.min;
+		max_price = json.data.max;		
+	})
 }

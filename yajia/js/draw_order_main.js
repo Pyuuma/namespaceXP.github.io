@@ -6,6 +6,7 @@ var chosen_list = new Array;
 var chosen = 0;  //总共选菜数
 var chosen_type = 0;   //目前选中的菜类型
 var dishlist = new Array; 
+var tempdishlist = new Array; 
 var typelist = new Array;
 var orderlist = new Array;   //目前的点菜单
 var commentlist = new Array;
@@ -16,6 +17,8 @@ var hot_font = 3.4;
 var hot_blank_rate = 1.8;
 var now_dish = -1;    //当前正在查看的菜肴
 var total_price = 0;
+var header_bar_list_item_height = 5;
+var min_price, max_price;
 
 Array.prototype.remove=function(dx){ 
     if(isNaN(dx)|| dx>this.length){return false;} 
@@ -41,9 +44,9 @@ $("#sort_default").click(function(){
 	$("#sort_by_amount").css('color', "#222222");
 	$("#sort_by_price").css('color', "#222222");
 	$("#sort_by_evaluation").css('color', "#222222");
-	
 	$("#show_sort").html("智能排序");
 	$('#sort_list').css('height','0px');
+	hide_cover_for_header();
 });
 
 $("#sort_by_amount").click(function(){
@@ -56,6 +59,7 @@ $("#sort_by_amount").click(function(){
 	$("#sort_by_evaluation").css('color', "#222222");
 	$("#show_sort").html("人气最高");
 	$('#sort_list').css('height','0px');
+	hide_cover_for_header();
 });
 
 $("#sort_by_price").click(function(){
@@ -68,6 +72,7 @@ $("#sort_by_price").click(function(){
 	$("#sort_by_amount").css('color', "#222222");
 	$("#sort_by_evaluation").css('color', "#222222");
 	$('#sort_list').css('height','0px');
+	hide_cover_for_header();
 });
 
 $("#sort_by_evaluation").click(function(){
@@ -80,6 +85,7 @@ $("#sort_by_evaluation").click(function(){
 	$("#sort_by_amount").css('color', "#222222");
 	$("#sort_by_price").css('color', "#222222");
 	$('#sort_list').css('height','0px');
+	hide_cover_for_header();
 });
 
 $('#search_go').click(function(){
@@ -270,12 +276,16 @@ function set_type_list(){
 		type_div.setAttribute('id', typelist[i].id);
 		type_name.setAttribute('class', 'type_name');
 		type_name.style.color = '#888888';
-		type_div.style.height = (4 * height).toString() + 'px';
-		type_div.style.top = (i * 4 * height).toString() + 'px';
+		type_div.style.height = (header_bar_list_item_height  * height).toString() + 'px';
+		type_div.style.top = (i * header_bar_list_item_height  * height).toString() + 'px';
 		type_name.innerHTML = typelist[i].name;
+		border.setAttribute('classs', 'line2');
 		border.style.height = '1px';
-		border.style.width = '100%';
-		border.style.backgroundColor = '#cdcdcd';
+		border.style.width = '95%';
+		border.style.left = '2.5%';
+		border.style.position = 'absolute';
+		border.style.top = (i * header_bar_list_item_height  * height).toString() + 'px';
+		border.style.backgroundColor = '#444444';
 		if(i == chosen_type){
 			type_name.style.color = "#66ccff";
 		}
@@ -307,8 +317,8 @@ function set_type_list(){
 }
 
 function set_sort_list(){
-	$(".header_bar_list_item").css("height", 4 * height + "px");
-	$(".header_bar_list_item").css("line-height", 4 * height + "px");
+	$(".header_bar_list_item").css("height", header_bar_list_item_height  * height + "px");
+	$(".header_bar_list_item").css("line-height", header_bar_list_item_height  * height + "px");
 }
 
 function set_header_bar(){
@@ -579,7 +589,7 @@ function set_preview(){
 		var border = document.createElement('div');
 		var dish_add = document.createElement('img');
 		var dish_minus = document.createElement('img');
-		dish_div.setAttribute('class', 'dish_div');
+		dish_div.setAttribute('class', 'dish_div_color2');
 		dish_chosen.setAttribute('class', 'dish_chosen');
 		dish_add.setAttribute('class', 'dish_button');
 		dish_minus.setAttribute('class', 'dish_button');
@@ -717,7 +727,8 @@ function set_preview(){
 	var dish_price = document.createElement('div');
 	dish_price.setAttribute('id', 'total_price');
 
-	dish_div.setAttribute('class', 'dish_div');
+	dish_div.setAttribute('class', 'dish_div_color2');
+	
 	dish_name.setAttribute('class', 'dish_name');
 	dish_price.setAttribute('class', 'dish_price');
 	
@@ -1195,6 +1206,8 @@ $('#search_button').click(function(){
 });
 
 $('#ordered').click(function(){
+	if(($('#filter_choice').height() != 0) || ($('#sort_list').height() != 0)|| $('#type_list').height() != 0)
+		return;
 	if($('#cover').css('display') == 'none'){
 		$('#cover').css('display', 'block');
 		set_preview();
@@ -1207,6 +1220,8 @@ $('#ordered').click(function(){
 });
 
 $('#order_go').click(function(){
+	if(($('#filter_choice').height() != 0) || ($('#sort_list').height() != 0)|| $('#type_list').height() != 0)
+		return;
 	if($('#cover').css('display') == 'none'){
 		if(orderlist.length > 0){
 			$('#cover').css('display', 'block');
@@ -1243,7 +1258,7 @@ $("#show_menu").click(function(){
 	$('#filter_choice').css('height','0px');
 	show_cover_for_header();
 	if($('#type_list').height() === 0){
-		$('#type_list').css('height', 4 * typelist.length * height + 'px');	
+		$('#type_list').css('height', header_bar_list_item_height * typelist.length * height + 'px');	
 	}
 	else{
 		$('#type_list').css('height','0px');
@@ -1256,7 +1271,7 @@ $("#show_sort").click(function(){
 	$('#filter_choice').css('height','0px');
 	show_cover_for_header();
 	if($('#sort_list').height() === 0){
-		$('#sort_list').css('height', 4 * 4 * height + 'px');	
+		$('#sort_list').css('height', 4 * 5 * height + 'px');	
 	}
 	else{
 		$('#sort_list').css('height','0px');
@@ -1264,7 +1279,25 @@ $("#show_sort").click(function(){
 	}
 });
 
+$("#filter_go").click(function(){
+	tempdishlist = dishlist;
+	var min, max;
+	min = $("#price_min").val();
+	max = $("#price_max").val();
+	get_filter_list(min, max);
+	$('#filter_choice').css('height','0px');
+	$('#show_filter').html("取消筛选");
+	hide_cover_for_header();
+});
+
 $("#show_filter").click(function(){
+	if($('#show_filter').html() == "取消筛选"){
+		dishlist = tempdishlist;
+		tempdishlist = [];
+		set_dish_list();
+		$('#show_filter').html("筛选");
+		return;
+	}
 	$('#type_list').css('height','0px');
 	$('#sort_list').css('height','0px');
 	show_cover_for_header();

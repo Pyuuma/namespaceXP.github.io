@@ -37,9 +37,9 @@ body {
 	height: 100%;
 	background-color: #222222;
 	z-index: 7;
-	-moz-opacity: 0.8;
-	-khtml-opaciy: 0.8;
-	opacity: 0.8;
+	-moz-opacity: 0.95;
+	-khtml-opaciy: 0.95;
+	opacity: 0.95;
 }
 #curve{
 	position: absolute;
@@ -64,7 +64,7 @@ body {
 
 #preview_list{
 	position:absolute;
-	background-color: #333333;
+	background-color: #565656;
 	z-index: 8;
 	left: 0%;
 	bottom: 6%;
@@ -379,7 +379,7 @@ body {
 .header_bar_list_item{
 	position: relative;
 	width: 100%;
-	padding : -1px;
+	padding : 0px;
 	text-align: left;
 	text-indent: 5%;
 	color: #888888;
@@ -398,7 +398,7 @@ body {
 	text-align: center;
 	font-size: 1.8em;
 	z-index: 3;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(80, 80, 80)), to(RGB(51,51,51)));  /* Safari 4-5, Chrome 1-9*/
-	background: -webkit-linear-gradient(top, RGB(80, 80, 80), RGB(51,51,51));   /*Safari5.1 Chrome 10+*/
-	background: -o-linear-gradient(top, RGB(80, 80, 80), RGB(51,51,51)); 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(RGB(120, 120, 120)), to(RGB(61,61,61)));  /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, RGB(120, 120, 120), RGB(61,61,61));   /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, RGB(120, 120, 120), RGB(61,61,61)); 
 }
