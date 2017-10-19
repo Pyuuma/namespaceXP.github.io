@@ -22,18 +22,19 @@
     <![endif]-->
   </head>
 <div>
-	<img class = "background" src = "bg.jpg" />
+	<img class = "background" src = "img/bg.jpg" />
 	<div class = "app" id = "notesapp">
 	</div>
 	<div id = "topbar">
 		<b id = "service"> 中国联通</b>
-		<img id = "signal" src = "signal.png"/>
+		<img id = "signal" src = "img/signal.png"/>
 		<b id = "time"></b>
 		<b id = "cell">64%</b>
-		<img id = "cellsign" src = "cell.png"/>
+		<img id = "cellsign" src = "img/cell.png"/>
 	</div>
-	<div id = "dial" class = "window">
+	<div id = "dial" class = "window" style = "display: block">
 		<div id = "number"></div>
+		<a id = "callhint">正在拨打……</a>
 		<div id = "table">
 			<div id = "1" class="dialbutton">1</div>
 			<div id = "2" class="dialbutton">2</div>
@@ -48,10 +49,16 @@
 			<div id = "0" class="dialbutton">0</div>
 			<div id = "#" class="dialbutton">#</div>
 		</div>
-		<img src = "" id = "call">
+		<img src = "img/call.png" id = "call">
+		<img src = "img/delete.png" id = "delete">
+		<div id = "callbar">
+			<img src = "img/recent.png" id = "recent" class = "callbaritem">
+			<img src = "img/addresslist.png" id = "addresslist" class = "callbaritem">
+			<img src = "img/board_pushed.png" id = "board" class = "callbaritem">
+		</div>
 	</div>
 	
-	<div id = "message" class = "window" style = "display: block">
+	<div id = "message" class = "window" style = "display: none">
 		<div id = "messagetitle">&nbsp;信息</div>
 		<div id = "messagelist"></div>
 	</div>
@@ -62,15 +69,17 @@
 	</div>
 	
 	<div id = "bottombar">
-		<img class = "button" id = "phonebutton" src = "phone.png"/>
-		<img class = "button" id = "messagebutton" src = "message.png"/>
-		<img class = "button" id = "photobutton" src = "photo.png"/>
+		<img class = "button" id = "phonebutton" src = "img/phone.png"/>
+		<img class = "button" id = "messagebutton" src = "img/message.png"/>
+		<img class = "button" id = "photobutton" src = "img/photo.png"/>
 	</div>
 	<div id = "buttonbar">
 		<div id = myhome>
 			<div id = "home"></div>
 		</div>
 	</div>
+	
+	<audio id="myaudio" src="dial.wav" controls="controls" loop="false" hidden="true" 
 </div>
 
     <!-- Bootstrap core JavaScript

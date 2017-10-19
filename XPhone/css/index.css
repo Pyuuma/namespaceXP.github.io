@@ -5,6 +5,10 @@ body{
 	height: 100%;
   	overflow:hidden;
 	font-size: 4vw;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
 }
 .background{
   position: absolute;
@@ -22,19 +26,17 @@ body{
 }
 
 .dialbutton{
-	width: 18vw;
-	height: 18vw;
-	border-radius: 18vw;
+	width: 16vw;
+	height: 16vw;
+	border-radius: 16vw;
 	text-align: center;
-	margin: 4%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 3vw;
 	font-size: 8vw;
 	line-height: 18vw;
 	background-color: #bbbbbb;
 	float: left;
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
 }
 
 .window{
@@ -81,6 +83,19 @@ body{
 	width: 100%;
 }
 
+.callbaritem{
+	width: 20%;
+	margin-left: 6%;
+	margin-right: 6%;
+}
+
+#callbar{
+	position: absolute;
+	width: 100%;
+	bottom:12vw;
+	background-color: #efefef;
+}
+
 #messagelist{
 	position: absolute;
 	width: 100%;
@@ -91,17 +106,17 @@ body{
 #number{
 	position: absolute;
 	width: 100%;
-	top: 20vw;
+	top: 14vw;
 	text-align:center;
 	font-size: 8vw;
 }
 
 #table{
 	position: absolute;
-	width: 76%;
+	width: 72%;
 	height: 60vw;
-	left: 12%;
-	top: 35vw;
+	left: 14%;
+	bottom: 76vw;
 }
 
 #topbar{
@@ -179,6 +194,21 @@ body{
 	border: 2px solid #666666;
 }
 
+#call{
+	position: absolute;
+	width: 25%;
+	left: 36.6%;
+	bottom: 30vw;
+}
+
+#delete{
+	position: absolute;
+	width: 19%;
+	right: 20%;
+	bottom: 33vw;
+	display: none;
+}
+
 #myhome{
 	position: absolute;
 	width: 30%;
@@ -195,6 +225,14 @@ body{
 	top: 10vw;
 	font-size: 8vw;
 	border-bottom: 1px solid #666666;
+}
+
+#callhint{
+	position: absolute;
+	top: 30vw;
+	left: 30vw;
+	font-size: 6vw;
+	color:#ffffff;
 }
 
 #phototitle{
