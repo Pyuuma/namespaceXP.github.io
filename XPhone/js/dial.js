@@ -8,6 +8,11 @@ $(document).ready(function(){
 	addresslist.style.height = (document.documentElement.clientHeight - 0.46 * document.documentElement.clientWidth) + "px"
 });
 
+var config = {
+  syncURL: "https://wd3142915294flcvux.wilddogio.com" //输入节点 URL
+};
+wilddog.initializeApp(config);
+var ref = wilddog.sync().ref();
 
 $(".dialbutton").mousedown(function(){
 	this.style.backgroundColor="#aaaaaa";
@@ -151,18 +156,28 @@ function showdial(){
 	callflag = true;
 	$("#table").css("display","none");
 	$("#delete").css("display","none");
+	$("#callbar").css("display","none");
 	$("#call").attr("src","img/shut.png");
 	$("#dial").css("background-color","#777777");
 	var myAuto = document.getElementById('myaudio');
 	myAuto.play();
+	if(nowNumber == "110"){
+		ref.set({
+		  "messageboard":1
+		});
+	}
 }
 
 function enddial(){
 	callflag = false;
 	$("#table").css("display","block");
 	$("#delete").css("display","block");
+	$("#callbar").css("display","block");
 	$("#call").attr("src","img/call.png");
 	$("#dial").css("background-color","#ffffff");
 	var myAuto = document.getElementById('myaudio');
 	myAuto.pause();
+	ref.set({
+		"messageboard":0
+	});
 }
