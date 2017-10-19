@@ -51,11 +51,14 @@
 		<img src = "" id = "call">
 	</div>
 	
-	<div id = "message" class = "window" style = "display: block">
+	<div id = "message" class = "window" style = "display: none">
 		<div id = "messagetitle">&nbsp;信息</div>
 	</div>
 	
-	<div id = "photo" class = "window">
+	<div id = "photo" class = "window" style = "display: block">
+		<div id = "showphoto"></div>
+		<div id = "phototitle">本地照片</div>
+		<div id = "photolist"></div>
 	</div>
 	
 	<div id = "bottombar">
@@ -76,6 +79,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/dial.js"></script>
+	<script src="js/message.js">
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
