@@ -120,6 +120,7 @@ function newAddressdiv(mname, number){
 $("#address").click(function(){
 	this.src = "img/addresslist_pushed.png";
 	$("#boardpage").css("display", "none");
+	$("#userpage").css("display", "none");
 	$("#addresspage").css("display", "block");
 	$("#recentpage").css("display", "none");
 	$("#board").attr('src',"img/board.png"); 
@@ -129,6 +130,7 @@ $("#address").click(function(){
 $("#recent").click(function(){
 	this.src = "img/recent_pushed.png";
 	$("#boardpage").css("display", "none");
+	$("#userpage").css("display", "none");
 	$("#addresspage").css("display", "none");
 	$("#recentpage").css("display", "block");
 	$("#board").attr('src',"img/board.png"); 
@@ -137,6 +139,7 @@ $("#recent").click(function(){
 
 $("#board").click(function(){
 	this.src = "img/board_pushed.png";
+	$("#userpage").css("display", "none");
 	$("#boardpage").css("display", "block");
 	$("#addresspage").css("display", "none");
 	$("#recentpage").css("display", "none");
