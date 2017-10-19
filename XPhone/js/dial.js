@@ -5,6 +5,7 @@ var showflag = false;
 
 $(document).ready(function(){
 	getAddressList();
+	addresslist.style.height = (document.documentElement.clientHeight - 0.46 * document.documentElement.clientWidth) + "px"
 });
 
 
@@ -43,6 +44,11 @@ $("#call").click(function(){
 		enddial();
 	}
 });
+
+$("#userback").click(function(){
+	$("#userpage").css("display", "none");
+	$("#addresspage").css("display", "block");
+})
 
 function getRecentList(){
 	$.getJSON("http://namespaceXP.github.io/XPhone/recent.json", function(json){
@@ -84,7 +90,7 @@ function newRecentdiv(date, number, content){
 }
 
 function getAddressList(){
-	$.getJSON("http://namespaceXP.github.io/XPhone/address.json", function(json){
+	$.getJSON("http://namespaceXP.github.io/XPhone/addr.json", function(json){
 		for(var i = 0; i < json.address.length; i++){
 			var newdiv = newAddressdiv(json.address[i].name, json.address[i].number);
 			addresslist.appendChild(newdiv);
@@ -95,19 +101,17 @@ function getAddressList(){
 function newAddressdiv(mname, number){
 	var maxlength = 22;
 	var messagediv = document.createElement("div");
-	var numberdiv = document.createElement("div");
 	var namediv = document.createElement("div");
 	messagediv.id = number;
-	messagediv.className = "messagediv";
-	numberdiv.className = "numberdiv";
-	namediv.className = "contentdiv";
+	messagediv.className = "addrdiv";
+	namediv.className = "namediv";
 	namediv.innerHTML = mname;
-	numberdiv.innerHTML = number;
-
-	messagediv.appendChild(nameiv);
-	messagediv.appendChild(numberdiv);
+	messagediv.appendChild(namediv);
 	messagediv.onclick = function(){
-		
+		$("#username").html( this.innerHTML);
+		$("#userphone").html("手机: " + this.id);
+		$("#addresspage").css("display","none");
+		$("#userpage").css("display","block");
 	}
 	return messagediv;
 }

@@ -89,6 +89,24 @@ body{
 	margin-right: 6%;
 }
 
+.addrdiv{
+	width: 90%;
+	margin-left: 5%;
+	height :15vw;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+.namediv{
+	line-height: 15vw;
+}
+
+#addresslist{
+	position: absolute;
+	width: 100%;
+	top: 24vw;
+	overflow-y: scroll;
+}
+
 #callbar{
 	position: absolute;
 	width: 100%;
@@ -201,6 +219,13 @@ body{
 	bottom: 30vw;
 }
 
+#userback{
+	position: absolute;
+	width: 8%;
+	top: 8vw;
+	z-index: 100;
+}
+
 #delete{
 	position: absolute;
 	width: 19%;
@@ -216,6 +241,33 @@ body{
 	left: 35%;
 	top: 0vw;
 	height: 12vw;
+}
+
+#username{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 5vw;
+	font-size: 8vw;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+#userphone2{
+	position: absolute;
+	width: 80%;
+	text-align: left;
+	left: 10%;
+	top: 40vw;
+	font-size: 4vw;
+}
+
+#userphone{
+	position: absolute;
+	width: 80%;
+	text-align: left;
+	left: 10%;
+	top: 25vw;
+	font-size: 4vw;
 }
 
 #messagetitle{
