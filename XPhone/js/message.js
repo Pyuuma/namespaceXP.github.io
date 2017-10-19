@@ -1,6 +1,7 @@
 var messagelist = document.getElementById("messagelist");
 
 $(document).ready(function(){
+	$("#messagelist").css("height", (document.documentElement.clientHeight - 0.36 * document.documentElement.clientWidth) + "px");
 	getMainMessageList();
 });
 
