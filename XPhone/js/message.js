@@ -8,7 +8,7 @@ $(document).ready(function(){
 function getMainMessageList(){
 	$.getJSON("http://namespaceXP.github.io/XPhone/messages.json", function(json){
 		for(var i = 0; i < json.messages.length; i++){
-			var newdiv = newMessagediv(json.messages[i].datetime, json.messages[i].number, json.messages[i].content);
+			var newdiv = newMessagediv(json.messages[i].date, json.messages[i].number, json.messages[i].content);
 			messagelist.appendChild(newdiv);
 		}
 	});
