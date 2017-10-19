@@ -78,6 +78,7 @@ body{
 .contentdiv{
 	text-indent: 10%;
 	float: left;
+	width: 100%;
 }
 
 #messagelist{
