@@ -1,6 +1,12 @@
 var nowNumber = "";
+var addresslist = document.getElementById("addresslist");
 var callflag = false;
 var showflag = false;
+
+$(document).ready(function(){
+	getAddressList();
+});
+
 
 $(".dialbutton").mousedown(function(){
 	this.style.backgroundColor="#aaaaaa";
@@ -38,23 +44,100 @@ $("#call").click(function(){
 	}
 });
 
+function getRecentList(){
+	$.getJSON("http://namespaceXP.github.io/XPhone/recent.json", function(json){
+		for(var i = 0; i < json.messages.length; i++){
+			var newdiv = newMessagediv(json.messages[i].date, json.messages[i].number, json.messages[i].content);
+			messagelist.appendChild(newdiv);
+		}
+	});
+}
 
-$("#addresslist").click(function(){
+function newRecentdiv(date, number, content){
+	var maxlength = 22;
+	
+	var messagediv = document.createElement("div");
+	var datediv = document.createElement("div");
+	var numberdiv = document.createElement("div");
+	var contentdiv = document.createElement("div");
+	messagediv.id = number;
+	messagediv.className = "messagediv";
+	datediv.className = "datediv";
+	numberdiv.className = "numberdiv";
+	contentdiv.className = "contentdiv";
+	datediv.innerHTML = date;
+	numberdiv.innerHTML = number;
+	if(content.length <= maxlength){
+		contentdiv.innerHTML = content;
+	}
+	else{
+		contentdiv.innerHTML = content.substr(0, maxlength-2) + "……";
+	}
+	
+	messagediv.appendChild(datediv);
+	messagediv.appendChild(numberdiv);
+	messagediv.appendChild(contentdiv);
+	messagediv.onclick = function(){
+		
+	}
+	return messagediv;
+}
+
+function getAddressList(){
+	$.getJSON("http://namespaceXP.github.io/XPhone/address.json", function(json){
+		for(var i = 0; i < json.address.length; i++){
+			var newdiv = newAddressdiv(json.address[i].name, json.address[i].number);
+			addresslist.appendChild(newdiv);
+		}
+	});
+}
+
+function newAddressdiv(mname, number){
+	var maxlength = 22;
+	var messagediv = document.createElement("div");
+	var numberdiv = document.createElement("div");
+	var namediv = document.createElement("div");
+	messagediv.id = number;
+	messagediv.className = "messagediv";
+	numberdiv.className = "numberdiv";
+	namediv.className = "contentdiv";
+	namediv.innerHTML = mname;
+	numberdiv.innerHTML = number;
+
+	messagediv.appendChild(nameiv);
+	messagediv.appendChild(numberdiv);
+	messagediv.onclick = function(){
+		
+	}
+	return messagediv;
+}
+
+
+$("#address").click(function(){
 	this.src = "img/addresslist_pushed.png";
+	$("#boardpage").css("display", "none");
+	$("#addresspage").css("display", "block");
+	$("#recentpage").css("display", "none");
 	$("#board").attr('src',"img/board.png"); 
 	$("#recent").attr('src',"img/recent.png"); 
 });
 
 $("#recent").click(function(){
 	this.src = "img/recent_pushed.png";
+	$("#boardpage").css("display", "none");
+	$("#addresspage").css("display", "none");
+	$("#recentpage").css("display", "block");
 	$("#board").attr('src',"img/board.png"); 
-	$("#addresslist").attr('src',"img/addresslist.png"); 
+	$("#address").attr('src',"img/addresslist.png"); 
 });
 
 $("#board").click(function(){
 	this.src = "img/board_pushed.png";
+	$("#boardpage").css("display", "block");
+	$("#addresspage").css("display", "none");
+	$("#recentpage").css("display", "none");
 	$("#recent").attr('src',"img/recent.png"); 
-	$("#addresslist").attr('src',"img/addresslist.png"); 
+	$("#address").attr('src',"img/addresslist.png"); 
 });
 
 function showdial(){
