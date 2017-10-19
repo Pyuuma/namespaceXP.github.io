@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>XPhone</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<div>
+	<img class = "background" src = "bg.jpg" />
+	<div class = "app" id = "notesapp">
+	</div>
+	<div id = "topbar">
+		<b id = "service"> 中国联通</b>
+		<img id = "signal" src = "signal.png"/>
+		<b id = "time"></b>
+		<b id = "cell">64%</b>
+		<img id = "cellsign" src = "cell.png"/>
+	</div>
+	<div id = "dial" class = "window">
+		<div id = "number"></div>
+		<div id = "table">
+			<div id = "1" class="dialbutton">1</div>
+			<div id = "2" class="dialbutton">2</div>
+			<div id = "3" class="dialbutton">3</div>
+			<div id = "4" class="dialbutton">4</div>
+			<div id = "5" class="dialbutton">5</div>
+			<div id = "6" class="dialbutton">6</div>
+			<div id = "7" class="dialbutton">7</div>
+			<div id = "8" class="dialbutton">8</div>
+			<div id = "9" class="dialbutton">9</div>
+			<div id = "*" class="dialbutton">*</div>
+			<div id = "0" class="dialbutton">0</div>
+			<div id = "#" class="dialbutton">#</div>
+		</div>
+		<img src = "" id = "call">
+	</div>
+	
+	<div id = "message" class = "window" style = "display: block">
+		<div id = "messagetitle">&nbsp;信息</div>
+	</div>
+	
+	<div id = "photo" class = "window">
+	</div>
+	
+	<div id = "bottombar">
+		<img class = "button" id = "phonebutton" src = "phone.png"/>
+		<img class = "button" id = "messagebutton" src = "message.png"/>
+		<img class = "button" id = "photobutton" src = "photo.png"/>
+	</div>
+	<div id = "buttonbar">
+		<div id = myhome>
+			<div id = "home"></div>
+		</div>
+	</div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/dial.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+  </body>
+</html>
