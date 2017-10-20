@@ -87,6 +87,13 @@ body{
 	font-weight: bold;
 }
 
+.detaildatediv{
+	width: 100%;
+	text-align:center;
+	font-size: 3vw;
+	color: #888888;
+}
+
 .datediv{
 	position: relative;
 	float: right;
