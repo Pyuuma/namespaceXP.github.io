@@ -1,12 +1,20 @@
 var nowNumber = "";
-var addresslist = document.getElementById("addresslist");
 var callflag = false;
 var showflag = false;
+var addresslist = document.getElementById("addresslist");
+var recentlist = document.getElementById("recentlist");
 
 $(document).ready(function(){
 	getAddressList();
-	addresslist.style.height = (document.documentElement.clientHeight - 0.46 * document.documentElement.clientWidth) + "px"
+	getRecentList();
+	addresslist.style.height = (document.documentElement.clientHeight - 0.46 * document.documentElement.clientWidth) + "px";
+	recentlist.style.height = addresslist.style.height;
 });
+
+window.onresize = function(){
+	addresslist.style.height = (document.documentElement.clientHeight - 0.46 * document.documentElement.clientWidth) + "px";
+	recentlist.style.height = addresslist.style.height;
+}
 
 var config = {
   syncURL: "https://wd3142915294flcvux.wilddogio.com" //输入节点 URL
@@ -57,37 +65,33 @@ $("#userback").click(function(){
 
 function getRecentList(){
 	$.getJSON("http://namespaceXP.github.io/XPhone/recent.json", function(json){
-		for(var i = 0; i < json.messages.length; i++){
-			var newdiv = newMessagediv(json.messages[i].date, json.messages[i].number, json.messages[i].content);
-			messagelist.appendChild(newdiv);
+		for(var i = 0; i < json.recent.length; i++){
+			var newdiv = newRecentdiv(json.recent[i].date, json.recent[i].number, json.recent[i].time, json.recent[i].count,json.recent[i].sendflag);
+			recentlist.appendChild(newdiv);
 		}
 	});
 }
 
-function newRecentdiv(date, number, content){
+function newRecentdiv(date, number, time, count, sendflag){
 	var maxlength = 22;
 	
 	var messagediv = document.createElement("div");
 	var datediv = document.createElement("div");
 	var numberdiv = document.createElement("div");
-	var contentdiv = document.createElement("div");
 	messagediv.id = number;
-	messagediv.className = "messagediv";
-	datediv.className = "datediv";
-	numberdiv.className = "numberdiv";
-	contentdiv.className = "contentdiv";
+	messagediv.className = "recentdiv";
+	datediv.className = "recentdatediv";
+	numberdiv.className = "recentnumberdiv";
 	datediv.innerHTML = date;
 	numberdiv.innerHTML = number;
-	if(content.length <= maxlength){
-		contentdiv.innerHTML = content;
+	if(sendflag == 1){
+		numberdiv.style.color = "#FF0000";
 	}
-	else{
-		contentdiv.innerHTML = content.substr(0, maxlength-2) + "……";
+	if(count > 1){
+		numberdiv.innerHTML += " (" + count + ")";
 	}
-	
 	messagediv.appendChild(datediv);
 	messagediv.appendChild(numberdiv);
-	messagediv.appendChild(contentdiv);
 	messagediv.onclick = function(){
 		
 	}
@@ -161,7 +165,7 @@ function showdial(){
 	$("#dial").css("background-color","#777777");
 	var myAuto = document.getElementById('myaudio');
 	myAuto.play();
-	if(nowNumber == "110"){
+	if(nowNumber == "12133482349"){
 		ref.set({
 		  "messageboard":1
 		});
