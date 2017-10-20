@@ -1,0 +1,33 @@
+﻿.detailcontentdiv{
+	padding-left:2vw;/*容器里面的内容从左边距离边框10个像素*/
+	padding-top:2vw;
+	padding-right:2vw;
+	padding-bottom:2vw;
+	border-radius: 3vw;
+	background-color: #dddddd;
+	max-width: 80%;
+	float: left;
+}
+
+.rightdetailcontentdiv{
+	padding-left:2vw;/*容器里面的内容从左边距离边框10个像素*/
+	padding-top:2vw;
+	padding-right:2vw;
+	padding-bottom:2vw;
+	border-radius: 3vw;
+	background-color: #a8fa75;
+	max-width: 80%;
+	float: right;
+}
+
+.detaildatediv{
+	width: 100%;
+	text-align:center;
+	font-size: 3vw;
+	color: #888888;
+}
+
+.detaildiv{
+	width: 100%;
+	overflow: auto;
+}

@@ -21,9 +21,38 @@ body{
   overflow:hidden;
 }
 
+
+#detaillist{
+	position: absolute;
+	width: 90%;
+	left: 5%;
+	top: 18vw;
+}
+
 .button{
 	margin:2%;
 	width: 18%;
+}
+
+.bkbubble.right p:before, .bkbubble.left p:before {
+   width: 0;
+   position: absolute;
+   top: 12px;
+   border-style: solid;
+   content: "";
+ }
+ .bkbubble.left {
+     text-align: right;
+ }
+.bkbubble.right p:before {
+   left: -12px;
+   border-color: transparent #00bfff;
+   border-width: 0 12px 12px 0;
+}
+.bkbubble.left p:before {
+    right: -12px;
+   border-color: transparent #00bfff;
+   border-width: 0 0 12px 12px ;
 }
 
 .dialbutton{
@@ -87,12 +116,6 @@ body{
 	font-weight: bold;
 }
 
-.detaildatediv{
-	width: 100%;
-	text-align:center;
-	font-size: 3vw;
-	color: #888888;
-}
 
 .datediv{
 	position: relative;

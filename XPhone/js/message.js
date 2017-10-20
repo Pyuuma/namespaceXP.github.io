@@ -81,7 +81,13 @@ function newDetaildiv(date, time, content, sendflag){
 	messagediv.id = number;
 	messagediv.className = "detaildiv";
 	datediv.className = "detaildatediv";
-	contentdiv.className = "detailcontentdiv";
+	contentdiv.className = "detailcontentdiv"
+	if(sendflag != 2 && sendflag != "2"){
+		contentdiv.className = "detailcontentdiv"
+	}
+	else{
+		contentdiv.className = "rightdetailcontentdiv"
+	}
 	datediv.innerHTML = date + " " + time;
 	contentdiv.innerHTML = content;
 	messagediv.appendChild(datediv);
