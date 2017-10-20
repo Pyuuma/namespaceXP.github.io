@@ -16,10 +16,18 @@ function mytime(){
 	    if(snapshot.val().messageboard == 1){
 			$("#bg").attr("src","img/reciever_calling.jpg");
 			myAuto.play();
+			$("#bg").click(function(){
+				ref.set({
+					"messageboard":0
+				});
+			})
 	    }
 		else{
 			$("#bg").attr("src","img/reciever.jpg");
 			myAuto.pause();
+			$("#bg").click(function(){
+				
+			})
 		}
 	});
 }

@@ -8,7 +8,7 @@ $(document).ready(function(){
 function getMainMessageList(){
 	$.getJSON("http://namespaceXP.github.io/XPhone/messages.json", function(json){
 		for(var i = 0; i < json.messages.length; i++){
-			var newdiv = newMessagediv(json.messages[i].date, json.messages[i].number, json.messages[i].content);
+			var newdiv = newMessagediv(json.messages[i].msgs[0].date, json.messages[i].msgs[0].number, json.messages[i].msgs[0].content);
 			messagelist.appendChild(newdiv);
 		}
 	});
@@ -39,8 +39,15 @@ function newMessagediv(date, number, content){
 	messagediv.appendChild(numberdiv);
 	messagediv.appendChild(contentdiv);
 	messagediv.onclick = function(){
-		
+		$("#msgpage").css("display","none");
+		$("#msgname").html(this.id);
+		$("#msgdetailpage").css("display", "block");
 	}
 	return messagediv;
 }
 
+
+$("#msgback").click(function(){
+	$("#msgpage").css("display","block");
+	$("#msgdetailpage").css("display", "none");
+})

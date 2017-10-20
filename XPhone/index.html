@@ -41,11 +41,10 @@
 			<div id = "messagetitle">&nbsp;联系人</div>
 			<div id = "addresslist"></div>
 		</div>
-		<div id = "userpage" style = "display:none">
-			<img id = "userback" src = "img/back.png"/>
-			<div id = "username">xp</div>
+		<div id = "userpage" class = "detail" style = "display:none">
+			<img id = "userback" class = "mback" src = "img/back.png"/>
+			<div id = "username" class = "mname">xp</div>
 			<div id = "userphone">手机：</div>
-
 		</div>
 		<div id = "boardpage" style = "display:block">
 		<div id = "number"></div>
@@ -75,8 +74,15 @@
 	</div>
 	
 	<div id = "message" class = "window" style = "display: none">
-		<div id = "messagetitle">&nbsp;信息</div>
-		<div id = "messagelist"></div>
+		<div id = "msgdetailpage" class = "detail" style = "display:none">
+			<img id = "msgback" class = "mback" src = "img/back.png"/>
+			<div id = "msgname" class = "mname">xp</div>
+			<div id = "content"></div>
+		</div>
+		<div id = "msgpage">
+			<div id = "messagetitle">&nbsp;信息</div>
+			<div id = "messagelist"></div>
+		</div>
 	</div>
 	
 	<div id = "photo" class = "window" style = "display: none">

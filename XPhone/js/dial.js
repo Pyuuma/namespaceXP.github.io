@@ -1,8 +1,11 @@
 var nowNumber = "";
 var callflag = false;
 var showflag = false;
+var timer = 20;
 var addresslist = document.getElementById("addresslist");
 var recentlist = document.getElementById("recentlist");
+var t0, t1;
+var addrs = new Array();
 
 $(document).ready(function(){
 	getAddressList();
@@ -93,7 +96,22 @@ function newRecentdiv(date, number, time, count, sendflag){
 	messagediv.appendChild(datediv);
 	messagediv.appendChild(numberdiv);
 	messagediv.onclick = function(){
-		
+		nowNumber = this.id;
+		for(var i = 0; i < addrs.length; i++){
+			if(addrs[i].name == this.id){
+				nowNumber = addrs[i].number;
+			}
+		}
+	
+		this.src = "img/board_pushed.png";
+		$("#userpage").css("display", "none");
+		$("#boardpage").css("display", "block");
+		$("#addresspage").css("display", "none");
+		$("#recentpage").css("display", "none");
+		$("#recent").attr('src',"img/recent.png"); 
+		$("#address").attr('src',"img/addresslist.png"); 
+		$("#number").html(nowNumber);
+		showdial();
 	}
 	return messagediv;
 }
@@ -102,6 +120,10 @@ function getAddressList(){
 	$.getJSON("http://namespaceXP.github.io/XPhone/addr.json", function(json){
 		for(var i = 0; i < json.address.length; i++){
 			var newdiv = newAddressdiv(json.address[i].name, json.address[i].number);
+			var newaddr = new Object();;
+			newaddr.name = json.address[i].name;
+			newaddr.number = json.address[i].number;
+			addrs.push(newaddr);
 			addresslist.appendChild(newdiv);
 		}
 	});
@@ -169,13 +191,17 @@ function showdial(){
 		ref.set({
 		  "messageboard":1
 		});
+		t0 = setInterval(function() {reject()},1000);
 	}
+	t1 = window.setTimeout(enddial, 20000); 
 }
 
 function enddial(){
 	callflag = false;
+	t0 = window.clearInterval(t0);
 	$("#table").css("display","block");
-	$("#delete").css("display","block");
+	if(nowNumber != "")
+		$("#delete").css("display","block");
 	$("#callbar").css("display","block");
 	$("#call").attr("src","img/call.png");
 	$("#dial").css("background-color","#ffffff");
@@ -184,4 +210,13 @@ function enddial(){
 	ref.set({
 		"messageboard":0
 	});
+	window.clearTimeout(t1);
+}
+
+function reject(){
+	ref.on("value", function(snapshot) {
+	    if(snapshot.val().messageboard == 0){
+			enddial();
+	    }
+	})
 }

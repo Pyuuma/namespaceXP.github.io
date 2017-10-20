@@ -31,8 +31,8 @@ body{
 	height: 16vw;
 	border-radius: 16vw;
 	text-align: center;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 4%;
+	margin-right: 4%;
 	margin-top: 3vw;
 	font-size: 8vw;
 	line-height: 18vw;
@@ -56,7 +56,8 @@ body{
 }
 
 .recentdiv{
-	width: 100%;
+	width: 90%;
+	margin-left: 5%;
 	height :16vw;
 	border-bottom: 1px solid #bbbbbb;
 }
@@ -65,7 +66,6 @@ body{
 	position: relative;
 	float: right;
 	width: 40%;
-	right: 4vw;
 	top: 6vw;
 	font-size: 3.5vw;
 	line-height: 4vw;
@@ -79,12 +79,10 @@ body{
 	position: relative;
 	float: left;
 	width: 40%;
-	left: 4vw;
 	top: 6vw;
 	font-size: 4.2vw;
 	line-height: 4vw;
 	text-align: left;
-	text-indent: 4vw;
 	height: 5vw;
 	font-weight: bold;
 }
@@ -173,9 +171,9 @@ body{
 
 #table{
 	position: absolute;
-	width: 72%;
+	width: 70%;
 	height: 60vw;
-	left: 14%;
+	left: 17%;
 	bottom: 64vw;
 }
 
@@ -257,11 +255,11 @@ body{
 #call{
 	position: absolute;
 	width: 25%;
-	left: 36.6%;
+	left: 37%;
 	bottom: 25vw;
 }
 
-#userback{
+.mback{
 	position: absolute;
 	width: 8%;
 	top: 8vw;
@@ -285,7 +283,7 @@ body{
 	height: 12vw;
 }
 
-#username{
+.mname{
 	position: absolute;
 	width: 100%;
 	text-align: center;
