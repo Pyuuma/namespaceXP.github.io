@@ -1,0 +1,26 @@
+.button{
+	position: relative;
+	width: 50%;
+	height: 20%;
+	left: 25%;
+	border-radius: 5vw;
+	text-align: center;
+	background-color:RGB(255,94,72);
+}
+
+
+.choice{
+	position: relative;
+	width: 70%;
+	height: 120%;
+	left: 15%;
+	border-radius: 5vw;
+	text-align: center;
+	background-color:RGB(255,94,72);
+}
+
+.page{
+	transition: opacity 1s;
+	-moz-transition: opacity 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s; /* Safari 和 Chrome */
+}
