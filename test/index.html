@@ -13,21 +13,24 @@
     <link href="css/index.css" rel="stylesheet">
 		<title></title>
 	</head>
-	<body>
-		<div id = "quizpage" class = "page" style = "z-index: 2">
-			<div id = "mya" class = "choice">我是A</div>
-			<div id = "myb" class = "choice">我是B</div>
-			<div id = "myc" class = "choice">我是C</div>
-			<div id = "myd" class = "choice">我是D</div>
-			
-			<div id = "submit" class = "button">确定</div>
+	<body style = "background-color:#000000">
+		<div id = "main" >
+			<div id = "quizpage" class = "page" style = "z-index: 2">
+				<div id = "problem"><p>我怎么知道这题应该选什么啊</p></div>
+				<div id = "mya" class = "choice">我是A</div>
+				<div id = "myb" class = "choice">我是B</div>
+				<div id = "myc" class = "choice">我是C</div>
+				<div id = "myd" class = "choice">我是D</div>
+			</div>
+			<div id = "nextpage" class = "page" style = "z-index: 1; opacity: 0">
+				<div id = "answer"><p>我来告诉你这题该选什么</p></div>
+				<div id = "next" class = "button">下一题</div>
+				<div id = "quit" class = "button">退出</div>
+			</div>
 		</div>
-		<div id = "nextpage" class = "page" style = "z-index: 1; opacity: 0">
-			<div id = "continue" class = "button">下一题</div>
-			<div id = "quit" class = "button">退出</div>
-		</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/button.js"></script>
+	<script src="js/main.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
