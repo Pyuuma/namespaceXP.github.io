@@ -14,20 +14,32 @@
 		<title></title>
 	</head>
 	<body style = "background-color:#000000">
+		<div id = "cover"></div>
+		<div id = "alert"></div>
+		<div id = "load">
+			<div class="spinner">
+  				<div class="double-bounce1"></div>
+  				<div class="double-bounce2"></div>
+			</div>
+		</div>
 		<div id = "main" >
+			<div id = "hint">本日已答</div>
 			<div id = "quizpage" class = "page" style = "z-index: 2">
-				<div id = "problem"><p>我怎么知道这题应该选什么啊</p></div>
+				<div id = "problem"></div>
+				<div id = "problem_word">我怎么知道这题应该选什么啊</div>
 				<div id = "mya" class = "choice">我是A</div>
 				<div id = "myb" class = "choice">我是B</div>
 				<div id = "myc" class = "choice">我是C</div>
 				<div id = "myd" class = "choice">我是D</div>
 			</div>
 			<div id = "nextpage" class = "page" style = "z-index: 1; opacity: 0">
-				<div id = "answer"><p>我来告诉你这题该选什么</p></div>
+				<div id = "answer"></div>
+				<div id = "answer_word">我来告诉你这题该选什么</div>
 				<div id = "next" class = "button">下一题</div>
 				<div id = "quit" class = "button">退出</div>
 			</div>
 		</div>
+	
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/button.js"></script>
 	<script src="js/main.js"></script>
