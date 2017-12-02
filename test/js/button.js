@@ -115,6 +115,10 @@ $("#myd").click(function(){
 	submit(4);
 })
 
+function hideload(){
+	$("#load").css("display", "none");
+}
+
  $(document).ready(function(){
-       $("#load").css("display", "none");
+ 		setTimeout("hideload();", 3000);
  }); 
