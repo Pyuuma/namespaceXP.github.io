@@ -1,32 +1,31 @@
 var winHeight, winWidth;
 
 	getWindowSize();
-	if(winHeight/winWidth > 16/9){
+	if(winHeight/winWidth > 9/16){
 		$("#main").css("width", winWidth + "px");
 		$("#main").css("left","0");
-		$("#main").css("top",(winHeight -  16 / 9 * winWidth) / 2 + "px");
-		$("#main").css("height", 16 / 9 * winWidth + "px");
+		$("#main").css("top",(winHeight - 9 / 16 * winWidth) / 2 + "px");
+		$("#main").css("height", 9 / 16 * winWidth + "px");
 		
 	}
 	else{
-		$("#main").css("width", 9 / 16 * winHeight + "px");
+		$("#main").css("width", 16 / 9 * winHeight + "px");
 		$("#main").css("top","0");
-		$("#main").css("left",(winWidth - 9 / 16 * winHeight) / 2 + "px");
+		$("#main").css("left",(winWidth - 16 / 9 * winHeight) / 2 + "px");
 		$("#main").css("height", winHeight + "px");
 	}
-
 window.onresize = function(){
 	getWindowSize();
-		if(winHeight/winWidth > 16/9){
+		if(winHeight/winWidth > 9/16){
 		$("#main").css("width", winWidth + "px");
 		$("#main").css("left","0");
-		$("#main").css("top",(winHeight -  16 / 9 * winWidth) / 2 + "px");
-		$("#main").css("height", 16 / 9 * winWidth + "px");
+		$("#main").css("top",(winHeight -  9/16 * winWidth) / 2 + "px");
+		$("#main").css("height", 9/16 * winWidth + "px");
 	}
 	else{
-		$("#main").css("width", 9 / 16 * winHeight + "px");
+		$("#main").css("width", 16/9 * winHeight + "px");
 		$("#main").css("top","0");
-		$("#main").css("left",(winWidth - 9 / 16 * winHeight) / 2 + "px");
+		$("#main").css("left",(winWidth - 16/9 * winHeight) / 2 + "px");
 		$("#main").css("height", winHeight + "px");
 	} 
 }

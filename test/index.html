@@ -7,39 +7,123 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>129</title>
+    <title>追忆历史，勇往直前，纪念“一二·九”运动</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-		<title></title>
 	</head>
 	<body style = "background-color:#000000">
 		<div id = "cover"></div>
-		<div id = "alert"></div>
 		<div id = "load">
 			<div class="spinner">
   				<div class="double-bounce1"></div>
   				<div class="double-bounce2"></div>
 			</div>
 		</div>
+	
 		<div id = "main" >
-			<div id = "hint">本日已答</div>
-			<div id = "quizpage" class = "page" style = "z-index: 2">
-				<div id = "problem"></div>
-				<div id = "problem_word">我怎么知道这题应该选什么啊</div>
-				<div id = "mya" class = "choice">我是A</div>
-				<div id = "myb" class = "choice">我是B</div>
-				<div id = "myc" class = "choice">我是C</div>
-				<div id = "myd" class = "choice">我是D</div>
+			<div id = "init">
+				<img id = "titleimg" src = "img/title.png"/>
+				<p id = "touchhint">触摸屏幕以继续</p>
 			</div>
-			<div id = "nextpage" class = "page" style = "z-index: 1; opacity: 0">
-				<div id = "answer"></div>
-				<div id = "answer_word">我来告诉你这题该选什么</div>
-				<div id = "next" class = "button">下一题</div>
+			<div id = "alert">nbnb</div>
+			<div id = "hint" style = "display: none">本日已答</div>
+			<div id = "quizpage" class = "page" style = "z-index: 2">
+				<img id = "bg" />
+				<div id = "word1" class = "word" style = "display: none">
+					<p id = "1_1" class = "line">曾有一声惊雷，震醒中华大地</p>
+					<p id = "1_2" class = "line">如今，已在历史的尘埃中悄然无息</p>
+					<p id = "1_3" class = "line">和平与宁静，似乎早已没有当年的影子</p>
+					<p id = "1_4" class = "line">但凛冽的寒风，总催人忆起往昔</p>
+					<p id = "1_5" class = "line">忆起，那段血色下的壮烈故事……</p>
+				</div>
+				<div id = "word2" class = "word" style = "display: none">
+					<p id = "2_1" class = "line">华北，华北：</p>
+					<p id = "2_2" class = "line">1935年6月 《秦土协定》</p>
+					<p id = "2_3" class = "line">1935年7月 《何梅协定》</p>
+					<p id = "2_4" class = "line">1935年10月 “防共自治运动”</p>
+					<p id = "2_5" class = "line">河北、山东、山西、察哈尔、绥远</p>
+					<p id = "2_6" class = "line">"华北之大, 已安放不得一张平静的书桌了!"</p>
+				</div>
+				<div id = "word3" class = "word"  style = "display: none">
+					<p id = "3_1" class = "line">"你看到烈火焚烧，烧着我们十几平米的房子了吗？"</p>
+					<p id = "3_2" class = "line">"看到了。"</p>
+					<p id = "3_3" class = "line">"你看到千万人身上的伤口，还有你胳膊上正流淌着血吗？"</p>
+					<p id = "3_4" class = "line">"看到了。"</p>
+					<p id = "3_5" class = "line">"为什么非但不妥协，反而还赌上你的生命，押上你的家？"</p>
+					<p id = "3_6" class = "line">"为国之尊严，为国之安定，为国之团结。”</p>
+				</div>
+				<div id = "word4" class = "word"  style = "display: none">
+					<p id = "4_1" class = "line">火山的缄默：</p>
+					<p id = "4_2" class = "line">1935年11月18日, 北平市大中学校学生联合会成立(简称学联), 成为组织和领导学生运动的"司令部"。</p>
+					<p id = "4_3" class = "line">1935年12月6日, 北平学联召开代表会，通过并发表了《北平市学生联合会成立宣言》。
+</p>
+					<p id = "4_4" class = "line">平津15所大中学校联合发出通电，反对"防共自治"</p>
+					<p id = "4_5" class = "line">在日本侵略者逼迫下将于12月9日成立"冀察政务委员会"</p>
+					<p id = "4_6" class = "line">1935年12月7日,决定于9日举行学生大请愿，反对"华北自治"。</p>
+				</div>
+				<div id = "word5" class = "word"  style = "display: none">
+					<p id = "5_1" class = "line">一二·九的怒吼：</p>
+					<p id = "5_2" class = "line">12月9日, 在黄敬、姚依林、郭明秋等共产党员的组织</p>
+					<p id = "5_3" class = "line">和指挥下,参加抗日救国请愿游行的爱国学生涌上街头</p>
+					<p id = "5_4" class = "line">队伍由新华门出发, 经西单、西四, 然后奔向沙滩、东</p>
+					<p id = "5_5" class = "line">警包围的法商学院、北平大医学院、中法大学、北京</p>
+					<p id = "5_6" class = "line">大学等大中学校的学生加入游行行列, 队伍逐渐扩大</p>
+					<p id = "5_7" class = "line">到五六千人。</p>
+				</div>
+				<div id = "word6" class = "word"  style = "display: none">
+					<p id = "6_1" class = "line">行进中, 是群众们的鼓掌与支持</p>
+					<p id = "6_2" class = "line">然而，大刀、木棍、水龙头, 向着手无寸铁的爱国学生们身上打去</p>
+					<p id = "6_3" class = "line">学生们与军警展开英勇的搏斗, 有百余人受伤, 游行队伍被打散</p>
+				</div>
+				<div id = "word7" class = "word"  style = "display: none">
+					<p id = "7_1" class = "line">飞雪扬起, 寒风凛冽。旭日冉冉, 太阳的光晕点亮在每位学生青春洋溢的面庞和他们炙热的赤子之心。</p>
+					<p id = "7_2" class = "line">"打倒日本帝国主义!"</p>
+					<p id = "7_3" class = "line">"停止内战, 一致抗日！"</p>
+					<p id = "7_4" class = "line">可刹那, 鲜血染地, 大地裂了痕, 苍穹呜咽。</p>
+					<p id = "7_5" class = "line">稚嫩的苍鹰翅膀折断落了地, 只能双眼闪着坚定持续到呼吸尚存的结局。</p>
+
+				</div>
+				<div id = "word8" class = "word"  style = "display: none">
+					<p id = "8_1" class = "line">1936年, 南下扩大宣传团在北平召开团代表大会。</p>
+					<p id = "8_2" class = "line">会后, 游行队伍奔向冀察政务委员会预定成立的地</p>
+					<p id = "8_3" class = "line">点——东交民巷口的外交大楼举行总示威。在宣武</p>
+					<p id = "8_4" class = "line">门, 爱国学生遭到上千名军警的血腥镇压, 有二十余</p>
+					<p id = "8_5" class = "line">人被捕, 近400人受伤。</p>
+				</div>
+				<div id = "word9" class = "word"  style = "display: none">
+					<p id = "9_1" class = "line">瓮城上的午炮再度鸣响, 菜市口前, 门下客, 正义凛然, 视死如归故不退不回。</p>
+					<p id = "9_2" class = "line">刑场又一次鲜血淋淋。</p>
+					<p id = "9_3" class = "line">人们在叹息, 天空下着雨, 狂风暴雨。全国各地大浪起, 再无法平静。</p>
+				</div>
+				<div id = "word10" class = "word"  style = "display: none">
+					<p id = "10_1" class = "line">历史的余音：</p>
+					<p id = "10_2" class = "line">"石在，火种是不会绝的。"</p>
+					<p id = "10_3" class = "line">北平学生的一·二九爱国行动，得到了全国学生的</p>
+					<p id = "10_4" class = "line">回应和全国人民的支持, 形成了全国人民抗日民主</p>
+					<p id = "10_5" class = "line">运动的新高潮, 推动了抗日民族统一战线的建立。</p>
+					<p id = "10_6" class = "line">它成为点燃神州大地的火种, 燃烧着中华儿女最无</p>
+					<p id = "10_7" class = "line">畏的勇敢和对祖国最赤诚的热爱。</p>
+				</div>
+				<div id = "problem" style = "display: block"></div>
+				<div id = "problem_word" style = "display: block">我怎么知道这题应该选什么啊</div>
+				<div id = "choiceboard" style = "display: block">
+					<div id = "mya" class = "choice">我是A</div>
+					<div id = "myb" class = "choice">我是B</div>
+					<div id = "myc" class = "choice">我是C</div>
+					<div id = "myd" class = "choice">我是D</div>
+				</div>
+				<div id = "next" class = "button">继续</div>
 				<div id = "quit" class = "button">退出</div>
 			</div>
+		
 		</div>
-	
+	<audio id = "bgm1">
+  		<source src="bgm/ziri.mp3" type="audio/mp3" />
+	</audio>
+	<audio id = "bgm2">
+  		<source src="bgm/biege.mp3" type="audio/mp3" />
+	</audio>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/button.js"></script>
 	<script src="js/main.js"></script>
