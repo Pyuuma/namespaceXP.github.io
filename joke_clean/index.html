@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>洁净笑话生成器</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style = "font-size:16px">
+	<div class = "container">
+	<div class = "row, text-center">
+    		<h2>洁净笑话生成器</h2>
+				<h5>by XP</h5>
+	</div>
+
+	<form role="form">
+	  <div class="form-group">
+	    <label for="name">要讽刺的事情是？</label>
+	    <input type="text" id = "mthing" class="form-control" placeholder="996">
+	    <label for="name">这件事是谁提出来的？</label>
+	    <input type="text" id = "mman" class="form-control" placeholder="强东哥">
+	    <label for="name">提出者声称这件事有助于什么？</label>
+	    <input type="text" id = "mtheory" class="form-control" placeholder="建设一流公司">
+	    <label for="name">这件事针对的是哪些人？</label>
+	    <input type="text" id = "mvictim" class="form-control" placeholder="程序员">
+	    <label for="name">这件事起作用的范围？</label>
+	    <input type="text" id = "mrange" class="form-control" placeholder="公司">
+	  </div>
+	 </form>
+ 	<div class = "row, text-center">
+     		<button type="button" id = "mgo" class="btn btn-default">生成笑话！</button>
+ 	</div>
+</br>
+
+	<div id = "mjoke">
+	</div>
+	<hr />
+ 	<div class = "row, text-center">
+     		</br>下面是一个硬广
+			</br>欢迎关注公众号“XP的杂物堆”
+			</br>发一些杂七杂八的东西
+			</br><del>虽然大部分时候什么也不发</del>
+		</br>
+			<img src = "qr.jpg" width = "30%"></img>
+ 	</div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+
+    <script src="js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<script>
+		jokes = ["</br></br></br></br></br>", "</br></br></br></br></br></br></br>", "</br></br></br></br></br></br></br></br>", "</br></br></br></br></br></br></br></br></br></br>", "</br></br></br></br></br></br>"];
+
+		window.onload = function(){
+			$("#mgo").click(function(){
+				var mrange, mthing, mman, mtheory, mvictim;
+				if($("#mthing").val() == ""){
+					mthing = "996";
+				}
+				else{
+					mthing = $("#mthing").val();
+				}
+				if($("#mrange").val() == ""){
+					mrange = "公司";
+				}
+				else{
+					mrange = $("#mrange").val();
+				}
+				if($("#mman").val() == ""){
+					mman = "强东哥";
+				}
+				else{
+					mman = $("#mman").val();
+				}
+				if($("#mvictim").val() == ""){
+					mvictim = "程序员";
+				}
+				else{
+					mvictim = $("#mvictim").val();
+				}
+				if($("#mtheory").val() == ""){
+					mtheory = "建设一流公司";
+				}
+				else{
+					mtheory = $("#mtheory").val();
+				}
+			
+				var rand = Math.floor(Math.random()*(jokes.length));
+			
+				var resString = jokes[rand];
+				resString = resString.replace(/mrange/g, mrange);
+				resString = resString.replace(/mthing/g, mthing);
+				resString = resString.replace(/mman/g, mman);
+				resString = resString.replace(/mtheory/g, mtheory);
+				resString = resString.replace(/mvictim/g, mvictim);
+				$("#mjoke").html(resString);
+				$("#mjoke").css("border","thin solid");
+				$("#mjoke").css("text-indent","20px");
+			})
+		}
+		
+	</script>
+  </body>
+</html>
